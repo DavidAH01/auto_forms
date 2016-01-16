@@ -71,8 +71,8 @@
                                         </select>
                                     </div>        
                                 </div>
-                            </div>
-
+                            </div><br><br>
+                            <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger"><i class="pe-7s-trash"></i> Delete</button></a>
                             <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                             <div class="clearfix"></div>
                         </form>

@@ -50,19 +50,19 @@
                        
             <ul class="nav">
                 <li class="<?= ($section_title == "Dashboard")?"active":""; ?>">
-                    <a href="<?= base_url() ?>">
+                    <a href="<?= base_url() ?>dashboard">
                         <i class="pe-7s-graph"></i> 
                         <p>Dashboard</p>
                     </a>            
                 </li>
                 <li class="<?= ($section_title == "Configuration")?"active":""; ?>">
-                    <a href="<?= base_url() ?>configuration/edit">
+                    <a href="<?= base_url() ?>configuration">
                         <i class="pe-7s-science"></i>
                         <p>Configuration</p>
                     </a>        
                 </li>
                 <li class="<?= ($section_title == "Administrators")?"active":""; ?>">
-                    <a href="<?= base_url() ?>administrators/users">
+                    <a href="<?= base_url() ?>administrators">
                         <i class="pe-7s-user"></i> 
                         <p>Administrators</p>
                     </a>

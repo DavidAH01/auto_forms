@@ -1,5 +1,5 @@
 <?php 
-	class Edit extends CI_Controller {
+	class Configuration extends CI_Controller {
 
 		function __construct(){
 			parent::__construct();
@@ -8,7 +8,7 @@
 
 		function index(){
 			$data['section_title'] = 'Configuration';
-			$data['section'] = $this->load->view('/configuration/configuration', '', true); 
+			$data['section'] = $this->load->view('/configuration/index', '', true); 
 			
 			$this->load->view('/template/index', $data);
 		}

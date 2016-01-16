@@ -26,8 +26,8 @@
                                 	<td>active</td>
                                 	<td>yes</td>
                                     <td>
-                                        <button type="button" class="btn btn-action btn-info"><i class="pe-7s-note"></i> Edit</button>
-                                        <button type="button" class="btn btn-action btn-danger"><i class="pe-7s-trash"></i> Delete</button>
+                                        <a href="<?= base_url() ?>administrators/user"><button type="button" class="btn btn-action btn-info"><i class="pe-7s-note"></i> Edit</button></a>
+                                        <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger"><i class="pe-7s-trash"></i> Delete</button></a>
                                     </td>
                                 </tr>
                             </tbody>

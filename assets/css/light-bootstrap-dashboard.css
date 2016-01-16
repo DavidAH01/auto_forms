@@ -2784,8 +2784,16 @@ span.option-checkbox{
     border-color: #1DC7EA;
 }
 
+table thead th{
+  font-weight: bold !important;
+}
+
 table tfoot{
   display: table-header-group;
+}
+
+table tfoot input{
+  font-weight: normal;
 }
 
 .DTTT.btn-group{

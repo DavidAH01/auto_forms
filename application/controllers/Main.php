@@ -6,7 +6,7 @@ class Main extends CI_Controller {
 	}
 
 	function index(){
-		redirect('/auth/login', 'refresh');
+		redirect('dashboard', 'refresh');
 	}
 }
 ?>
