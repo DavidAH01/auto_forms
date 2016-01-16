@@ -12,13 +12,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" placeholder="Name" value="Creative Code Inc.">
+                                        <input type="text" class="form-control" placeholder="Name">
                                     </div>        
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" placeholder="Email" value="michael23">
+                                        <input type="email" class="form-control" placeholder="Email">
                                     </div>        
                                 </div>
                                 <div class="col-md-4">
@@ -34,12 +34,12 @@
                                     <div class="form-group">
                                         <label>State</label>
                                     </div> 
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="1" data-toggle="checkbox" checked="">
+                                    <label class="radio">
+                                        <input type="radio" value="1" name="state" data-toggle="radio" checked="">
                                     </label><span class="option-checkbox">Active</span>
                                     <br>      
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="0" data-toggle="checkbox">
+                                    <label class="radio">
+                                        <input type="radio" value="0" name="state" data-toggle="radio">
                                     </label><span class="option-checkbox">Inactive</span>
                     
                                 </div>
@@ -47,12 +47,12 @@
                                     <div class="form-group">
                                         <label>Is Super Administrator?</label>
                                     </div>       
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="1" data-toggle="checkbox">
+                                    <label class="radio">
+                                        <input type="radio" value="1" name="is_super_administrator" data-toggle="radio">
                                     </label><span class="option-checkbox">Yes</span>
                                     <br>      
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="0" data-toggle="checkbox" checked="">
+                                    <label class="radio">
+                                        <input type="radio" value="0" name="is_super_administrator" data-toggle="radio" checked="">
                                     </label><span class="option-checkbox">No</span> 
                                 </div>
                             </div>

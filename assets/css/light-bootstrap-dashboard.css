@@ -2796,8 +2796,12 @@ table tfoot input{
   font-weight: normal;
 }
 
+.dataTables_length{
+  float: left;
+}
+
 .DTTT.btn-group{
-  margin-bottom: -10px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -2810,6 +2814,15 @@ table tfoot input{
 
 .DTTT_button_copy{
   border-left: 0;
+}
+
+.mce-panel{
+  border-color: #E3E3E3 !important;
+}
+
+#image-upload-area{
+  border: 0;
+  margin-left: 24px;
 }
 
 @media (min-width: 992px) {

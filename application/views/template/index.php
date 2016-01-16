@@ -37,14 +37,14 @@
 
 </head>
 <body> 
-
+<input type="hidden" id="base_url" value="<?php base_url(); ?>">
 <div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/img/sidebar-4.jpg">    
+    <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/img/sidebar-2.jpg">    
     
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://david-ah.com" target="_blank" class="simple-text">
-                    David AH
+                    Auto_Forms
                 </a>
             </div>
                        
@@ -139,6 +139,10 @@
     <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
 	
+    <!--   TinyMCE   -->
+    <script src="<?= base_url() ?>assets/js/jquery.iframe-post-form.js"></script>
+    <script src="<?= base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
+
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="<?= base_url() ?>assets/js/bootstrap-checkbox-radio-switch.js"></script>
 	
@@ -147,7 +151,7 @@
 
     <!--     Bootstrap Tags Input     -->
     <script src="<?= base_url() ?>assets/js/bootstrap-tagsinput.js"></script>
-
+    
     <!--     Bootstrap Multiselect     -->
     <script src="<?= base_url() ?>assets/js/bootstrap-multiselect.js"></script>
 
@@ -156,7 +160,7 @@
 	
      <!--  DataTables Plugin    -->
     <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="https://www.datatables.net/release-datatables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+    <script src="<?= base_url() ?>assets/js/dataTables.tableTools.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
