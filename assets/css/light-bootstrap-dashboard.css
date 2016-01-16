@@ -2732,10 +2732,6 @@ span.option-checkbox{
   border-color: none !important;
 }
 
-.multiselect-container{
-  width: 100%;
-}
-
 .multiselect-container.dropdown-menu > li:first-child > a{
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
@@ -2754,6 +2750,58 @@ span.option-checkbox{
 .multiselect-container.dropdown-menu > li > a:hover label,
 .multiselect-container.dropdown-menu > li.active > a label{
   color: #fff !important;
+}
+
+.underline{
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-radius: 0 !important;
+}
+
+.underline:hover{
+  background: none !important;
+}
+
+.sub.nav{
+  margin-top: 0;
+}
+
+.sub.nav a{
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
+.table-content{
+  padding: 0 15px !important;
+}
+
+.pagination>.active>a, 
+.pagination>.active>a:focus, 
+.pagination>.active>a:hover, 
+.pagination>.active>span, 
+.pagination>.active>span:focus, 
+.pagination>.active>span:hover {
+    background-color: #1DC7EA;
+    border-color: #1DC7EA;
+}
+
+table tfoot{
+  display: table-header-group;
+}
+
+.DTTT.btn-group{
+  margin-bottom: -10px;
+  width: 100%;
+}
+
+.DTTT.btn-group a{
+  float: right;
+  border-width: 1px !important;
+  border-radius: 0 !important;
+  border-color: #E3E3E3;
+}
+
+.DTTT_button_copy{
+  border-left: 0;
 }
 
 @media (min-width: 992px) {

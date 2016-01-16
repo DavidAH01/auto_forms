@@ -20,6 +20,10 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="<?= base_url() ?>assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
         
+    <!--  DataTables CSS    -->
+    <link href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.datatables.net/release-datatables/extensions/TableTools/css/dataTables.tableTools.css" rel="stylesheet">
+        
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -46,13 +50,13 @@
                        
             <ul class="nav">
                 <li class="<?= ($section_title == "Dashboard")?"active":""; ?>">
-                    <a href="<?= base_url() ?>dashboard/">
+                    <a href="<?= base_url() ?>">
                         <i class="pe-7s-graph"></i> 
                         <p>Dashboard</p>
                     </a>            
                 </li>
                 <li class="<?= ($section_title == "Configuration")?"active":""; ?>">
-                    <a href="<?= base_url() ?>configuration/configuration">
+                    <a href="<?= base_url() ?>configuration/edit">
                         <i class="pe-7s-science"></i>
                         <p>Configuration</p>
                     </a>        
@@ -63,11 +67,23 @@
                         <p>Administrators</p>
                     </a>
                 </li>
+                <br>
                 <li>
-                    <a href="#">
+                    <a href="#" class="underline">
                         <i class="pe-7s-note2"></i> 
                         <p>Administrable sections</p>
-                    </a>        
+                    </a> 
+                    <ul class="sub nav">
+                        <li>
+                            <a href="">Table 1</a>
+                        </li>
+                        <li>
+                            <a href="">Table 1</a>
+                        </li>
+                        <li>
+                            <a href="">Table 1</a>
+                        </li>
+                    </ul>      
                 </li>
             </ul> 
     	</div>
@@ -126,9 +142,6 @@
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="<?= base_url() ?>assets/js/bootstrap-checkbox-radio-switch.js"></script>
 	
-	<!--  Charts Plugin -->
-	<script src="<?= base_url() ?>assets/js/chartist.min.js"></script>
-
     <!--  Notifications Plugin    -->
     <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
 
@@ -141,6 +154,11 @@
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	
+     <!--  DataTables Plugin    -->
+    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://www.datatables.net/release-datatables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="<?= base_url() ?>assets/js/light-bootstrap-dashboard.js"></script>
 	

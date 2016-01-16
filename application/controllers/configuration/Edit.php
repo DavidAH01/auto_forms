@@ -1,5 +1,5 @@
 <?php 
-	class Configuration extends CI_Controller {
+	class Edit extends CI_Controller {
 
 		function __construct(){
 			parent::__construct();
