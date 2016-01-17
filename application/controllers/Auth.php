@@ -7,10 +7,10 @@ class Auth extends CI_Controller {
 	}
 
 	function index(){
-		$data['section_title'] = 'Dashboard';
-		$data['section'] = $this->load->view('/dashboard/dashboard', '', true); 
+		$data['section_title'] = 'Login';
+		$data['section'] = $this->load->view('/auth/login', '', true); 
 		
-		$this->load->view('/template/index', $data);
+		$this->load->view('/template/auth', $data);
 	}
 
 	function verify() {

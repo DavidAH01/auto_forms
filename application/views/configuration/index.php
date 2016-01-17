@@ -35,8 +35,6 @@
                                 </div>
                             </div>
 
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
-
                             <button type="submit" class="btn btn-info btn-fill pull-right">Update Configuration</button>
                             <div class="clearfix"></div>
                         </form>

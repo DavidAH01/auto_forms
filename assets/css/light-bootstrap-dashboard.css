@@ -164,6 +164,12 @@ input:focus {
   outline: 0 !important;
 }
 
+.into-auth{
+  padding-top: 5%;
+  position: relative;
+  z-index: 4;
+}
+
 /*           Animations              */
 .form-control,
 .input-group-addon,
@@ -221,6 +227,10 @@ input:focus {
   font-weight: 200;
   background-size: cover;
   background-position: center center;
+}
+.sidebar.auth {
+  width: 100%;
+  z-index: 0 !important;
 }
 .sidebar .sidebar-wrapper {
   position: relative;

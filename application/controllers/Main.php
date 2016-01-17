@@ -6,7 +6,10 @@ class Main extends CI_Controller {
 	}
 
 	function index(){
-		redirect('dashboard', 'refresh');
+		if (is_logged_in())
+			redirect('dashboard', 'refresh');
+		
+		redirect('auth', 'refresh');
 	}
 }
 ?>
