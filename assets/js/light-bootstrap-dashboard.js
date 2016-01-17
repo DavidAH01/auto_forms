@@ -91,8 +91,8 @@ $(document).ready(function(){
             '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
             '//www.tinymce.com/css/codepen.min.css'
         ],
-
-        imageupload_url: $('#base_url').val()+'upload',
+        relative_urls: false,
+        imageupload_url: $('#base_url').val()+'upload_tinymce',
      });
       
 });

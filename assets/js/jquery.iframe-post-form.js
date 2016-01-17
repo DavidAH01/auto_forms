@@ -55,10 +55,9 @@
 				{
 					response = iframe.contents().find('body');
 					
-					
 					if (options.json)
 					{
-						returnReponse = $.parseJSON(response.html());
+						returnReponse = $.parseJSON(response.text());
 					}
 					
 					else
