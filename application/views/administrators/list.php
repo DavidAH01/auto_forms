@@ -5,7 +5,7 @@
                 <div class="card table-content">
                     <div class="content table-responsive table-full-width">
                         <button type="button" class="btn btn-action btn-danger" id="remove-all">Delete all selected</button>
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover table-striped data-table">
                             <thead>
                             	<th>Name</th>
                             	<th>Email</th>

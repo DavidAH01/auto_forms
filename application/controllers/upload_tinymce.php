@@ -3,7 +3,7 @@ class Upload_tinymce extends CI_Controller {
 
 	function __construct(){
 	   parent::__construct();
-       only_logged_in();
+       authenticate();
 	}
 
 	function index(){

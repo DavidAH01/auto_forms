@@ -44,7 +44,7 @@ $(document).ready(function(){
         }
     });
 
-    var table = $('table').DataTable({
+    var table = $('.data-table').DataTable({
         "iDisplayLength": 50,
         "dom": 'T<"clear">lfrtip',
         tableTools: {
@@ -58,8 +58,8 @@ $(document).ready(function(){
         },
     });
 
-    if ( $('table').length > 0)
-       $('table').rowReordering();
+    if ( $('.data-table').length > 0)
+       $('.data-table').rowReordering();
     
     table.columns().every( function () {
         var that = this;
@@ -73,7 +73,7 @@ $(document).ready(function(){
         } );
     } );
 
-    $('table tbody').on( 'click', 'tr', function () {
+    $('.data-table tbody').on( 'click', 'tr', function () {
         $(this).toggleClass('selected');
 
         if (table.rows('.selected').data().length > 0)
@@ -87,7 +87,7 @@ $(document).ready(function(){
     });
 
     tinymce.init({
-        selector: 'textarea',
+        selector: 'textarea.tinymce',
         height: 300,
         theme: 'modern',
         plugins: [

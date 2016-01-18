@@ -2851,6 +2851,35 @@ table tfoot input{
   display: none;
 }
 
+#form-create-task textarea,
+#form-edit-task textarea{
+  width: 100%;
+  height: 80px;
+  border-color: #E3E3E3;
+  border-radius: 5px;
+  padding: 5px 10px; 
+}
+
+#form-create-task textarea:focus,
+#form-edit-task textarea:focus{
+  outline: none;
+  box-shadow: 0 0 0 #fff;
+}
+
+.new-task td,
+.edit-task td{
+  border: 0 !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+span.option-radio{
+  margin-left: 36px;
+  display: inline;
+  position: relative;
+  top: -21px;
+}
+
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

@@ -39,107 +39,107 @@
      
 </head>
 <body> 
-<input type="hidden" id="base_url" value="<?php base_url(); ?>">
-<div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/img/sidebar-2.jpg">    
-    
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://david-ah.com" target="_blank" class="simple-text">
-                    Auto_Forms
-                </a>
-            </div>
-                       
-            <ul class="nav">
-                <li class="<?= ($section_title == "Dashboard")?"active":""; ?>">
-                    <a href="<?= base_url() ?>dashboard">
-                        <i class="pe-7s-graph"></i> 
-                        <p>Dashboard</p>
-                    </a>            
-                </li>
-                <li class="<?= ($section_title == "Configuration")?"active":""; ?>">
-                    <a href="<?= base_url() ?>configuration">
-                        <i class="pe-7s-science"></i>
-                        <p>Configuration</p>
-                    </a>        
-                </li>
-                <li class="<?= ($section_title == "Administrators")?"active":""; ?>">
-                    <a href="<?= base_url() ?>administrators">
-                        <i class="pe-7s-user"></i> 
-                        <p>Administrators</p>
+    <input type="hidden" id="base_url" value="<?php base_url(); ?>">
+    <div class="wrapper">
+        <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/img/sidebar-2.jpg">    
+        
+        	<div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="http://david-ah.com" target="_blank" class="simple-text">
+                        Auto_Forms
                     </a>
-                </li>
-                <br>
-                <li>
-                    <a href="#" class="underline">
-                        <i class="pe-7s-note2"></i> 
-                        <p>Administrable sections</p>
-                    </a> 
-                    <ul class="sub nav">
-                        <li>
-                            <a href="">Table 1</a>
-                        </li>
-                        <li>
-                            <a href="">Table 1</a>
-                        </li>
-                        <li>
-                            <a href="">Table 1</a>
-                        </li>
-                    </ul>      
-                </li>
-            </ul> 
-    	</div>
-    </div>
-    
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">    
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><?= $section_title  ?></a>
                 </div>
-                <div class="collapse navbar-collapse">       
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#"><strong>Hello, <?= $this->session->userdata('logged_in')['name'] ?></strong></a>
-                        </li> 
-                        <li>
-                            <a href="auth/logout">
-                                Log out
+                           
+                <ul class="nav">
+                    <li class="<?= ($section_title == "Dashboard")?"active":""; ?>">
+                        <a href="<?= base_url() ?>dashboard">
+                            <i class="pe-7s-graph"></i> 
+                            <p>Dashboard</p>
+                        </a>            
+                    </li>
+                    
+                    <?php if(is_super_administrator()){ ?>
+                        <li class="<?= ($section_title == "Configuration")?"active":""; ?>">
+                            <a href="<?= base_url() ?>configuration">
+                                <i class="pe-7s-science"></i>
+                                <p>Configuration</p>
+                            </a>        
+                        </li>
+                        <li class="<?= ($section_title == "Administrators")?"active":""; ?>">
+                            <a href="<?= base_url() ?>administrators">
+                                <i class="pe-7s-user"></i> 
+                                <p>Administrators</p>
                             </a>
-                        </li> 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-                     
-                     
-        <div class="content">
-            <?= $section ?>
+                        </li>
+                    <?php } ?>
+                    
+                    <br>
+                    <li>
+                        <a href="#" class="underline">
+                            <i class="pe-7s-note2"></i> 
+                            <p>Administrable sections</p>
+                        </a> 
+                        <ul class="sub nav">
+                            <li>
+                                <a href="">Table 1</a>
+                            </li>
+                            <li>
+                                <a href="">Table 1</a>
+                            </li>
+                            <li>
+                                <a href="">Table 1</a>
+                            </li>
+                        </ul>      
+                    </li>
+                </ul> 
+        	</div>
         </div>
         
-        
-        <footer class="footer">
-            <div class="container-fluid">
-                <p class="copyright pull-right">
-                    &copy; 2016 <a href="http://david-ah.com">David AH</a>, made with love for a better web
-                </p>
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">    
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><?= $section_title  ?></a>
+                    </div>
+                    <div class="collapse navbar-collapse">       
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><strong>Hello, <?= $this->session->userdata('logged_in')['name'] ?></strong></a>
+                            </li> 
+                            <li>
+                                <a href="auth/logout">
+                                    Log out
+                                </a>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+                         
+                         
+            <div class="content">
+                <?= $section ?>
             </div>
-        </footer>
-        
-    </div>   
+            
+            
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p class="copyright pull-right">
+                        &copy; 2016 <a href="http://david-ah.com">David AH</a>, made with love for a better web
+                    </p>
+                </div>
+            </footer>
+            
+        </div>   
 
-    
-</div>
-
-
+    </div>
 </body>
-
     <!--   Core JS Files   -->
     <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<?= base_url() ?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
@@ -173,5 +173,5 @@
     
     <!-- Auto_Forms Core JS -->
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
-	
+    <script src="<?= base_url() ?>assets/js/sections/dashboard.js"></script>
 </html>
