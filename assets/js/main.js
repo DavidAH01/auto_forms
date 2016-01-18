@@ -58,8 +58,9 @@ $(document).ready(function(){
         },
     });
 
-    $('table').rowReordering();
-
+    if ( $('table').length > 0)
+       $('table').rowReordering();
+    
     table.columns().every( function () {
         var that = this;
  
@@ -108,8 +109,7 @@ $(document).ready(function(){
         ],
         relative_urls: false,
         imageupload_url: $('#base_url').val()+'upload_tinymce',
-     });
-      
+    });
 });
 
 // activate collapse right menu when the windows is resized 

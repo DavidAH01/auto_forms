@@ -3,6 +3,7 @@
 
 		function __construct(){
 			parent::__construct();
+			only_logged_in();
 			//$this->load->model('auth/auth_model');
 		}
 

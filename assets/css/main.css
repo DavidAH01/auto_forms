@@ -2847,6 +2847,10 @@ table tfoot input{
   border-width: 1px;
 }
 
+.content-recover-password{
+  display: none;
+}
+
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

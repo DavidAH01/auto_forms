@@ -18,10 +18,7 @@
 
     <!-- Animation library for notifications   -->
     <link href="<?= base_url() ?>assets/css/animate.min.css" rel="stylesheet"/>
-    
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="<?= base_url() ?>assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-        
+       
     <!--  DataTables CSS    -->
     <link href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="https://www.datatables.net/release-datatables/extensions/TableTools/css/dataTables.tableTools.css" rel="stylesheet">
@@ -36,7 +33,10 @@
 
     <!--     Bootstrap Multiselect     -->
     <link href="<?= base_url() ?>assets/css/bootstrap-multiselect.css" rel="stylesheet" />
-
+    
+    <!--  Auto_Forms core CSS  -->
+    <link href="<?= base_url() ?>assets/css/main.css" rel="stylesheet"/>
+     
 </head>
 <body> 
 <input type="hidden" id="base_url" value="<?php base_url(); ?>">
@@ -106,7 +106,10 @@
                 <div class="collapse navbar-collapse">       
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">
+                            <a href="#"><strong>Hello, <?= $this->session->userdata('logged_in')['name'] ?></strong></a>
+                        </li> 
+                        <li>
+                            <a href="auth/logout">
                                 Log out
                             </a>
                         </li> 
@@ -168,7 +171,7 @@
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/js/jquery.dataTables.rowReordering.js"></script>
     
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="<?= base_url() ?>assets/js/light-bootstrap-dashboard.js"></script>
+    <!-- Auto_Forms Core JS -->
+	<script src="<?= base_url() ?>assets/js/main.js"></script>
 	
 </html>

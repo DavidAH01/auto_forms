@@ -1,31 +1,24 @@
 <?php
 Class Auth_model extends CI_Model {
 
-	function login($email, $password, $type) {
+	function login($name) {
+		$this->db->select('id, name, password, is_super_administrator, permissions');
+		$this->db->from('administrator');
 		
-		if ($type == 1) {
-			$this->db->select('cliente_id, razon_social, password');
-			$this->db->from('cliente');
-		}else if ($type == 2) {
-			$this->db->select('administrador_id, nombre, password, tipo');
-			$this->db->from('administrador');
-		}else{
-			return false;
-		}
-		$this->db->where('email', $email);
-		$this->db->where('password', MD5($password));
+		$this->db->where('name', $name);
+		$this->db->where('state', '1');
 		$this->db->limit(1);
 
 		$query = $this->db->get();
 
-		if($query -> num_rows() == 1){
+		if($query->num_rows() == 1){
 			return $query->result();
 		}else{
 			return false;
 		}
 	}
 
-	function changePassword($user_id, $tipo, $password){
+	function change_password($user_id, $password){
 		$this->db->set('updated_at', date('Y-m-d h:i:s',time()));
 		$this->db->set('password', md5($password));
 		if ($tipo == "admin") {
@@ -37,7 +30,7 @@ Class Auth_model extends CI_Model {
 		}
 	}
 
-	function forgottenPassword($email, $password, $tipo){
+	function forgotten_password($email, $password){
 		$this->db->set('updated_at', date('Y-m-d h:i:s',time()));
 		$this->db->set('password', md5($password));
 		if ($tipo == 1) {
