@@ -10,7 +10,9 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     
-    
+    <!-- Jquery UI CSS     -->
+    <link href="<?= base_url() ?>assets/css/jquery-ui.css" rel="stylesheet" />
+
     <!-- Bootstrap core CSS     -->
     <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -137,7 +139,9 @@
 
     <!--   Core JS Files   -->
     <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="<?= base_url() ?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
+    
+    <script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
 	
     <!--   TinyMCE   -->
     <script src="<?= base_url() ?>assets/js/jquery.iframe-post-form.js"></script>
@@ -162,7 +166,8 @@
     <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>assets/js/dataTables.tableTools.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
-
+    <script src="<?= base_url() ?>assets/js/jquery.dataTables.rowReordering.js"></script>
+    
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="<?= base_url() ?>assets/js/light-bootstrap-dashboard.js"></script>
 	

@@ -4,6 +4,7 @@
             <div class="col-md-12">
                 <div class="card table-content">
                     <div class="content table-responsive table-full-width">
+                        <button type="button" class="btn btn-action btn-danger" id="remove-all">Delete all selected</button>
                         <table class="table table-hover table-striped">
                             <thead>
                             	<th>Name</th>
@@ -26,8 +27,8 @@
                                 	<td>active</td>
                                 	<td>yes</td>
                                     <td>
-                                        <a href="<?= base_url() ?>administrators/user"><button type="button" class="btn btn-action btn-info"><i class="pe-7s-note"></i> Edit</button></a>
-                                        <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger"><i class="pe-7s-trash"></i> Delete</button></a>
+                                        <a href="<?= base_url() ?>administrators/user"><button type="button" class="btn btn-action btn-info">Edit</button></a>
+                                        <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
                                     </td>
                                 </tr>
                             </tbody>

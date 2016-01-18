@@ -58,6 +58,8 @@ $(document).ready(function(){
         },
     });
 
+    $('table').rowReordering();
+
     table.columns().every( function () {
         var that = this;
  
@@ -69,6 +71,19 @@ $(document).ready(function(){
             }
         } );
     } );
+
+    $('table tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+
+        if (table.rows('.selected').data().length > 0)
+            $('#remove-all').fadeIn(0);
+        else
+            $('#remove-all').fadeOut(0);
+    });
+ 
+    $('#remove-all').click( function () {
+        alert( table.rows('.selected').data().length +' row(s) selected' );
+    });
 
     tinymce.init({
         selector: 'textarea',

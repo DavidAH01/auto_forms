@@ -1088,6 +1088,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   filter: alpha(opacity=100);
 }
 
+tr.selected{
+  background-color: #e2e2e2 !important;
+}
+
 /*      Checkbox and radio         */
 .checkbox,
 .radio {
@@ -2833,6 +2837,14 @@ table tfoot input{
 #image-upload-area{
   border: 0;
   margin-left: 24px;
+}
+
+#remove-all {
+  display: none;
+  float: left;
+  margin-top: -3px;
+  margin-bottom: -36px;
+  border-width: 1px;
 }
 
 @media (min-width: 992px) {
