@@ -174,4 +174,5 @@
     <!-- Auto_Forms Core JS -->
 	<script src="<?= base_url() ?>assets/js/main.js"></script>
     <script src="<?= base_url() ?>assets/js/sections/dashboard.js"></script>
+    <script src="<?= base_url() ?>assets/js/sections/configuration.js"></script>
 </html>
