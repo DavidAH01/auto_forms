@@ -72,7 +72,7 @@
                             
                             <br><br>
                             <?php if(isset($user) && $user[0]->is_super_administrator == 1){ ?>
-                                <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger"><i class="pe-7s-trash"></i> Delete</button></a>
+                                <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
                             <?php } ?>
 
                             <button type="submit" class="<?= (isset($user))?"update":"create" ?>-administrator btn btn-info btn-fill pull-right"><?= (isset($user))?"Update":"Create"  ?></button>

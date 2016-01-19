@@ -80,16 +80,12 @@
                             <p>Administrable sections</p>
                         </a> 
                         <ul class="sub nav">
-                            <li>
-                                <a href="">Table 1</a>
-                            </li>
-                            <li>
-                                <a href="">Table 1</a>
-                            </li>
-                            <li>
-                                <a href="">Table 1</a>
-                            </li>
-                        </ul>      
+                            <?php foreach (adminsitrable_tables() as $table) { ?>
+                                <li>
+                                    <a href="<?= base_url() ?>administrable_tables/view/<?= $table->name ?>"><?= ucfirst(str_replace('_', ' ', $table->name)) ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul> 
                     </li>
                 </ul> 
         	</div>
@@ -110,6 +106,10 @@
 
                             <?php if(is_super_administrator() && $section_title == "Administrators"){ ?>
                                 <a href="<?= base_url() ?>administrators/create"><button type="submit" class="btn btn-info btn-sm">Create</button></a>
+                            <?php } ?>
+
+                            <?php if(isset($administrable_table)){ ?>
+                                <a href="<?= base_url() ?>administrable_tables/create/<?= $table->name ?>"><button type="submit" class="btn btn-info btn-sm">Create</button></a>
                             <?php } ?>
                         </a>
                     </div>
