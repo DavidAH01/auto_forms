@@ -2845,6 +2845,8 @@ table tfoot input{
   margin-top: -3px;
   margin-bottom: -36px;
   border-width: 1px;
+  position: relative;
+  z-index: 5;
 }
 
 .content-recover-password{

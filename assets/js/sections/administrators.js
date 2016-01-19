@@ -138,6 +138,26 @@ $(document).ready(function(){
 	        });
 		}
     })
+
+	$(document).on('click', '#remove-all', function(){
+		var response = confirm("Are you sure?");
+		if (response == true) {
+		    var array_delete = [];
+			$('tr[role="row"].selected').each(function(){
+				var id = $(this).attr('data-administrator');
+				array_delete.push(id);
+			})
+
+			$.ajax({
+			  	url: $('#base_url').val()+'administrators/delete_administrators',
+			  	method: 'post',
+			  	data: { users: array_delete }
+			}).done(function(response) {
+				window.location.href = $('#base_url').val()+'administrators';
+			});
+	
+		}
+	})
 })
 
 $(window).load(function(){

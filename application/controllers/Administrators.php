@@ -76,6 +76,13 @@
 
 			redirect('administrators', 'refresh');
 		}
+
+		function delete_administrators(){
+			$users = $this->input->post('users');
+			for ($i=0; $i < count($users); $i++) { 
+				$this->administrator_model->delete_administrator($users[$i]);
+			}
+		}
 	}
 ?>
 

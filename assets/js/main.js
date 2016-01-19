@@ -81,10 +81,6 @@ $(document).ready(function(){
         else
             $('#remove-all').fadeOut(0);
     });
- 
-    $('#remove-all').click( function () {
-        alert( table.rows('.selected').data().length +' row(s) selected' );
-    });
 
     tinymce.init({
         selector: 'textarea.tinymce',

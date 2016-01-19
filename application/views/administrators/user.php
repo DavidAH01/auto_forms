@@ -56,7 +56,7 @@
                                     </label><span class="option-checkbox">Yes</span>
                                     <br>      
                                     <label class="radio">
-                                        <input type="radio" name="is_super_administrator" class="save-input" data-toggle="radio" value="0"<?= isset($user)?($user[0]->is_super_administrator == 1)?"checked":"":"checked"  ?>>
+                                        <input type="radio" name="is_super_administrator" class="save-input" data-toggle="radio" value="0"<?= isset($user)?($user[0]->is_super_administrator == 0)?"checked":"":"checked"  ?>>
                                     </label><span class="option-checkbox">No</span> 
                                 </div>
 

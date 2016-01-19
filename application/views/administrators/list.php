@@ -22,7 +22,7 @@
                             </tfoot>
                             <tbody>
                             <?php foreach ($administrators as $administrator) { ?>
-                                <tr>
+                                <tr data-administrator="<?= $administrator->id ?>">
                                 	<td><?= $administrator->name ?></td>
                                 	<td><?= $administrator->email ?></td>
                                 	<td><?= ($administrator->state == 1)?"active":"inactive" ?></td>
