@@ -23,7 +23,7 @@
      
 </head>
 <body> 
-<input type="hidden" id="base_url" value="<?php base_url(); ?>">
+<input type="hidden" id="base_url" value="<?= base_url(); ?>">
 <div class="wrapper">
     <div class="sidebar auth" data-color="black" data-image="<?= base_url() ?>assets/img/sidebar-2-big.jpg">    
         

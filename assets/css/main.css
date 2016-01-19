@@ -2880,6 +2880,12 @@ span.option-radio{
   top: -21px;
 }
 
+.navbar-brand .btn{
+  margin-top: -12px;
+  margin-bottom: -9px;
+  margin-left: 10px;
+}
+
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

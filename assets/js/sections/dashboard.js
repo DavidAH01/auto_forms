@@ -24,6 +24,18 @@ $(document).ready(function(){
 
 			  	if ( $('#tasks tr').length <= 0 )
 			  		$('.empty-task').fadeIn(0);
+
+                $.notify({
+                    icon: "pe-7s-check",
+                    message: "The task has been deleted!"
+                },{
+                    type: 'danger',
+                    timer: 4000,
+                    placement: {
+                        from: 'bottom',
+                        align: 'left'
+                    }
+                });
 			});
 		}
     })
@@ -86,7 +98,17 @@ $(document).ready(function(){
 
                 $('#form-create-task textarea').val('');
 
-                window.scrollTo(0);
+                $.notify({
+                    icon: "pe-7s-check",
+                    message: "The task has been created!"
+                },{
+                    type: 'info',
+                    timer: 4000,
+                    placement: {
+                        from: 'bottom',
+                        align: 'left'
+                    }
+                });
 			});
     	}
     })

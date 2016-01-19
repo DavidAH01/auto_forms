@@ -23,4 +23,15 @@ if ( ! function_exists('is_super_administrator')){
     }   
 }
 
+if ( ! function_exists('only_super_administrator')){
+
+    function only_super_administrator(){
+        $CI = & get_instance();
+        $user = $CI->session->userdata('logged_in');
+
+        if ($user['is_super_administrator'] != 1)
+            redirect('/dashboard', 'refresh');
+    }   
+}
+
 ?>

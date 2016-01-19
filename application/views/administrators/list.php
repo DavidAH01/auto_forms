@@ -9,7 +9,7 @@
                             <thead>
                             	<th>Name</th>
                             	<th>Email</th>
-                            	<th>Status</th>
+                            	<th>State</th>
                             	<th>Is super administrator?</th>
                                 <th></th>
                             </thead>
@@ -21,16 +21,18 @@
                                 <th></th>
                             </tfoot>
                             <tbody>
+                            <?php foreach ($administrators as $administrator) { ?>
                                 <tr>
-                                	<td>Dakota Rice</td>
-                                	<td>dakota.rice@gmail.com</td>
-                                	<td>active</td>
-                                	<td>yes</td>
+                                	<td><?= $administrator->name ?></td>
+                                	<td><?= $administrator->email ?></td>
+                                	<td><?= ($administrator->state == 1)?"active":"inactive" ?></td>
+                                	<td><?= ($administrator->is_super_administrator == 1)?"yes":"no" ?></td>
                                     <td>
-                                        <a href="<?= base_url() ?>administrators/user"><button type="button" class="btn btn-action btn-info">Edit</button></a>
-                                        <a href="<?= base_url() ?>administrators/delete" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
+                                        <a href="<?= base_url() ?>administrators/user/<?= $administrator->id ?>"><button type="button" class="btn btn-action btn-info">Edit</button></a>
+                                        <a href="<?= base_url() ?>administrators/delete/<?= $administrator->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
                                     </td>
                                 </tr>
+                            <?php } ?>
                             </tbody>
                         </table> 
                     </div>

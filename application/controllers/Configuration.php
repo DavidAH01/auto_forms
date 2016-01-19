@@ -4,6 +4,8 @@
 		function __construct(){
 			parent::__construct();
 			authenticate();
+			only_super_administrator();
+
 			$this->load->model('configuration/configuration_model');
 		}
 

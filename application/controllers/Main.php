@@ -6,7 +6,7 @@ class Main extends CI_Controller {
 	}
 
 	function index(){
-		if (is_logged_in())
+		if ($this->session->userdata('logged_in'))
 			redirect('dashboard', 'refresh');
 		
 		redirect('auth', 'refresh');
