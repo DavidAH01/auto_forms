@@ -28,6 +28,36 @@
                                             case 'slider':
                                                 $this->load->view($list_fields->slider_field, array('field' => $field, 'count_fields' => $count_fields));
                                                 break;
+                                            case 'select':
+                                                $this->load->view($list_fields->select_field, array('field' => $field));
+                                                break;
+                                            case 'multiselect':
+                                                $this->load->view($list_fields->multiselect_field, array('field' => $field, 'count_fields' => $count_fields));
+                                                break;
+                                            case 'radio':
+                                                $this->load->view($list_fields->radio_field, array('field' => $field));
+                                                break;
+                                            case 'checkbox':
+                                                $this->load->view($list_fields->checkbox_field, array('field' => $field));
+                                                break;
+                                            case 'administrator':
+                                                $this->load->view($list_fields->administrator_field, array('field' => $field));
+                                                break;
+                                            case 'file':
+                                                $this->load->view($list_fields->file_field, array('field' => $field));
+                                                break;
+                                            case 'map':
+                                                $this->load->view($list_fields->map_field, array('field' => $field));
+                                                break;
+                                            case 'gallery':
+                                                $this->load->view($list_fields->gallery_field, array('field' => $field));
+                                                break;
+                                            case 'relation':
+                                                $this->load->view($list_fields->relation_field, array('field' => $field));
+                                                break;
+                                            case 'multirelation':
+                                                $this->load->view($list_fields->multirelation_field, array('field' => $field));
+                                                break;
                                         }
                                         $count_fields++;
                                     } 
