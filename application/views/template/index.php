@@ -36,7 +36,45 @@
     
     <!--  Auto_Forms core CSS  -->
     <link href="<?= base_url() ?>assets/css/main.css" rel="stylesheet"/>
-     
+    
+
+    <!--   Core JS Files   -->
+    <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
+    
+    <script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    <!--   TinyMCE   -->
+    <script src="<?= base_url() ?>assets/js/jquery.iframe-post-form.js"></script>
+    <script src="<?= base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
+
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="<?= base_url() ?>assets/js/bootstrap-checkbox-radio-switch.js"></script>
+    
+    <!--  Notifications Plugin    -->
+    <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
+
+    <!--     Bootstrap Tags Input     -->
+    <script src="<?= base_url() ?>assets/js/bootstrap-tagsinput.js"></script>
+    
+    <!--     Bootstrap Multiselect     -->
+    <script src="<?= base_url() ?>assets/js/bootstrap-multiselect.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
+     <!--  DataTables Plugin    -->
+    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/dataTables.tableTools.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/jquery.dataTables.rowReordering.js"></script>
+    
+    <!-- Auto_Forms Core JS -->
+    <script src="<?= base_url() ?>assets/js/main.js"></script>
+    <script src="<?= base_url() ?>assets/js/sections/dashboard.js"></script>
+    <script src="<?= base_url() ?>assets/js/sections/configuration.js"></script>
+    <script src="<?= base_url() ?>assets/js/sections/administrators.js"></script>
+
 </head>
 <body> 
     <input type="hidden" id="base_url" value="<?= base_url(); ?>">
@@ -148,41 +186,4 @@
 
     </div>
 </body>
-    <!--   Core JS Files   -->
-    <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="<?= base_url() ?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
-    
-    <script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-	
-    <!--   TinyMCE   -->
-    <script src="<?= base_url() ?>assets/js/jquery.iframe-post-form.js"></script>
-    <script src="<?= base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
-
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="<?= base_url() ?>assets/js/bootstrap-checkbox-radio-switch.js"></script>
-	
-    <!--  Notifications Plugin    -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
-
-    <!--     Bootstrap Tags Input     -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-tagsinput.js"></script>
-    
-    <!--     Bootstrap Multiselect     -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-multiselect.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	
-     <!--  DataTables Plugin    -->
-    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/dataTables.tableTools.js"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/jquery.dataTables.rowReordering.js"></script>
-    
-    <!-- Auto_Forms Core JS -->
-	<script src="<?= base_url() ?>assets/js/main.js"></script>
-    <script src="<?= base_url() ?>assets/js/sections/dashboard.js"></script>
-    <script src="<?= base_url() ?>assets/js/sections/configuration.js"></script>
-    <script src="<?= base_url() ?>assets/js/sections/administrators.js"></script>
-
 </html>

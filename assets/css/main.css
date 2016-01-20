@@ -2888,6 +2888,10 @@ span.option-radio{
   margin-left: 10px;
 }
 
+.auto-form label.field{
+  font-size: 15px !important;-
+}
+
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

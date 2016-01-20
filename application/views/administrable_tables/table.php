@@ -6,14 +6,29 @@
                     <div class="header">
                         <h4 class="title">Edit <?= ucfirst($table) ?></h4>
                     </div>
-                    <div class="content">
+                    <div class="content auto-form">
                         <form>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Company (disabled)</label>
-                                        <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
-                                    </div>        
+                                <?php $count_fields = 1;
+                                    foreach ($fields as $field) {
+                                        switch ($field['type']) {
+                                            case 'text':
+                                                $this->load->view($list_fields->text_field, array('field' => $field));
+                                                break;
+                                            case 'textarea':
+                                                $this->load->view($list_fields->textarea_field, array('field' => $field));
+                                                break;
+                                            case 'number':
+                                                $this->load->view($list_fields->number_field, array('field' => $field, 'count_fields' => $count_fields));
+                                                break;
+                                            case 'date':
+                                                
+                                                break;
+                                        }
+                                        $count_fields++;
+                                    } 
+                                ?>   
                                 </div>
                             </div>
                             
