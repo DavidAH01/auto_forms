@@ -22,8 +22,11 @@
                                             case 'number':
                                                 $this->load->view($list_fields->number_field, array('field' => $field, 'count_fields' => $count_fields));
                                                 break;
-                                            case 'date':
-                                                
+                                            case 'datetime':
+                                                $this->load->view($list_fields->datetime_field, array('field' => $field, 'count_fields' => $count_fields));
+                                                break;
+                                            case 'slider':
+                                                $this->load->view($list_fields->slider_field, array('field' => $field, 'count_fields' => $count_fields));
                                                 break;
                                         }
                                         $count_fields++;

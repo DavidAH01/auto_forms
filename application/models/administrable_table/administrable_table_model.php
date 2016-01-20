@@ -18,7 +18,7 @@ Class Administrable_table_model extends CI_Model {
 	}
 
 	function get_fields_table($table){
-		$sql = "SHOW COLUMNS FROM ".$table;
+		$sql = "SHOW FULL COLUMNS FROM ".$table;
 		$query = $this->db->query($sql);
 		return $query->result();			
 	}

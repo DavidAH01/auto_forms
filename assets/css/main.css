@@ -2892,6 +2892,18 @@ span.option-radio{
   font-size: 15px !important;-
 }
 
+.input-slider{
+  display: inline-block;
+  width: 21%;
+  border: 0;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.div-slider{
+  margin-top: 10px;
+}
+
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

@@ -12,7 +12,8 @@
     
     <!-- Jquery UI CSS     -->
     <link href="<?= base_url() ?>assets/css/jquery-ui.css" rel="stylesheet" />
-
+    <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    
     <!-- Bootstrap core CSS     -->
     <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -34,6 +35,9 @@
     <!--     Bootstrap Multiselect     -->
     <link href="<?= base_url() ?>assets/css/bootstrap-multiselect.css" rel="stylesheet" />
     
+    <!--  DateTimePicker CSS  -->
+    <link href="<?= base_url() ?>assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
     <!--  Auto_Forms core CSS  -->
     <link href="<?= base_url() ?>assets/css/main.css" rel="stylesheet"/>
     
@@ -63,7 +67,11 @@
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     
-     <!--  DataTables Plugin    -->
+    <!--  DateTimePicker Plugin    -->
+    <script type="text/javascript" src="<?= base_url() ?>assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--  DataTables Plugin    -->
     <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>assets/js/dataTables.tableTools.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
