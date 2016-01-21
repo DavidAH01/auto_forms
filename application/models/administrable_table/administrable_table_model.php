@@ -48,5 +48,19 @@ Class Administrable_table_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	function save_table($table, $record, $data){
+		unset($data['current_table']);
+		unset($data['record_id']);
+
+		if (is_null($record)) {
+			$data['created_at'] = date('Y-m-d h:i:s',time());
+			$this->db->insert($table, $data);
+		}else{
+			$data['updated_at'] = date('Y-m-d h:i:s',time());
+			$this->db->where('id', $record);
+			$this->db->update($table, $data);
+		}
+	}
 }
 ?>

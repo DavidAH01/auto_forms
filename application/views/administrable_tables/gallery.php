@@ -1,6 +1,7 @@
 <script>
 	$(window).load(function(){
-		$('.sidebar, .navbar, .footer').remove();
+		$('.wrapper').css({'background': '#F0F0F0', 'padding': '15px'});
+		$('.sidebar, .main-panel, .navbar-collapse, .navbar, .footer').remove();
 	}) 
 </script>
 

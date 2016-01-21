@@ -2741,6 +2741,10 @@ span.option-checkbox{
   margin-left: 30px;
 }
 
+span.option-simple{
+  margin-left: 5px;
+}
+
 .multiselect{
   border-width: 1px !important;
   border-color: none !important;

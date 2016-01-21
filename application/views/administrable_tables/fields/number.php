@@ -1,6 +1,6 @@
 <div class="form-group">
     <label class="field"><strong><?= $field['name'] ?></strong></label>
-    <input type="text" class="save-input form-control number-<?= $count_fields ?>" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value="">
+    <input type="text" class="save-input form-control number-<?= $field['complete_name'] ?>" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value="">
 </div><hr>
 <script>
 	var numberFormat = function(number, decimals, m, d){
@@ -27,7 +27,7 @@
 	    return(formatted + ((parts) ? d + parts[1].substr(0, decimals) : ""));
 	};
 
-	$('.number-<?= $count_fields ?>').keyup(function() {
+	$('.number-<?= $field['complete_name'] ?>').keyup(function() {
 		var value = numberFormat($(this).val(), <?= $field['configuration'] ?>);
 		$(this).val(value);
 	});

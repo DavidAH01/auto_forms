@@ -9,18 +9,20 @@ class Administrable_tables extends CI_Controller {
 	function view(){
 		$table = $this->uri->segment(3, 0);
 		$data['table'] = $table;
+		$data['current_table'] = $table;
 		$data['fields'] = $this->fields($table, true);
 		$data['records'] = $this->administrable_table_model->get_records_table($table);
 		$data['section_title'] = ucfirst(str_replace('_', ' ', $table));
 		$data['administrable_table'] = true;
 		$data['section'] = $this->load->view('/administrable_tables/list', $data, true); 
-		
+
 		$this->load->view('/template/index', $data);
 	}
 
 	function create(){
 		$table = $this->uri->segment(3, 0);
-		$data['table'] = $table;
+		$data['current_table'] = $table;
+		$data['record_id'] = '';
 		$data['list_fields'] = $this->list_fields();
 		$data['fields'] = $this->fields($table);
 		$data['section_title'] = ucfirst(str_replace('_', ' ', $table));
@@ -28,20 +30,69 @@ class Administrable_tables extends CI_Controller {
 		$data['section'] = $this->load->view('/administrable_tables/table', $data, true); 
 		
 		$this->load->view('/template/index', $data);
-	} 
+	}
+
+	function insert_table(){
+		$data = $this->input->post();
+		$table = $this->input->post('current_table');
+		$indicate_files = array();
+		foreach ($_FILES as $file) {
+			foreach ($file['name'] as $key => $value) {
+				$field_name = $key;
+				$file_name = $value;
+				$data[$field_name] = $file_name;
+				array_push($indicate_files, $field_name);
+			}
+		}
+		$this->upload_file($indicate_files);
+		$this->administrable_table_model->save_table($table, null, $data);
+	}
+
+	function upload_file($indicate_files){
+		$this->load->library('upload');
+
+	    $files = $_FILES;
+	    $count = count($_FILES['file']['name']);
+	    for($i=0; $i<$count; $i++){           
+	        $_FILES['file']['name'] = $files['file']['name'][ $indicate_files[$i] ];
+	        $_FILES['file']['type'] = $files['file']['type'][ $indicate_files[$i] ];
+	        $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][ $indicate_files[$i] ];
+	        $_FILES['file']['error'] = $files['file']['error'][ $indicate_files[$i] ];
+	        $_FILES['file']['size'] = $files['file']['size'][ $indicate_files[$i] ];    
+
+	        $this->upload->initialize($this->set_upload_options());
+	        $this->upload->do_upload('file');
+	    }
+	}
+
+	private function set_upload_options(){   
+	    $config = array();
+	    $config['upload_path']          = './uploads/files/';
+        $config['allowed_types']        = 'gif|jpg|png' ;
+        $config['max_size']             = 1000; // Maximun size 10mb
+
+	    return $config;
+	}
 
 	function edit(){
 		$table = $this->uri->segment(3, 0);
 		$record = $this->input->get('record');
 		$data['list_fields'] = $this->list_fields();
 		$data['record_id'] = $record;
-		$data['table'] = $table;
+		$data['current_table'] = $table;
 		$data['record'] = $this->administrable_table_model->get_record_table($table, $record);
 		$data['section_title'] = ucfirst(str_replace('_', ' ', $table));
 		$data['administrable_table'] = true;
 		$data['section'] = $this->load->view('/administrable_tables/table', $data, true); 
 		
 		$this->load->view('/template/index', $data);
+	}
+
+	function update_table(){
+		$data = $this->input->post();
+		$table = $this->input->post('current_table');
+		$record = $this->input->post('record_id');
+		$this->administrable_table_model->save_table($table, $record, $data);
 	}
 
 	function fields($table, $for_view = false){
@@ -98,6 +149,7 @@ class Administrable_tables extends CI_Controller {
 		$list_fields->textarea_field = '/administrable_tables/fields/textarea';
 		$list_fields->number_field = '/administrable_tables/fields/number';
 		$list_fields->datetime_field = '/administrable_tables/fields/datetime';
+		$list_fields->color_field = '/administrable_tables/fields/color';
 		$list_fields->slider_field = '/administrable_tables/fields/slider';
 		$list_fields->select_field = '/administrable_tables/fields/select';
 		$list_fields->multiselect_field = '/administrable_tables/fields/multiselect';

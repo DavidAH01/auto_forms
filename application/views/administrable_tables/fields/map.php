@@ -6,7 +6,7 @@
         </div>
         <div id="infoPanel" class="col-md-6">
             <label><strong>Current position:</strong></label>
-            <input type="text" readonly="readonly" id="info_<?= $field['complete_name'] ?>" class="save-input form-control" name="">
+            <input type="text" readonly="readonly" id="info_<?= $field['complete_name'] ?>" class="save-input form-control" name="<?= $field['complete_name'] ?>">
             <br>
             <label><strong>Address:</strong> <small>(not exactly)</small></label>
             <div id="address_<?= $field['complete_name'] ?>"></div>

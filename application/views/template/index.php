@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/img/favicon.ico">
+	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Auto Forms By David AH</title>
@@ -37,10 +37,10 @@
     
     <!--  DateTimePicker CSS  -->
     <link href="<?= base_url() ?>assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
-
+    
     <!--  Auto_Forms core CSS  -->
     <link href="<?= base_url() ?>assets/css/main.css" rel="stylesheet"/>
-    
+
 
     <!--   Core JS Files   -->
     <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
@@ -77,17 +77,21 @@
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/js/jquery.dataTables.rowReordering.js"></script>
     
+    <!-- ColorPicker JS -->
+    <script src="<?= base_url() ?>assets/js/jscolor.min.js"></script>
+    
     <!-- Auto_Forms Core JS -->
     <script src="<?= base_url() ?>assets/js/main.js"></script>
     <script src="<?= base_url() ?>assets/js/sections/dashboard.js"></script>
     <script src="<?= base_url() ?>assets/js/sections/configuration.js"></script>
     <script src="<?= base_url() ?>assets/js/sections/administrators.js"></script>
+    <script src="<?= base_url() ?>assets/js/sections/administrable_tables.js"></script>
 
 </head>
 <body> 
     <input type="hidden" id="base_url" value="<?= base_url(); ?>">
     <div class="wrapper">
-        <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/img/sidebar-2.jpg">    
+        <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/images/sidebar-2.jpg">    
         
         	<div class="sidebar-wrapper">
                 <div class="logo">
@@ -155,7 +159,7 @@
                             <?php } ?>
 
                             <?php if(isset($administrable_table)){ ?>
-                                <a href="<?= base_url() ?>administrable_tables/create/<?= $table->name ?>"><button type="submit" class="btn btn-info btn-sm">Create</button></a>
+                                <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>"><button type="submit" class="btn btn-info btn-sm">Create</button></a>
                             <?php } ?>
                         </a>
                     </div>
@@ -185,7 +189,7 @@
             <footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
-                        &copy; 2016 <a href="http://david-ah.com">David AH</a>, made with love for a better web
+                        &copy; 2016 <a href="http://david-ah.com" target="_blank">David AH</a>, made with love for a better web
                     </p>
                 </div>
             </footer>
