@@ -5,13 +5,15 @@ $(document).ready(function(){
 
 	$('#forgot-password').click(function(e){
 		e.preventDefault();
-		$(this).fadeOut('slow')
-		$('.content-recover-password').fadeIn('slow')
+		$(this).fadeOut(0);
+		$('.content-login').fadeOut(0);
+		$('.content-recover-password').fadeIn(0)
 	})
 
 	$('#close-recover').click(function(){
-		$('#forgot-password').fadeIn('slow')
-		$('.content-recover-password').fadeOut('slow')
+		$('#forgot-password').fadeIn(0);
+		$('.content-login').fadeIn(0);
+		$('.content-recover-password').fadeOut(0);
 	})
 
 })

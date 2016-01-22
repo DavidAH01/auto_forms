@@ -5,7 +5,7 @@
                 <div class="card table-content">
                     <div class="content table-responsive table-full-width">
                         <button type="button" class="btn btn-action btn-danger" id="remove-all">Delete all selected</button>
-                        <table class="table table-hover table-striped data-table" data-table="<?= $table ?>">
+                        <table class="table table-hover table-striped data-table administrable-data-table" data-table="<?= $table ?>">
                             <thead>
                                 <th></th>
                                 <?php $i=0; foreach ($fields as $field) { ?>
@@ -25,9 +25,9 @@
                                 <th></th>
                             </tfoot>
                             <tbody>
-                            <?php foreach ($records as $record) { ?>
-                                <tr data-record="<?= $record->id ?>">
-                                    <td><?= $record->record_order ?></td>
+                            <?php $order=1; foreach ($records as $record) { ?>
+                                <tr id="<?= $record->id ?>" data-table="<?= $table ?>">
+                                    <td><?= $order ?></td>
                                     <?php $i=0; foreach ($fields as $field) { ?>
                                         <?php if ($i <= 2) { ?>
                                             <th><?= $record->$field['complete_name'] ?></th>
@@ -38,7 +38,7 @@
                                         <a href="<?= base_url() ?>administrable_tables/delete/<?= $table ?>?record=<?= $record->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
                                     </td>
                                 </tr>
-                            <?php } ?>
+                            <?php $order++; } ?>
                             </tbody>
                         </table> 
                     </div>

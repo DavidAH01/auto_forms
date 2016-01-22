@@ -72,18 +72,14 @@
                                         <td>
                                             <div class="form-group">
                                                 <label>Privacy</label>
+                                                <select name="privacy" class="form-control">
+                                                    <option value="0">Public</option>
+                                                    <option value="1">Private</option>
+                                                </select>
                                             </div> 
-                                            <label class="radio">
-                                                <input type="radio" value="0" name="privacy" data-toggle="radio" checked="">
-                                            </label><span class="option-radio">Public</span>
-                                            <br>      
-                                            <label class="radio">
-                                                <input type="radio" value="1" name="privacy" data-toggle="radio">
-                                            </label><span class="option-radio">Private <i class="pe-7s-lock"></i></span>
-                            
                                         </td>
                                         <td class="text-right">
-                                            <button type="button" class="create-task btn btn-info btn-fill btn-simple btn-md">Create</button>
+                                            <button type="button" class="create-task btn btn-info btn-fill">Create</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -116,15 +112,11 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label>Privacy</label>
-                                                </div> 
-                                                <label class="radio radio-public">
-                                                    <input type="radio" value="0" name="edit_privacy" data-toggle="radio">
-                                                </label><span class="option-radio">Public</span>
-                                                <br>      
-                                                <label class="radio radio-private">
-                                                    <input type="radio" value="1" name="edit_privacy" data-toggle="radio">
-                                                </label><span class="option-radio">Private <i class="pe-7s-lock"></i></span>
-                                
+                                                    <select name="privacy" class="form-control">
+                                                        <option value="0">Public</option>
+                                                        <option value="1">Private</option>
+                                                    </select>
+                                                </div>
                                             </td>
                                             <td class="text-right">
                                                 <button type="button" class="update-task btn btn-info btn-fill btn-simple btn-md">Update</button>

@@ -225,26 +225,32 @@
 
                     if (properties.sURL != null) {
                         properties.fnStartProcessingMode($dataTable);
-						var oAjaxRequest = {
-                            url: properties.sURL,
-                            type: properties.sRequestType,
-                            data: { id: ui.item.context.id,
-                                fromPosition: oState.iCurrentPosition,
-                                toPosition: oState.iNewPosition,
-                                direction: oState.sDirection,
-                                group: sGroup
-                            },
-                            success: function (data) {
-                                properties.fnSuccess(data);
-                                fnMoveRows($dataTable, sSelector, oState.iCurrentPosition, oState.iNewPosition, oState.sDirection, ui.item.context.id, sGroup);
-                                properties.fnEndProcessingMode($dataTable);
-                            },
-                            error: function (jqXHR) {
-                                fnCancelSorting($dataTable, tbody, properties, 1, jqXHR.statusText);
+                        console.log($dataTable);
+                        $dataTable.find('tr').each(function(){
+                            if ($(this).attr('id') != undefined) {
+                                console.log($(this).attr('id')+' - '+$(this).index());
+                           
+        						var oAjaxRequest = {
+                                    url: properties.sURL,
+                                    type: properties.sRequestType,
+                                    data: { id: $(this).attr('id'),
+                                        table: $(this).attr('data-table'),
+                                        record_order: $(this).index()
+                                    },
+                                    success: function (data) {
+                                        properties.fnSuccess(data);
+                                        fnMoveRows($dataTable, sSelector, oState.iCurrentPosition, oState.iNewPosition, oState.sDirection, ui.item.context.id, sGroup);
+                                        properties.fnEndProcessingMode($dataTable);
+                                    },
+                                    error: function (jqXHR) {
+                                        fnCancelSorting($dataTable, tbody, properties, 1, jqXHR.statusText);
+                                    }
+                                };
+                                properties.fnUpdateAjaxRequest(oAjaxRequest, properties, $dataTable);
+                                $.ajax(oAjaxRequest);
                             }
-                        };
-						properties.fnUpdateAjaxRequest(oAjaxRequest, properties, $dataTable);
-                        $.ajax(oAjaxRequest);
+                        });
+						
                     } else {
                         fnMoveRows($dataTable, sSelector, oState.iCurrentPosition, oState.iNewPosition, oState.sDirection, ui.item.context.id, sGroup);
                     }

@@ -25,7 +25,7 @@
 <body> 
 <input type="hidden" id="base_url" value="<?= base_url(); ?>">
 <div class="wrapper">
-    <div class="sidebar auth" data-color="black" data-image="<?= base_url() ?>assets/images/sidebar-2-big.jpg">    
+    <div class="sidebar auth" data-color="orange" data-image="<?= base_url() ?>assets/images/sidebar-2-big.jpg">    
         
         <?php if(isset($errors)) { ?>
             <div class="alert alert-danger">

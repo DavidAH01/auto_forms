@@ -19,6 +19,13 @@ class Administrable_tables extends CI_Controller {
 		$this->load->view('/template/index', $data);
 	}
 
+	function order_records(){
+		$record = $this->input->post('id');
+		$table = $this->input->post('table');
+		$order = $this->input->post('record_order');
+		$this->administrable_table_model->order_records_table($record, $table, $order);
+	}
+
 	function create(){
 		$table = $this->uri->segment(3, 0);
 		$data['current_table'] = $table;

@@ -2732,6 +2732,19 @@ tr.selected{
   left: 0;
 }
 
+.title.login{
+  text-align: center;
+  margin: 25px 0;
+}
+
+.pull-center{
+  display: block;
+  float: none;
+  margin: 0 auto 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 #iframe-real-time{
   width: 100%;
   height: 430px;
@@ -2877,6 +2890,10 @@ table tfoot input{
   border: 0 !important;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.create-task{
+  margin-top: 11px;
 }
 
 span.option-radio{

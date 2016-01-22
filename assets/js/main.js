@@ -45,7 +45,7 @@ $(document).ready(function(){
     });
 
     var table = $('.data-table').DataTable({
-        "iDisplayLength": 50,
+        "iDisplayLength": 100,
         "dom": 'T<"clear">lfrtip',
         tableTools: {
             "aButtons": [
@@ -58,8 +58,8 @@ $(document).ready(function(){
         },
     });
 
-    if ( $('.data-table').length > 0)
-       $('.data-table').rowReordering();
+    if ( $('.administrable-data-table').length > 0)
+       $('.administrable-data-table').rowReordering({ sURL:$('#base_url').val()+'administrable_tables/order_records', sRequestType: "POST"});
     
     table.columns().every( function () {
         var that = this;
