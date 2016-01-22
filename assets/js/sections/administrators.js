@@ -10,6 +10,11 @@ $(document).ready(function(){
 			data[ $(this).attr('name') ] = $(this).val()
 		})
 
+		$.each(data, function(key, value) {
+		    if (Array.isArray(value))
+		    	data[key] = value.join();
+		});
+
 		if ( $('input[name="name"]').val() != "" && $('input[name="email"]').val() != "" && $('input[name="password"]').val() != "" ) {
 			expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     		if ( expr.test($('input[name="email"]').val()) ){
@@ -75,6 +80,11 @@ $(document).ready(function(){
 		$('.save-input:checked').each(function(){
 			data[ $(this).attr('name') ] = $(this).val()
 		})
+
+		$.each(data, function(key, value) {
+		    if (Array.isArray(value))
+		    	data[key] = value.join();
+		});
 
 		if ( $('input[name="name"]').val() != "" && $('input[name="email"]').val() != "") {
 			expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;

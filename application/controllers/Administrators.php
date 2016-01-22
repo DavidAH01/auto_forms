@@ -10,10 +10,8 @@
 
 		function index(){
 			only_super_administrator();
-			
-			$data['administrators'] = $this->administrator_model->get_administrators();
-
 			$data['section_title'] = 'Administrators';
+			$data['administrators'] = $this->administrator_model->get_administrators();
 			$data['section'] = $this->load->view('/administrators/list', $data, true); 
 			
 			$this->load->view('/template/index', $data);
@@ -21,10 +19,9 @@
 
 		function user(){
 			$user_id = $this->uri->segment(3, 0);
-			$data['user'] = $this->administrator_model->get_administrator($user_id);
-
-
 			$data['section_title'] = 'Administrators';
+			$data['user'] = $this->administrator_model->get_administrator($user_id);
+			$data['tables'] = $this->administrable_table_model->get_tables();
 			$data['section'] = $this->load->view('/administrators/user', $data, true); 
 			
 			$this->load->view('/template/index', $data);
@@ -32,6 +29,7 @@
 
 		function create(){
 			$data['section_title'] = 'Administrators';
+			$data['tables'] = $this->administrable_table_model->get_tables();
 			$data['section'] = $this->load->view('/administrators/user', $data, true); 
 			
 			$this->load->view('/template/index', $data);

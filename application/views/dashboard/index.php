@@ -8,7 +8,7 @@
                         <p class="category">In real time</p>
                     </div>
                     <div class="content">                               
-                        <iframe src="http://localhost/" frameborder="0" id="iframe-real-time"></iframe>
+                        <iframe src="<?= str_replace('auto_forms', '', base_url()) ?>" frameborder="0" id="iframe-real-time"></iframe>
                     </div>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                                         <td><?= $task->description ?> <?= ($task->is_private == 1)?'<i class="pe-7s-lock"></i>':'' ?></td>
                                         <?php if($task->administrator_id == $this->session->userdata('logged_in')['user_id']){ ?>
                                             <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="edit-task btn btn-info btn-simple btn-xs" data-toggle="modal" data-target="#edit-task" data-task="<?= $task->id ?>" data-description="<?= $task->description ?>" data-privacy="<?= $task->is_private ?>">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="edit-task btn btn-warning btn-simple btn-xs" data-toggle="modal" data-target="#edit-task" data-task="<?= $task->id ?>" data-description="<?= $task->description ?>" data-privacy="<?= $task->is_private ?>">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="delete-task btn btn-danger btn-simple btn-xs" data-task="<?= $task->id ?>"> 
+                                                <button type="button" rel="tooltip" title="Remove" class="delete-task btn btn-default btn-simple btn-xs" data-task="<?= $task->id ?>"> 
                                                     <i class="fa fa-times"></i>
                                                 </button>
                                             </td>
@@ -79,7 +79,7 @@
                                             </div> 
                                         </td>
                                         <td class="text-right">
-                                            <button type="button" class="create-task btn btn-info btn-fill">Create</button>
+                                            <button type="button" class="create-task btn btn-warning btn-fill">Create</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -119,7 +119,7 @@
                                                 </div>
                                             </td>
                                             <td class="text-right">
-                                                <button type="button" class="update-task btn btn-info btn-fill btn-simple btn-md">Update</button>
+                                                <button type="button" class="update-task btn btn-warning btn-fill btn-simple btn-md">Update</button>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -3,7 +3,7 @@
 		$gallery_id = $stored_data->{$field['complete_name']};
 	else{
 		$gallery_id = urlencode(substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22));
-		$gallery_id = strtr($gallery_id, array('+' => '.', '/' => '.')); 
+		$gallery_id = strtr($gallery_id, array('+' => '.', '/' => '.', '%' => '.')); 
 	}
 ?>
 <input type="hidden" class="save-input" name="<?= $field['complete_name'] ?>" value="<?= $gallery_id ?>">

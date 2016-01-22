@@ -33,7 +33,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="update-configuration btn btn-info btn-fill pull-right">Update</button>
+                            <button type="submit" class="update-configuration btn btn-warning btn-fill pull-right">Update</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

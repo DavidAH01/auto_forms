@@ -131,9 +131,17 @@
                         </a> 
                         <ul class="sub nav">
                             <?php foreach (adminsitrable_tables() as $table) { ?>
-                                <li>
-                                    <a href="<?= base_url() ?>administrable_tables/view/<?= $table->name ?>"><?= ucfirst(str_replace('_', ' ', $table->name)) ?></a>
-                                </li>
+                                <?php if($this->session->userdata('logged_in')['is_super_administrator'] == 1){ ?>
+                                    <li>
+                                        <a href="<?= base_url() ?>administrable_tables/view/<?= $table->name ?>"><?= ucfirst(str_replace('_', ' ', $table->name)) ?></a>
+                                    </li>
+                                <?php }else{ ?>
+                                    <?php if(in_array($table->name, explode(',',$this->session->userdata('logged_in')['permissions']))){ ?>
+                                        <li>
+                                            <a href="<?= base_url() ?>administrable_tables/view/<?= $table->name ?>"><?= ucfirst(str_replace('_', ' ', $table->name)) ?></a>
+                                        </li>
+                                    <?php } ?>
+                                <?php } ?>
                             <?php } ?>
                         </ul> 
                     </li>
@@ -157,11 +165,11 @@
                             <?= $section_title  ?>
 
                             <?php if(is_super_administrator() && $section_title == "Administrators"){ ?>
-                                <a href="<?= base_url() ?>administrators/create"><button type="submit" class="btn btn-info btn-sm">Create</button></a>
+                                <a href="<?= base_url() ?>administrators/create"><button type="submit" class="btn btn-warning btn-sm">Create</button></a>
                             <?php } ?>
 
                             <?php if(isset($administrable_table)){ ?>
-                                <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>"><button type="submit" class="btn btn-info btn-sm">Create</button></a>
+                                <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>"><button type="submit" class="btn btn-warning btn-sm">Create</button></a>
                             <?php } ?>
                         </a>
                     </div>

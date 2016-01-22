@@ -60,9 +60,9 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 if(save_position != ''){
-                    map.setCenter(new google.maps.LatLng(<?= $stored_data->{$field['complete_name']} ?>));
-                    marker.setPosition(new google.maps.LatLng(<?= $stored_data->{$field['complete_name']} ?>));
-                    geocodePosition(new google.maps.LatLng(<?= $stored_data->{$field['complete_name']} ?>));
+                    map.setCenter(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+                    marker.setPosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+                    geocodePosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
                 }else{
                     latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     map.setCenter(latLng);

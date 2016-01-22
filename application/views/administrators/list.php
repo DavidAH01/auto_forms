@@ -28,8 +28,8 @@
                                 	<td><?= ($administrator->state == 1)?"active":"inactive" ?></td>
                                 	<td><?= ($administrator->is_super_administrator == 1)?"yes":"no" ?></td>
                                     <td>
-                                        <a href="<?= base_url() ?>administrators/user/<?= $administrator->id ?>"><button type="button" class="btn btn-action btn-info">Edit</button></a>
-                                        <a href="<?= base_url() ?>administrators/delete/<?= $administrator->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
+                                        <a href="<?= base_url() ?>administrators/user/<?= $administrator->id ?>"><button type="button" class="btn btn-action btn-warning btn-fill">Edit</button></a>
+                                        <a href="<?= base_url() ?>administrators/delete/<?= $administrator->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-warning">Delete</button></a>
                                     </td>
                                 </tr>
                             <?php } ?>

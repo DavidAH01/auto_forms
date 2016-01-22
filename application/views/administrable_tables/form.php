@@ -45,10 +45,10 @@
                             <br><br>
                             <?php if(isset($record_id) && !empty($record_id)){ ?>
                                 <input type="hidden" class="save-input" name="record_id" value="<?= $record_id ?>">
-                                <a href="<?= base_url() ?>administrable_tables/delete/<?= $current_table ?>?record=<?= $record_id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-danger">Delete</button></a>
+                                <a href="<?= base_url() ?>administrable_tables/delete/<?= $current_table ?>?record=<?= $record_id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-default">Delete</button></a>
                             <?php } ?>
-                            <a href="<?= base_url() ?>administrable_tables/view/<?= $current_table ?>" class="btn btn-warning">Cancel</a>
-                            <button type="submit" class="<?= (isset($record_id) && !empty($record_id))?"update":"create" ?>-auto-form btn btn-info btn-fill pull-right"><?= (isset($record_id) && !empty($record_id))?"Update":"Create" ?></button>
+                            <a href="<?= base_url() ?>administrable_tables/view/<?= $current_table ?>" class="btn btn-link">Cancel</a>
+                            <button type="submit" class="<?= (isset($record_id) && !empty($record_id))?"update":"create" ?>-auto-form btn btn-warning btn-fill pull-right"><?= (isset($record_id) && !empty($record_id))?"Update":"Create" ?></button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

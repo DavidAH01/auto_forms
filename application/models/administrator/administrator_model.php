@@ -15,7 +15,7 @@ Class Administrator_model extends CI_Model {
 		$this->db->where('id', $administrator_id);
 
 		$query = $this->db->get();
-		return $query->result();
+		return $query->row();
 	}
 
 	function new_administrator($data){

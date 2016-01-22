@@ -136,8 +136,11 @@ lbd = {
             $sidebar = $('.sidebar');
             sidebar_color = $sidebar.data('color');
             
-            $logo = $sidebar.find('.logo').first();
-            logo_content = $logo[0].outerHTML;
+            var logo_content = '';
+            if($('.logo').length){
+                $logo = $sidebar.find('.logo').first();
+                logo_content = $logo[0].outerHTML;
+            } 
                     
             ul_content = '';
              
