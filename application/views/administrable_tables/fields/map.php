@@ -6,7 +6,7 @@
         </div>
         <div id="infoPanel" class="col-md-6">
             <label><strong>Current position:</strong></label>
-            <input type="text" readonly="readonly" id="info_<?= $field['complete_name'] ?>" class="save-input form-control" name="<?= $field['complete_name'] ?>">
+            <input type="text" readonly="readonly" id="info_<?= $field['complete_name'] ?>" class="save-input form-control" name="<?= $field['complete_name'] ?>" value="<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>">
             <br>
             <label><strong>Address:</strong> <small>(not exactly)</small></label>
             <div id="address_<?= $field['complete_name'] ?>"></div>
@@ -15,6 +15,7 @@
 </div><hr>
 
 <script type="text/javascript">
+    var save_position = "<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>";
     var geocoder = new google.maps.Geocoder();
 
     function geocodePosition(pos) {
@@ -41,15 +42,6 @@
     }
 
     function initialize() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                map.setCenter(latLng);
-                marker.setPosition(latLng);
-                geocodePosition(latLng);
-            });
-        }
-
         var latLng = new google.maps.LatLng(-34.397, 150.644);
         var map = new google.maps.Map(document.getElementById('<?= $field['complete_name'] ?>'), {
             zoom: 8,
@@ -63,9 +55,22 @@
             map: map,
             draggable: true
         });
-
-        // Update current position info.
         geocodePosition(latLng);
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                if(save_position != ''){
+                    map.setCenter(new google.maps.LatLng(<?= $stored_data->{$field['complete_name']} ?>));
+                    marker.setPosition(new google.maps.LatLng(<?= $stored_data->{$field['complete_name']} ?>));
+                    geocodePosition(new google.maps.LatLng(<?= $stored_data->{$field['complete_name']} ?>));
+                }else{
+                    latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    map.setCenter(latLng);
+                    marker.setPosition(latLng);
+                    geocodePosition(latLng);
+                }
+            });
+        }
         
         // Add dragging event listeners.
         google.maps.event.addListener(marker, 'dragstart', function() {

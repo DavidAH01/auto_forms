@@ -13,6 +13,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                 <?php
+                                    if (isset($stored_data))
+                                        $data = array('stored_data' => $stored_data);
+
                                     foreach ($fields as $field) {
                                         $data = array('field' => $field);
                                         if( $field['type'] == 'text' ||

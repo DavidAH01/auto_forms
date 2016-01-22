@@ -10,7 +10,7 @@
 			<input readonly id="style-<?= $field['complete_name'] ?>" class="form-control">
 		</div>
 		<div class="col-sm-10">
-			<input id="color-<?= $field['complete_name'] ?>" class="save-input form-control" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value=""><br>
+			<input id="color-<?= $field['complete_name'] ?>" class="save-input form-control" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value="<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>"><br>
 		</div>
 	</div>
 </div><hr> 

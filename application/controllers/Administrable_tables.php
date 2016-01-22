@@ -27,7 +27,7 @@ class Administrable_tables extends CI_Controller {
 		$data['fields'] = $this->fields($table);
 		$data['section_title'] = ucfirst(str_replace('_', ' ', $table));
 		$data['administrable_table'] = true;
-		$data['section'] = $this->load->view('/administrable_tables/table', $data, true); 
+		$data['section'] = $this->load->view('/administrable_tables/form', $data, true); 
 		
 		$this->load->view('/template/index', $data);
 	}
@@ -57,10 +57,10 @@ class Administrable_tables extends CI_Controller {
 		$data['list_fields'] = $this->list_fields();
 		$data['record_id'] = $record;
 		$data['current_table'] = $table;
-		$data['record'] = $this->administrable_table_model->get_record_table($table, $record);
+		$data['stored_data'] = $this->administrable_table_model->get_record_table($table, $record);
 		$data['section_title'] = ucfirst(str_replace('_', ' ', $table));
 		$data['administrable_table'] = true;
-		$data['section'] = $this->load->view('/administrable_tables/table', $data, true); 
+		$data['section'] = $this->load->view('/administrable_tables/form', $data, true); 
 		
 		$this->load->view('/template/index', $data);
 	}
@@ -69,6 +69,18 @@ class Administrable_tables extends CI_Controller {
 		$data = $this->input->post();
 		$table = $this->input->post('current_table');
 		$record = $this->input->post('record_id');
+		$indicate_files = array();
+		if(isset($_FILES)){
+			foreach ($_FILES as $file) {
+				foreach ($file['name'] as $key => $value) {
+					$field_name = $key;
+					$file_name = $value;
+					$data[$field_name] = clear($file_name);
+					array_push($indicate_files, $field_name);
+				}
+			}
+			$this->upload_file($indicate_files, 'files');
+		}
 		$this->administrable_table_model->save_table($table, $record, $data);
 	}
 
@@ -150,6 +162,7 @@ class Administrable_tables extends CI_Controller {
 		$data['files'] = $this->administrable_table_model->get_files_gallery($gallery);
 		$data['section_title'] = ucfirst(str_replace('_', ' ', $table));
 		$data['administrable_table'] = true;
+		$data['no_header_no_footer'] = true;
 		$data['section'] = $this->load->view('/administrable_tables/gallery', $data, true); 
 		
 		$this->load->view('/template/index', $data);
@@ -179,14 +192,18 @@ class Administrable_tables extends CI_Controller {
 	    $files = $_FILES;
 	    $count = count($_FILES['file']['name']);
 	    for($i=0; $i<$count; $i++){          
-	        $_FILES['file']['name'] = $files['file']['name'][ $indicate_files[$i] ];
+	        $_FILES['file']['name'] = clear($files['file']['name'][ $indicate_files[$i] ]);
 	        $_FILES['file']['type'] = $files['file']['type'][ $indicate_files[$i] ];
 	        $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][ $indicate_files[$i] ];
 	        $_FILES['file']['error'] = $files['file']['error'][ $indicate_files[$i] ];
 	        $_FILES['file']['size'] = $files['file']['size'][ $indicate_files[$i] ];    
 
 	        $this->upload->initialize($this->set_upload_options($folder));
-	        $this->upload->do_upload('file');
+	        if(!$this->upload->do_upload('file')){
+	        	print_r($this->upload->display_errors());
+	        	exit();
+	        }
+
 	    }
 	}
 
@@ -196,7 +213,7 @@ class Administrable_tables extends CI_Controller {
 
 	    $config['upload_path'] = './uploads/'.$folder.'/';
         $config['allowed_types'] = '*';
-        $config['max_size'] = 1000; // Maximun size 10mb
+        $config['max_size'] = 10000; // Maximun size 10mb
         $config['overwrite'] = true;
 
 	    return $config;

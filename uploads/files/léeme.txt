@@ -1,0 +1,26 @@
+Aviso importante:
+
+Los datos en este producto se publican sin consideración a una eventual protección de patente.  Los nombres de productos se utilizan sin la garantía de uso gratuito. Aunque la elaboración de textos, contenidos de las animaciones y talleres se ha llevado a cabo con el mayor cuidado, este DVD podría contener errores. Ni el editor ni el autor son responsables de ningún error o consecuencias de los mismos, ni legalmente ni en concepto de daños y perjuicios. Tanto el autor como el editor agradecen indicaciones sobre posibles errores y soluciones a los mismos.
+
+Todos los derechos están reservados, incluidos los de distribución y almacenamiento por medio electrónico. No está permitido el uso comercial de este producto y sus contenidos, especialmente para la impartición de cursos. Todos los aspectos relativos a software que aparecen en este DVD-ROM o que se describen en el mismo son marcas registradas o deberán ser tratadas como tales.
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+Existen dos modalidades de comenzar el curso. Puede elegir aquella que se adecúe a las configuraciones de su sistema:
+
+-----Para cualquier sistema operativo: (Linux, Mac OS und Windows)-------------
+
+Archivo: start.html
+Esta modalidad abre el curso en su navegador web. La ventana se puede desplazar y cambiar de tamaño. Este sistema resulta práctico si la resolución de su pantalla es mayor de 1024x768 o si trabaja con más de un monitor.
+
+----Windows------------------
+
+Archivo: star.exe
+El curso comienza como una aplicación independiente. Si el curso se abre con Autostart, este será el archivo empleado.
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+

@@ -1,9 +1,3 @@
-<script>
-	$(window).load(function(){
-		$('.sidebar, .navbar-collapse, .navbar, .footer').remove();
-	}) 
-</script>
-
 <form action="<?= base_url() ?>administrable_tables/save_files_gallery" method="post" enctype="multipart/form-data">
 	<input type="hidden" value="<?= $gallery ?>" name="gallery">
 	<input type="hidden" value="<?= $current_table ?>" name="table">

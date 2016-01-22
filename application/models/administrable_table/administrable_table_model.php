@@ -37,7 +37,7 @@ Class Administrable_table_model extends CI_Model {
 		$this->db->where('id', $record);
 
 		$query = $this->db->get();
-		return $query->result();
+		return $query->row();
 	}
 
 	function get_files_gallery($gallery){

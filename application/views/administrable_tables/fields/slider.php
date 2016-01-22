@@ -1,6 +1,6 @@
 <div class="form-group">
     <label class="field"><strong><?= $field['name'] ?></strong></label>
-    <input type="text" id="slider-<?= $field['complete_name'] ?>" class="save-input input-slider form-control" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value="">
+    <input type="text" id="slider-<?= $field['complete_name'] ?>" class="save-input input-slider form-control" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" >
 	<div id="line-slider-<?= $field['complete_name'] ?>" class="div-slider"></div>
 </div><hr>
 <script>
@@ -22,6 +22,16 @@
 	    });
 	    $( "#slider-<?= $field['complete_name'] ?>" ).val( $("#line-slider-<?= $field['complete_name'] ?>" ).slider( "values", 0 ) +
 	      " - " + $( "#line-slider-<?= $field['complete_name'] ?>" ).slider( "values", 1 ) );
+	
+	    <? if(isset($stored_data)) { ?>
+			var values = [<?= str_replace(array(' ','-'), array('',','), $stored_data->{$field['complete_name']}) ?>],
+				value_1 = values[0] == '' ? min : values[0],
+				value_2 = values[1] == '' ? min : values[1];
+			$( "#line-slider-<?= $field['complete_name'] ?>" ).slider('values',0,value_1);
+			$( "#line-slider-<?= $field['complete_name'] ?>" ).slider('values',1,value_2);
+			$( "#slider-<?= $field['complete_name'] ?>" ).val( value_1 + " - " + value_2 );
+		<? } ?>
+
 	}else{
 		$( "#line-slider-<?= $field['complete_name'] ?>" ).slider({
 	      	range: "min",
@@ -33,6 +43,8 @@
 	      	}
 	    });
 	 	$( "#slider-<?= $field['complete_name'] ?>" ).val( $( "#line-slider-<?= $field['complete_name'] ?>" ).slider( "value" ) );
-	    	
+	   	
+	   	$( "#line-slider-<?= $field['complete_name'] ?>" ).slider('value',<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:0 ?>);	      	
+		$( "#slider-<?= $field['complete_name'] ?>" ).val( <?= (isset($stored_data))?$stored_data->{$field['complete_name']}:0 ?> );
 	}
 </script>

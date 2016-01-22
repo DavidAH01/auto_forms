@@ -12,7 +12,7 @@ class Upload_tinymce extends CI_Controller {
 
 		$config['upload_path']          = './uploads/tinymce/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 1000; // Maximun size 10mb
+        $config['max_size']             = 10000; // Maximun size 10mb
 
         $this->load->library('upload', $config);
 

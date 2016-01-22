@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Auto Forms By David AH</title>
+	<title>Auto_Forms by David AH</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -91,8 +91,8 @@
 <body> 
     <input type="hidden" id="base_url" value="<?= base_url(); ?>">
     <div class="wrapper">
+        <?php if (!isset($no_header_no_footer)){ ?>
         <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/images/sidebar-2.jpg">    
-        
         	<div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="http://david-ah.com" target="_blank" class="simple-text">
@@ -140,8 +140,10 @@
                 </ul> 
         	</div>
         </div>
-        
+        <?php } ?>
+
         <div class="main-panel">
+            <?php if (!isset($no_header_no_footer)){ ?>
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">    
                     <div class="navbar-header">
@@ -172,20 +174,20 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?= base_url() ?>administrators/user/<?= $this->session->userdata('logged_in')['user_id'] ?>">Profile</a></li>
-                                    <li><a href="auth/logout">Logout</a></li>
+                                    <li><a href="<?= base_url() ?>auth/logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-                         
+            <?php } ?>                 
                          
             <div class="content">
                 <?= $section ?>
             </div>
             
-            
+            <?php if (!isset($no_header_no_footer)){ ?>
             <footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
@@ -193,6 +195,7 @@
                     </p>
                 </div>
             </footer>
+            <?php } ?>
             
         </div>   
 

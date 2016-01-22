@@ -1,6 +1,6 @@
 <div class="form-group">
     <label class="field"><strong><?= $field['name'] ?></strong></label>
-    <input type="text" class="save-input form-control number-<?= $field['complete_name'] ?>" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value="">
+    <input type="text" class="save-input form-control number-<?= $field['complete_name'] ?>" name="<?= $field['complete_name'] ?>" placeholder="<?= $field['name'] ?>" value="<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>">
 </div><hr>
 <script>
 	var numberFormat = function(number, decimals, m, d){
