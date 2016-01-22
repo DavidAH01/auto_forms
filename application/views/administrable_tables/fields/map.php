@@ -46,7 +46,6 @@
                 latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                 map.setCenter(latLng);
                 marker.setPosition(latLng);
-                updateMarkerPosition(latLng);
                 geocodePosition(latLng);
             });
         }
@@ -66,7 +65,6 @@
         });
 
         // Update current position info.
-        updateMarkerPosition(latLng);
         geocodePosition(latLng);
         
         // Add dragging event listeners.

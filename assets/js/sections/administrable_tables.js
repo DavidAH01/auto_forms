@@ -36,6 +36,8 @@ $(document).ready(function(){
 	    	contentType: false,
 	    	processData: false,
 		  	data: data
+		}).done(function() {
+			window.location.href = $('#base_url').val()+'administrable_tables/view/'+$('input[name="current_table"]').val();
 		})
 
 	})

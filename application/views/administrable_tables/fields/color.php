@@ -1,7 +1,7 @@
 <div class="form-group">
     <label class="field"><strong><?= $field['name'] ?></strong></label>
 	<button class="jscolor
-	    {valueElement:'color-<?= $field['complete_name'] ?>', styleElement:'style-<?= $field['complete_name'] ?>', onFineChange:'update(this)'}
+	    {required:false, valueElement:'color-<?= $field['complete_name'] ?>', styleElement:'style-<?= $field['complete_name'] ?>', onFineChange:'update(this)'}
 	    btn btn-default btn-fill pull-right">
 	    Pick a color
 	</button><br><br>

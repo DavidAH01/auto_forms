@@ -40,9 +40,10 @@ Class Administrable_table_model extends CI_Model {
 		return $query->result();
 	}
 
-	function get_images_gallery($gallery){
+	function get_files_gallery($gallery){
 		$this->db->select('*');
 		$this->db->from('upload');
+		$this->db->order_by('order');
 		$this->db->where('gallery_id', $gallery);
 
 		$query = $this->db->get();
@@ -61,6 +62,26 @@ Class Administrable_table_model extends CI_Model {
 			$this->db->where('id', $record);
 			$this->db->update($table, $data);
 		}
+	}
+
+	function save_files_gallery($gallery, $table, $file){
+		$this->db->set('gallery_id', $gallery);
+		$this->db->set('folder', $table);
+		$this->db->set('file', $file);
+		$this->db->set('created_at', date('Y-m-d h:i:s',time()));
+		$this->db->insert('upload');
+	}
+
+	function delete_files_gallery($file){
+		$this->db->where('id', $file);
+		$this->db->delete('upload');
+	}
+
+	function order_files_gallery($data){
+		$file = $data['id'];
+		unset($data['id']);
+		$this->db->where('id', $file);
+		$this->db->update('upload', $data);
 	}
 }
 ?>

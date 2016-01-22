@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Edit <?= ucfirst(str_replace('_', ' ', $current_table)) ?></h4>
+                        <h4 class="title"><?= (isset($record_id) && !empty($record_id))?"Edit":"Create" ?> <?= ucfirst($section_title) ?></h4>
                     </div>
                     <div class="content auto-form">
                         <form enctype="multipart/form-data">
@@ -15,55 +15,24 @@
                                 <?php
                                     foreach ($fields as $field) {
                                         $data = array('field' => $field);
-                                        switch ($field['type']) {
-                                            case 'text':
-                                                $this->load->view($list_fields->text_field, $data);
-                                                break;
-                                            case 'textarea':
-                                                $this->load->view($list_fields->textarea_field, $data);
-                                                break;
-                                            case 'number':
-                                                $this->load->view($list_fields->number_field, $data);
-                                                break;
-                                            case 'datetime':
-                                                $this->load->view($list_fields->datetime_field, $data);
-                                                break;
-                                            case 'color':
-                                                $this->load->view($list_fields->color_field, $data);
-                                                break;
-                                            case 'slider':
-                                                $this->load->view($list_fields->slider_field, $data);
-                                                break;
-                                            case 'select':
-                                                $this->load->view($list_fields->select_field, $data);
-                                                break;
-                                            case 'multiselect':
-                                                $this->load->view($list_fields->multiselect_field, $data);
-                                                break;
-                                            case 'radio':
-                                                $this->load->view($list_fields->radio_field, $data);
-                                                break;
-                                            case 'checkbox':
-                                                $this->load->view($list_fields->checkbox_field, $data);
-                                                break;
-                                            case 'administrator':
-                                                $this->load->view($list_fields->administrator_field, $data);
-                                                break;
-                                            case 'file':
-                                                $this->load->view($list_fields->file_field, $data);
-                                                break;
-                                            case 'map':
-                                                $this->load->view($list_fields->map_field, $data);
-                                                break;
-                                            case 'gallery':
-                                                $this->load->view($list_fields->gallery_field, $data);
-                                                break;
-                                            case 'relation':
-                                                $this->load->view($list_fields->relation_field, $data);
-                                                break;
-                                            case 'multirelation':
-                                                $this->load->view($list_fields->multirelation_field, $data);
-                                                break;
+                                        if( $field['type'] == 'text' ||
+                                            $field['type'] == 'textarea' ||
+                                            $field['type'] == 'number' ||
+                                            $field['type'] == 'datetime' ||
+                                            $field['type'] == 'color' ||
+                                            $field['type'] == 'slider' ||
+                                            $field['type'] == 'select' ||
+                                            $field['type'] == 'multiselect' ||
+                                            $field['type'] == 'radio' ||
+                                            $field['type'] == 'checkbox' ||
+                                            $field['type'] == 'administrator' ||
+                                            $field['type'] == 'file' ||
+                                            $field['type'] == 'map' ||
+                                            $field['type'] == 'gallery' ||
+                                            $field['type'] == 'relation' ||
+                                            $field['type'] == 'multirelation'){
+
+                                            $this->load->view($list_fields->{$field['type'].'_field'}, $data);
                                         }
                                     } 
                                 ?>   

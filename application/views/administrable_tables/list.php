@@ -7,7 +7,7 @@
                         <button type="button" class="btn btn-action btn-danger" id="remove-all">Delete all selected</button>
                         <table class="table table-hover table-striped data-table" data-table="<?= $table ?>">
                             <thead>
-                                <th>order</th>
+                                <th></th>
                                 <?php $i=0; foreach ($fields as $field) { ?>
                                     <?php if ($i <= 2) { ?>
                                         <th><?= $field['name'] ?></th>
@@ -16,7 +16,7 @@
                                 <th></th>
                             </thead>
                             <tfoot>
-                                <th>order</th>
+                                <th></th>
                                 <?php $i=0; foreach ($fields as $field) { ?>
                                     <?php if ($i <= 2) { ?>
                                         <th><?= $field['name'] ?></th>

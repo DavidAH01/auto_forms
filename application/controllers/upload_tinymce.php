@@ -7,6 +7,9 @@ class Upload_tinymce extends CI_Controller {
 	}
 
 	function index(){
+        if (!file_exists('./uploads/tinymce/'))
+            mkdir('./uploads/tinymce/', 0777, true);
+
 		$config['upload_path']          = './uploads/tinymce/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 1000; // Maximun size 10mb

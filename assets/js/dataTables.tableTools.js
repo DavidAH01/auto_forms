@@ -3064,7 +3064,7 @@ TableTools.classes_themeroller = {
  * @namespace TableTools default settings for initialisation
  */
 TableTools.DEFAULTS = {
-	"sSwfPath":        "assets/swf/copy_csv_xls_pdf.swf",
+	"sSwfPath":        "/auto_forms/assets/swf/copy_csv_xls_pdf.swf",
 	"sRowSelect":      "none",
 	"sRowSelector":    "tr",
 	"sSelectedClass":  null,

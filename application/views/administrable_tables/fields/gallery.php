@@ -1,6 +1,6 @@
 <?php
 	$gallery_id = urlencode(substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22));
-	$gallery_id = str_replace(array('/'), array(''), $gallery_id);
+	$gallery_id = strtr($gallery_id, array('+' => '.', '/' => '.')); 
 ?>
 <input type="hidden" class="save-input" name="<?= $field['complete_name'] ?>" value="<?= $gallery_id ?>">
 <div class="form-group">

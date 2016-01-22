@@ -2967,6 +2967,19 @@ span.option-radio{
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
+  height: 38px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.clear-file{
+  font-size: 2em;
+  padding: 7px 7px 5px;
+  line-height: 0;
+  float: right;
+  margin-top: -40px;
+  border-width: 0px;
+  color: black;
 }
 
 .path-file{
@@ -2986,6 +2999,46 @@ span.option-radio{
 
 .fileUpload-iframe{
   margin-top: 0 !important;
+  position: fixed;
+  right: 10px;
+}
+
+.content-files-gallery li{
+  display: inline-block;
+  position: relative;
+  float: left;
+  margin: 10px;
+  width: 200px;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.content-files-gallery .delete-file{
+  display: block;
+  float: left;
+  width: 24px;
+  height: 24px;
+  background: #fff url(../images/close.png) center center;
+  background-size: 100%;
+  border-radius: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+
+.content-files-gallery .content-image{
+  display: block;
+  float: left;
+  width: 200px;
+  cursor: pointer;
+  height: 150px;
+  overflow: hidden;
+}
+
+.content-files-gallery li img{
+  max-height: 150px;
+  max-width: 100%;
 }
 
 @media (min-width: 992px) {
