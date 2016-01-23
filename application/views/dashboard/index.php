@@ -19,7 +19,7 @@
                         <h4 class="title">Tasks</h4>
                         <p class="category">To-Do list</p>
                        
-                        <?php if( !$tasks) { ?>
+                        <?php if(!$tasks) { ?>
                             <h5 class="title empty-task"><br><br><i class="pe-7s-medal"></i> Congratulations, you don't have pending tasks</h5>
                         <?php } ?>
                     </div>
@@ -34,10 +34,10 @@
                                                 <input type="checkbox" value="<?= $task->id ?>" data-toggle="checkbox" <?= ($task->state == 1)?'checked=""':'' ?> >
                                             </label>
                                         </td>
-                                        <td><?= $task->description ?> <?= ($task->is_private == 1)?'<i class="pe-7s-lock"></i>':'' ?></td>
+                                        <td><?= $task->description ?> <?= ($task->is_private == 1)?'<i class="pe-7s-lock" rel="tooltip" title="Private"></i>':'' ?></td>
                                         <?php if($task->administrator_id == $this->session->userdata('logged_in')['user_id']){ ?>
                                             <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="edit-task btn btn-warning btn-simple btn-xs" data-toggle="modal" data-target="#edit-task" data-task="<?= $task->id ?>" data-description="<?= $task->description ?>" data-privacy="<?= $task->is_private ?>">
+                                                <button type="button" rel="tooltip" title="Edit Task" class="edit-task btn btn-warning btn-simple btn-xs" data-task="<?= $task->id ?>" data-description="<?= $task->description ?>" data-privacy="<?= $task->is_private ?>">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
                                                 <button type="button" rel="tooltip" title="Remove" class="delete-task btn btn-default btn-simple btn-xs" data-task="<?= $task->id ?>"> 
@@ -112,7 +112,7 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label>Privacy</label>
-                                                    <select name="privacy" class="form-control">
+                                                    <select name="privacy" class="form-control select-privacy">
                                                         <option value="0">Public</option>
                                                         <option value="1">Private</option>
                                                     </select>

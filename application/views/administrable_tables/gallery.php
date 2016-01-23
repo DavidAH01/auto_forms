@@ -56,7 +56,7 @@
                     icon: "pe-7s-check",
                     message: "The file has been deleted!"
                 },{
-                    type: 'danger',
+                    type: 'warning',
                     timer: 4000,
                     placement: {
                         from: 'top',

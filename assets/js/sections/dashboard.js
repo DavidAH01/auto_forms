@@ -29,7 +29,7 @@ $(document).ready(function(){
                     icon: "pe-7s-check",
                     message: "The task has been deleted!"
                 },{
-                    type: 'danger',
+                    type: 'warning',
                     timer: 4000,
                     placement: {
                         from: 'bottom',
@@ -40,27 +40,22 @@ $(document).ready(function(){
 		}
     })
 
-    $(document).on('click', '.edit-task', function(){
-    	var id = $(this).attr('data-task');
-    	var description = $(this).attr('data-description');
-    	var is_private = $(this).attr('data-privacy');
-
+    $(document).on('click', 'button.edit-task', function(){
+        var el = $(this);
+        $('#edit-task').modal({
+            show: true
+        });
+        var id = el.attr('data-task');
+    	var description = el.attr('data-description');
+    	var is_private = el.attr('data-privacy');
     	$('#form-edit-task textarea').val(description);
-
-    	if (is_private == 1){
-    		$('.radio-private input').radiocheck('check');
-    	}else{
-    		$('.radio-public input').radiocheck('check');
-    	}
-
+        $('.select-privacy').val(is_private);
     	$('.update-task').attr('data-task', id);
-    	$('#privacy').attr('checked', true);
-
     })
 
     $('.create-task').click(function(){
     	var description = $('#form-create-task textarea').val();
-    	var is_private = $('#form-create-task input[type="radio"]:checked').val();
+    	var is_private = $('#form-create-task select option:selected').val();
     	if (description != '') {
     		$.ajax({
 			  	url: $('#base_url').val()+'dashboard/create_task',
@@ -73,7 +68,7 @@ $(document).ready(function(){
 
 			  	var is_private = ''
 			  	if (response[0].is_private == 1)
-			  		is_private = ' <i class="pe-7s-lock"></i>';
+			  		is_private = ' <i class="pe-7s-lock" rel="tooltip" title="Private"></i>';
 
 			  	var template = '<tr id="tr-task-'+response[0].id+'">\
                                     <td>\
@@ -102,7 +97,7 @@ $(document).ready(function(){
                     icon: "pe-7s-check",
                     message: "The task has been created!"
                 },{
-                    type: 'info',
+                    type: 'warning',
                     timer: 4000,
                     placement: {
                         from: 'bottom',
@@ -114,10 +109,9 @@ $(document).ready(function(){
     })
 
 	$('.update-task').click(function(){
-		alert('click')
 		var id = $('.update-task').attr('data-task');
     	var description = $('#form-edit-task textarea').val();
-    	var is_private = $('#form-edit-task input[type="radio"]:checked').val();
+    	var is_private = $('#form-edit-task select option:selected').val();
     	if (description != '') {
     		$.ajax({
 			  	url: $('#base_url').val()+'dashboard/edit_task',

@@ -14,7 +14,7 @@ $(document).ready(function(){
         		icon: "pe-7s-check",
         		message: "The configuration has been updated!"
 	        },{
-	            type: 'info',
+	            type: 'warning',
 	            timer: 4000,
 	            placement: {
 	                from: 'bottom',

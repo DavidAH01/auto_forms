@@ -28,7 +28,7 @@ $(document).ready(function(){
 			        		icon: "pe-7s-info",
 			        		message: "This email is already registered!"
 				        },{
-				            type: 'danger',
+				            type: 'warning',
 				            timer: 4000,
 				            placement: {
 				                from: 'bottom',
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	        		icon: "pe-7s-info",
 	        		message: "The email is invalid!"
 		        },{
-		            type: 'danger',
+		            type: 'warning',
 		            timer: 4000,
 		            placement: {
 		                from: 'bottom',
@@ -58,7 +58,7 @@ $(document).ready(function(){
         		icon: "pe-7s-info",
         		message: "Name, email and password are required!"
 	        },{
-	            type: 'danger',
+	            type: 'warning',
 	            timer: 4000,
 	            placement: {
 	                from: 'bottom',
@@ -126,7 +126,7 @@ $(document).ready(function(){
 	        		icon: "pe-7s-info",
 	        		message: "The email is invalid!"
 		        },{
-		            type: 'danger',
+		            type: 'warning',
 		            timer: 4000,
 		            placement: {
 		                from: 'bottom',
@@ -139,7 +139,7 @@ $(document).ready(function(){
         		icon: "pe-7s-info",
         		message: "Name, email are required!"
 	        },{
-	            type: 'danger',
+	            type: 'warning',
 	            timer: 4000,
 	            placement: {
 	                from: 'bottom',

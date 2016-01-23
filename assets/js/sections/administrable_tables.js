@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	var url = window.location.href;
+	$('a[href="'+window.location.href+'"]').parent('li').addClass('active');
+	$('a[href="'+window.location.href.replace('create','view')+'"]').parent('li').addClass('active');
+	$('a[href^="'+window.location.href.replace('edit','view').replace('?record=','').replace(/\d+/g, '')+'"]').parent('li').addClass('active');
+
 	$('.create-auto-form').click(function(e){
 		e.preventDefault();
 		var data = new FormData();
@@ -64,7 +69,6 @@ $(document).ready(function(){
 		$.each($("input[type=file]"), function(i, obj) {
 	        $.each(obj.files,function(j,file){
 	            data.append('file['+$(obj).attr('name')+']', file);
-	            console.log(file);
 	        })
 		});
 
@@ -85,7 +89,7 @@ $(document).ready(function(){
         		icon: "pe-7s-check",
         		message: "The information has been updated!"
 	        },{
-	            type: 'info',
+	            type: 'warning',
 	            timer: 4000,
 	            placement: {
 	                from: 'bottom',

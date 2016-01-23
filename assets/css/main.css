@@ -2903,7 +2903,8 @@ table tfoot input{
   padding-bottom: 0;
 }
 
-.create-task{
+.create-task,
+.update-task{
   margin-top: 11px;
 }
 
