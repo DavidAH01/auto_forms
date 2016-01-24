@@ -5,7 +5,7 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		authenticate();
 
-		$this->load->model('dashboard/task_model');
+		$this->load->model('task_model');
 	}
 
 	function index(){
@@ -18,23 +18,23 @@ class Dashboard extends CI_Controller {
 	}
 
 	function create_task(){
-		$task = $this->task_model->create_task( $this->session->userdata('logged_in')['user_id'], $this->input->post('description'), $this->input->post('is_private') ); 
+		$task = $this->task_model->create_task($this->session->userdata('logged_in')['user_id'], $this->input->post('description'), $this->input->post('is_private')); 
 		$this->output
         			->set_content_type('application/json')
         			->set_output(json_encode($task));
 	}
 
 	function edit_task(){
-		$this->task_model->edit_task( $this->input->post('id'), $this->input->post('description'), $this->input->post('is_private') ); 
+		$this->task_model->edit_task($this->input->post('id'), $this->input->post('description'), $this->input->post('is_private')); 
 	}
 
 	function change_state_task(){
-		$this->task_model->change_state_task( $this->input->post('id'), $this->input->post('state') ); 
+		$this->task_model->change_state_task($this->input->post('id'), $this->input->post('state')); 
 	}
 
 	function delete_task(){
 		echo $this->input->post('id');
-		$this->task_model->delete_task( $this->input->post('id')  ); 
+		$this->task_model->delete_task($this->input->post('id')); 
 	}
 }
 ?>

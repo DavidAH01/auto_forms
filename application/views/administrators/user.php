@@ -33,6 +33,7 @@
                                 </div>
                             </div>
                             
+                            <?php if(is_super_administrator()){ ?>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -71,6 +72,7 @@
                                     </div>        
                                 </div>
                             </div>
+                            <?php } ?>
                             
                             <br><br>
                             <?php if(isset($user) && $user->is_super_administrator == 1){ ?>

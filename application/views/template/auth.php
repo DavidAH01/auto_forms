@@ -10,6 +10,9 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     
+    <!-- Animation library for notifications   -->
+    <link href="<?= base_url() ?>assets/css/animate.min.css" rel="stylesheet"/>
+
     <!-- Bootstrap core CSS     -->
     <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet" />
   
@@ -44,8 +47,11 @@
     <!--   Core JS Files   -->
     <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-
+    
+    <!--  Notifications Plugin    -->
+    <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
+    
     <!-- Auto_Forms Core JS -->
-    <script src="<?= base_url() ?>assets/js/sections/login.js"></script>
+    <script src="<?= base_url() ?>assets/js/sections/auth.js"></script>
 	
 </html>

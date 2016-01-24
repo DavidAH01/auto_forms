@@ -3,7 +3,7 @@ Class Administrable_table_model extends CI_Model {
 
 	function get_tables(){
 		$this->db->select('*');
-		$this->db->from('Administrable_table');
+		$this->db->from('administrable_table');
 
 		$query = $this->db->get();
 		return $query->result();
@@ -11,21 +11,21 @@ Class Administrable_table_model extends CI_Model {
 
 	function get_table($table){
 		$this->db->select('*');
-		$this->db->from($table);
+		$this->db->from(strtolower($table));
 
 		$query = $this->db->get();
 		return $query->result();
 	}
 
 	function get_fields_table($table){
-		$sql = "SHOW FULL COLUMNS FROM ".$table;
+		$sql = "SHOW FULL COLUMNS FROM ".strtolower($table);
 		$query = $this->db->query($sql);
 		return $query->result();			
 	}
 
 	function get_records_table($table){
 		$this->db->select('*');
-		$this->db->from($table);
+		$this->db->from(strtolower($table));
 
 		$query = $this->db->get();
 		return $query->result();
@@ -33,7 +33,7 @@ Class Administrable_table_model extends CI_Model {
 
 	function get_record_table($table, $record){
 		$this->db->select('*');
-		$this->db->from($table);
+		$this->db->from(strtolower($table));
 		$this->db->where('id', $record);
 
 		$query = $this->db->get();
@@ -62,17 +62,17 @@ Class Administrable_table_model extends CI_Model {
 
 		if (is_null($record)) {
 			$data['created_at'] = date('Y-m-d h:i:s',time());
-			$this->db->insert($table, $data);
+			$this->db->insert(strtolower($table), $data);
 		}else{
 			$data['updated_at'] = date('Y-m-d h:i:s',time());
 			$this->db->where('id', $record);
-			$this->db->update($table, $data);
+			$this->db->update(strtolower($table), $data);
 		}
 	}
 
 	function save_files_gallery($gallery, $table, $file){
 		$this->db->set('gallery_id', $gallery);
-		$this->db->set('folder', $table);
+		$this->db->set('folder', strtolower($table));
 		$this->db->set('file', $file);
 		$this->db->set('created_at', date('Y-m-d h:i:s',time()));
 		$this->db->insert('upload');

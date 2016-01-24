@@ -8,7 +8,7 @@
                         <p class="category">In real time</p>
                     </div>
                     <div class="content">                               
-                        <iframe src="<?= str_replace('auto_forms', '', base_url()) ?>" frameborder="0" id="iframe-real-time"></iframe>
+                        <iframe src="#" frameborder="0" id="iframe-real-time"></iframe>
                     </div>
                 </div>
             </div>

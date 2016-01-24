@@ -3,7 +3,8 @@ class Auth extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('auth/auth_model');
+		$this->load->model('auth_model');
+		$this->load->model('administrator_model');
 	}
 
 	function index(){
@@ -16,7 +17,6 @@ class Auth extends CI_Controller {
 	function verify() {
 		$this->form_validation->set_rules('name', 'Name', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
-
 		if($this->form_validation->run()) {
 			redirect('/dashboard', 'refresh');
 		}else{
@@ -30,11 +30,8 @@ class Auth extends CI_Controller {
 	function check_database($password){
 		$name = $this->input->post('name');
 		$password = $this->input->post('password');
-
 		$result = $this->auth_model->login($name);
-
 		if($result){
-			$session_array = array();
 			foreach($result as $row){
 				if (crypt($password, $row->password) == $row->password){
 				    $session_array = array(
@@ -57,53 +54,65 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	function change_password(){
-		autenticate();
-		$data['section'] = '/auth/change_password';
-		$this->load->view('/template/auth', $data);
-	}
-
 	function update_password(){
-		$this->form_validation->set_rules('password', 'Contraseña', 'trim|required|xss_clean');
-		if($this->form_validation->run()) {
-			$user_id = $this->session->userdata('logged_in')['user_id'];
-			$password = $this->input->post('password');
-			$this->auth_model->change_password($user_id, $password);
-			$data['success'] = 'La contraseña ha sido actualizada';
+		$user = $this->session->userdata('logged_in');
+    	if (empty($user['name']) || empty($user['user_id']) && !empty($this->input->get('token'))){
+     		$token = explode('/-/', base64_decode($this->input->get('token')));
+     		$data['id'] = $token[0];
+     		$data['hash'] = $token[1];
+     		$verify = $this->auth_model->verify_recovery($data['id'], $data['hash']);
+     		if ($verify) {
+     			$data['section'] = $this->load->view('/auth/update_password', $data, true);
+				$this->load->view('/template/auth', $data);
+     		}else{
+     			redirect('main', 'refresh');
+     		}
+		}else{
+			redirect('main', 'refresh');		
 		}
-
-		$data['section'] = '/login/change_password';
-		$this->load->view('/template/auth', $data);
-		
 	}
 
-	function forgotten_password(){
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
-		
+	function save_password(){
+		$verify = $this->auth_model->verify_recovery($this->input->post('id'), $this->input->post('hash'));
+ 		if ($verify) {
+ 			$data['id'] = $this->input->post('id');
+ 			$data['password'] = $this->input->post('password');
+ 			$this->administrator_model->edit_administrator($data);
+			$this->output
+        			->set_content_type('application/json')
+        			->set_output(json_encode(array('error' => 0)));
+ 		}else{
+ 			$this->output
+        			->set_content_type('application/json')
+        			->set_output(json_encode(array('error' => 1)));
+ 		}
+	}
+
+	function recover_password(){
+		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		if($this->form_validation->run()) {
-			$email = $this->input->post('email');
-
-			$password = rand (19238312,1283719292318);
-			$this->auth_model->forgotten_password($email, $password, $tipo);
-
-			$this->load->library('email');
-			$config['mailtype'] = 'html';
-			$this->email->initialize($config);
-
-			$this->email->from('not-reply@auto_forms.com', 'Auto_Forms');
-			$this->email->to($email); 
-
-			$this->email->subject('New password');
-			$this->email->message('We have received a request for recovery password for access to our content manager.<br><br>Your new password is: '.$password.'<br><br> Remember, to access our module you must click on the following link (or copy it into the address bar of your browser) and type your username and new password.<br><br><a href="'.base_url().'/auto_forms">'.base_url().'/auto_forms</a><br><br>');	
-
+			$data['email'] = $this->input->post('email');
+			$data['hash'] = urlencode(substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22));
+			$data['hash'] = strtr($data['hash'], array('+' => '.', '/' => '.', '%' => '.')); 
+			$user = $this->auth_model->get_user_by_email($data['email']);
+			$data['id'] = $user->id;
+			$data['name'] = $user->name;
+			$this->auth_model->recover_password($data['email'], $data['hash']);
+			$this->load->library('email', config_mail());
+			$this->email->set_mailtype("html");
+			$this->email->from('no-reply@autoforms.com', 'Auto Forms');
+			$this->email->to($data['email']); 
+			$this->email->subject('Reset password - Auto_Foms');
+			$this->email->message($this->load->view('mail/recover_password',$data,true));	
 			$this->email->send();
-
-			$data['success'] = 'We sent an email with instructions income.';
+			$this->output
+        			->set_content_type('application/json')
+        			->set_output(json_encode(array('error' => 0)));
+		}else{
+			$this->output
+        			->set_content_type('application/json')
+        			->set_output(json_encode(array('error' => 1)));
 		}
-
-		$data['section'] = '/auth/login';
-		$this->load->view('/template/auth', $data);
-		
 	}
 
 	function logout(){

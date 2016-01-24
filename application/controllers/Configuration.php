@@ -6,7 +6,7 @@
 			authenticate();
 			only_super_administrator();
 
-			$this->load->model('configuration/configuration_model');
+			$this->load->model('configuration_model');
 		}
 
 		function index(){

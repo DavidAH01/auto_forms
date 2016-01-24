@@ -99,7 +99,7 @@ $(document).ready(function(){
 			        		icon: "pe-7s-info",
 			        		message: "This email is already registered!"
 				        },{
-				            type: 'danger',
+				            type: 'warning',
 				            timer: 4000,
 				            placement: {
 				                from: 'bottom',
@@ -111,7 +111,7 @@ $(document).ready(function(){
 			        		icon: "pe-7s-check",
 			        		message: "The information has been updated!"
 				        },{
-				            type: 'info',
+				            type: 'warning',
 				            timer: 4000,
 				            placement: {
 				                from: 'bottom',

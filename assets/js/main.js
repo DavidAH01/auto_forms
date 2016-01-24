@@ -17,10 +17,10 @@ $(document).ready(function(){
         lbd.initRightMenu();   
     }
      
-    //  Activate the tooltips   
+    // Activate the tooltips   
     $('[rel="tooltip"]').tooltip();
 
-    //      Activate the switches with icons 
+    // Activate the switches with icons 
     if($('.switch').length != 0){
         $('.switch')['bootstrapSwitch']();
     }  
@@ -28,6 +28,13 @@ $(document).ready(function(){
     if($("[data-toggle='switch']").length != 0){
          $("[data-toggle='switch']").wrap('<div class="switch" />').parent().bootstrapSwitch();     
     }
+
+    // Activate links
+    var url = window.location.href;
+    $('a[href="'+window.location.href+'"]').parent('li').addClass('active');
+    $('a[href="'+window.location.href.replace('create','view')+'"]').parent('li').addClass('active');
+    $('a[href^="'+window.location.href.replace('edit','view').replace('?record=','').replace(/\d+/g, '')+'"]').parent('li').addClass('active');
+
      
     $('.form-control').on("focus", function(){
         $(this).parent('.input-group').addClass("input-group-focus");

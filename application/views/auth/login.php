@@ -50,13 +50,13 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="email" class="form-control recovery-email" placeholder="Email">
                                     </div>        
                                 </div>
                             </div>
-                            <button class="btn btn-warning" id="close-recover">Cancel</button>
+                            <button class="btn btn-link" id="close-recover">Cancel</button>
 
-                            <button type="submit" class="btn btn-warning btn-fill pull-right">Recover</button>
+                            <button class="recover-password btn btn-warning btn-fill pull-right">Recover</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

@@ -1,9 +1,4 @@
 $(document).ready(function(){
-	var url = window.location.href;
-	$('a[href="'+window.location.href+'"]').parent('li').addClass('active');
-	$('a[href="'+window.location.href.replace('create','view')+'"]').parent('li').addClass('active');
-	$('a[href^="'+window.location.href.replace('edit','view').replace('?record=','').replace(/\d+/g, '')+'"]').parent('li').addClass('active');
-
 	$('.create-auto-form').click(function(e){
 		e.preventDefault();
 		var data = new FormData();

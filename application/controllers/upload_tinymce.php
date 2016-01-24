@@ -21,7 +21,7 @@ class Upload_tinymce extends CI_Controller {
                 $this->return_json(array('error' => $error));
         }else{
                 $data = array('upload_data' => $this->upload->data());
-                $this->return_json(array('error' => false,'path' => base_url().'uploads/tinymce/'.$data['upload_data']['file_name']));
+                $this->return_json(array('error' => false, 'path' => base_url().'uploads/tinymce/'.$data['upload_data']['file_name']));
         }
 	}
 

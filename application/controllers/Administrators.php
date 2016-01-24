@@ -5,7 +5,7 @@
 			parent::__construct();
 			authenticate();
 
-			$this->load->model('administrator/administrator_model');
+			$this->load->model('administrator_model');
 		}
 
 		function index(){
@@ -83,15 +83,3 @@
 		}
 	}
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
