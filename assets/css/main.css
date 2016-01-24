@@ -2867,7 +2867,8 @@ table tfoot input{
   margin-left: 24px;
 }
 
-#remove-all {
+#remove-all,
+#remove-all-administrable-tables {
   display: none;
   float: left;
   margin-top: -3px;

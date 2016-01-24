@@ -94,5 +94,24 @@ $(document).ready(function(){
 		})
 	});
 
+	$(document).on('click', '#remove-all-administrable-tables', function(){
+		var response = confirm("Are you sure?");
+		if (response == true) {
+		    var array_delete = [];
+			$('tr[role="row"].selected').each(function(){
+				var id = $(this).attr('id');
+				array_delete.push(id);
+			})
+
+			$.ajax({
+			  	url: $('#base_url').val()+'administrable_tables/delete_records',
+			  	method: 'post',
+			  	data: { records: array_delete, table: $('#remove-all-administrable-tables').attr('data-table')}
+			}).done(function(response) {
+				location.reload();
+			});
+	
+		}
+	})
 	
 })

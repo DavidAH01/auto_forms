@@ -83,10 +83,13 @@ $(document).ready(function(){
     $('.data-table tbody').on( 'click', 'tr', function () {
         $(this).toggleClass('selected');
 
-        if (table.rows('.selected').data().length > 0)
+        if (table.rows('.selected').data().length > 0){
             $('#remove-all').fadeIn(0);
-        else
+            $('#remove-all-administrable-tables').fadeIn(0);
+        }else{
             $('#remove-all').fadeOut(0);
+            $('#remove-all-administrable-tables').fadeOut(0);
+        }
     });
 
     tinymce.init({

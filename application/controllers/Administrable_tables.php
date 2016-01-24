@@ -91,6 +91,14 @@ class Administrable_tables extends CI_Controller {
 		$this->administrable_table_model->save_table($table, $record, $data);
 	}
 
+	function delete(){
+		$table = $this->uri->segment(3, 0);
+		$record = $this->input->get('record');
+		$this->administrable_table_model->delete_record_table($table, $record);
+
+		redirect('administrable_tables/view/'.$table, 'refresh');
+	}
+
 	function fields($table, $for_view = false){
 		$fields = $this->administrable_table_model->get_fields_table($table);
 		$data['fields'] = array();
@@ -233,6 +241,14 @@ class Administrable_tables extends CI_Controller {
 
 	function order_files(){
 		$this->administrable_table_model->order_files_gallery($this->input->post());
+	}
+
+	function delete_records(){
+		$table = $this->input->post('table');
+		$records = $this->input->post('records');
+		for ($i=0; $i < count($records); $i++) { 
+			$this->administrable_table_model->delete_record_table($table, $records[$i]);
+		}
 	}
 }
 ?>

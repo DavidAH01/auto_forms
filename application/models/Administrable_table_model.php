@@ -40,6 +40,11 @@ Class Administrable_table_model extends CI_Model {
 		return $query->row();
 	}
 
+	function delete_record_table($table, $record){
+		$this->db->where('id', $record);
+		$this->db->delete($table);
+	}
+
 	function order_records_table($record, $table, $order){
 		$this->db->set('record_order', $order);
 		$this->db->where('id', $record);
