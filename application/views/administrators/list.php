@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card table-content">
                     <div class="content table-responsive table-full-width">
-                        <button type="button" class="btn btn-action btn-danger" id="remove-all">Delete all selected</button>
+                        <button type="button" class="btn btn-action btn-default remove-all-data" id="remove-all">Delete all selected</button>
                         <table class="table table-hover table-striped data-table">
                             <thead>
                             	<th>Name</th>
@@ -29,7 +29,7 @@
                                 	<td><?= ($administrator->is_super_administrator == 1)?"yes":"no" ?></td>
                                     <td>
                                         <a href="<?= base_url() ?>administrators/user/<?= $administrator->id ?>"><button type="button" class="btn btn-action btn-warning btn-fill">Edit</button></a>
-                                        <a href="<?= base_url() ?>administrators/delete/<?= $administrator->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-warning">Delete</button></a>
+                                        <a href="<?= base_url() ?>administrators/delete/<?= $administrator->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-default">Delete</button></a>
                                     </td>
                                 </tr>
                             <?php } ?>

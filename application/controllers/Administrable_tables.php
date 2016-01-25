@@ -165,6 +165,7 @@ class Administrable_tables extends CI_Controller {
 		$list_fields->gallery_field = '/administrable_tables/fields/gallery';
 		$list_fields->relation_field = '/administrable_tables/fields/relation';
 		$list_fields->multirelation_field = '/administrable_tables/fields/multirelation';
+		$list_fields->steps_field = '/administrable_tables/fields/steps';
 
 		return $list_fields;
 	}

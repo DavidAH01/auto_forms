@@ -139,6 +139,16 @@ body,
   position: relative;
 }
 
+::selection {
+  background: #FF9500;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #FF9500;
+  color: #fff;
+}
+
 a {
   color: #FF9500;
 
@@ -199,6 +209,11 @@ input:focus {
   -o-transition: all 100ms ease-in;
   -ms-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
+}
+
+.btn-create-header{
+  display: inline;
+  float: left;
 }
 
 .fa {
@@ -2826,6 +2841,14 @@ span.option-simple{
     border-color: #ddd;
 }
 
+table > *{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
 table thead th{
   font-weight: bold !important;
 }
@@ -2838,6 +2861,16 @@ table tfoot input{
   font-weight: normal;
 }
 
+.remove-all-data{
+  border-width: 1px !important;
+  border-radius: 0 !important;
+  border-color: #E3E3E3; 
+}
+
+.remove-all-data:hover{
+  border-color: #E3E3E3 !important; 
+}
+   
 .dataTables_length{
   float: left;
 }
@@ -3004,11 +3037,11 @@ span.option-radio{
 
 .clear-file{
   font-size: 2em;
-  padding: 7px 7px 5px;
+  padding: 7px 7px 5px !important;
   line-height: 0;
   float: right;
   margin-top: -40px;
-  border-width: 0px;
+  border-width: 0px !important;
   color: black;
 }
 
@@ -3069,6 +3102,15 @@ span.option-radio{
 .content-files-gallery li img{
   max-height: 150px;
   max-width: 100%;
+}
+
+.clone-wrapper{
+  background-color: #F7F7F8;
+  padding: 10px 15px 0;
+}
+
+.clone-wrapper .clone{
+  margin-right: 10px;
 }
 
 @media (min-width: 992px) {
@@ -3161,6 +3203,10 @@ span.option-radio{
     display: none;
   }
 
+  .sidebar.auth{
+    display: block;
+  }
+
   .main-panel {
     width: 100%;
   }
@@ -3245,7 +3291,9 @@ span.option-radio{
     width: 100%;
   }
   body > .navbar-collapse .nav > li > a {
-    padding: 30px 25px;
+    padding: 15px 25px;
+    color: #fff;
+    opacity: .7;
   }
   body > .navbar-collapse::before {
     top: 0;
@@ -3598,6 +3646,7 @@ span.option-radio{
   [class*="navbar-"] .navbar-nav .open .dropdown-menu > li > a:focus,
   [class*="navbar-"] .navbar-nav .navbar-nav .open .dropdown-menu > li > a:active {
     color: white;
+    opacity: 1 !important;
   }
   [class*="navbar-"] .navbar-nav > li > a,
   [class*="navbar-"] .navbar-nav > li > a:hover,

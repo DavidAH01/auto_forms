@@ -9,7 +9,8 @@ $(document).ready(function(){
 		$('.content-recover-password').fadeIn(0)
 	})
 
-	$('#close-recover').click(function(){
+	$('#close-recover').click(function(e){
+		e.preventDefault();
 		$('#forgot-password').fadeIn(0);
 		$('.content-login').fadeIn(0);
 		$('.content-recover-password').fadeOut(0);
@@ -101,9 +102,7 @@ $(document).ready(function(){
 			            }
 			        });
 				}
-			  	
 			});
 		}
 	})
-
 })

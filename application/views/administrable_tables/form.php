@@ -33,7 +33,8 @@
                                             $field['type'] == 'map' ||
                                             $field['type'] == 'gallery' ||
                                             $field['type'] == 'relation' ||
-                                            $field['type'] == 'multirelation'){
+                                            $field['type'] == 'multirelation' ||
+                                            $field['type'] == 'steps'){
 
                                             $this->load->view($list_fields->{$field['type'].'_field'}, $data);
                                         }

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <input type="hidden" id="base_url" value="<?= base_url(); ?>">
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -79,6 +80,9 @@
     
     <!-- ColorPicker JS -->
     <script src="<?= base_url() ?>assets/js/jscolor.min.js"></script>
+
+    <!-- Cloneya JS -->
+    <script src="<?= base_url() ?>assets/js/jquery-cloneya.min.js"></script>
     
     <!-- Auto_Forms Core JS -->
     <script src="<?= base_url() ?>assets/js/main.js"></script>
@@ -89,7 +93,6 @@
 
 </head>
 <body> 
-    <input type="hidden" id="base_url" value="<?= base_url(); ?>">
     <div class="wrapper">
         <?php if (!isset($no_header_no_footer)){ ?>
         <div class="sidebar" data-color="black" data-image="<?= base_url() ?>assets/images/sidebar-2.jpg">    
@@ -163,15 +166,14 @@
                         </button>
                         <a class="navbar-brand" href="#">
                             <?= $section_title  ?>
-
-                            <?php if(is_super_administrator() && $section_title == "Administrators"){ ?>
-                                <a href="<?= base_url() ?>administrators/create"><button type="submit" class="btn btn-warning btn-sm">Create</button></a>
-                            <?php } ?>
-
-                            <?php if(isset($administrable_table)){ ?>
-                                <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>"><button type="submit" class="btn btn-warning btn-sm">Create</button></a>
-                            <?php } ?>
                         </a>
+                        <?php if(is_super_administrator() && $section_title == "Administrators"){ ?>
+                            <a href="<?= base_url() ?>administrators/create" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm">New</button></a>
+                        <?php } ?>
+
+                        <?php if(isset($administrable_table)){ ?>
+                            <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm">New</button></a>
+                        <?php } ?>
                     </div>
                     <div class="collapse navbar-collapse">       
                         <ul class="nav navbar-nav navbar-right">

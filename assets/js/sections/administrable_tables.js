@@ -24,6 +24,27 @@ $(document).ready(function(){
 	        })
 		});
 
+		if ($('.clone-wrapper').length > 0) {
+			$('.clone-wrapper').each(function(index, el) {
+				var field, steps = [];
+				field = $(el).attr('data-field');
+				$(el).find('.toclone').each(function(index, el) {
+					var obj = {}
+					$(el).find('.info-step').each(function(index_input, el) {
+						var type = $(el).attr('data-type')
+						var name = $(el).attr('name');
+						var value = $(el).val()
+						if (type == "textarea")
+							value = tinyMCE.get('content-'+field+'-'+index).getContent()
+
+						obj[name] = value;
+					});
+					steps.push(obj);
+				});
+				data.append(field, JSON.stringify(steps));
+			});
+		}
+
 		$.each(data, function(key, value) {
 		    if (Array.isArray(value))
 		    	data[key] = value.join();
@@ -67,6 +88,27 @@ $(document).ready(function(){
 	        })
 		});
 
+		if ($('.clone-wrapper').length > 0) {
+			$('.clone-wrapper').each(function(index, el) {
+				var field, steps = [];
+				field = $(el).attr('data-field');
+				$(el).find('.toclone').each(function(index, el) {
+					var obj = {}
+					$(el).find('.info-step').each(function(index_input, el) {
+						var type = $(el).attr('data-type')
+						var name = $(el).attr('name');
+						var value = $(el).val()
+						if (type == "textarea")
+							value = tinyMCE.get('content-'+field+'-'+index).getContent()
+
+						obj[name] = value;
+					});
+					steps.push(obj);
+				});
+				data.append(field, JSON.stringify(steps));
+			});
+		}
+
 		$.each(data, function(key, value) {
 		    if (Array.isArray(value))
 		    	data[key] = value.join();
@@ -92,6 +134,7 @@ $(document).ready(function(){
 	            }
 	        });
 		})
+
 	});
 
 	$(document).on('click', '#remove-all-administrable-tables', function(){
@@ -114,4 +157,25 @@ $(document).ready(function(){
 		}
 	})
 	
-})
+});
+
+function reset_tinymce_clones(){
+	tinymce.init({
+        selector: 'textarea.tinymce-small',
+        height: 300,
+        theme: 'modern',
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code imageupload sh4tinymce'
+          ],
+        toolbar: 'insertfile undo redo | bullist numlist outdent indent | imageupload | sh4tinymce',
+        image_advtab: true,
+        content_css: [
+            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+            '//www.tinymce.com/css/codepen.min.css'
+        ],
+        relative_urls: false,
+        imageupload_url: $('#base_url').val()+'upload_tinymce',
+    });
+}

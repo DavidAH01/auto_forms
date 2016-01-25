@@ -2,7 +2,7 @@
     <label class="field"><strong><?= $field['name'] ?></strong></label>
     <div class="row">
         <div class="col-md-6">
-            <div id="<?= $field['complete_name'] ?>" class="map-canvas"></div> 
+            <div id="map_<?= $field['complete_name'] ?>" class="map-canvas"></div> 
         </div>
         <div id="infoPanel" class="col-md-6">
             <label><strong>Current position:</strong></label>
@@ -18,32 +18,32 @@
     var save_position = "<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>";
     var geocoder = new google.maps.Geocoder();
 
-    function geocodePosition(pos) {
+    function geocodePosition_<?= $field['complete_name'] ?>(pos) {
         geocoder.geocode({
             latLng: pos
         }, function(responses) {
           if (responses && responses.length > 0) {
-            updateMarkerAddress(responses[0].formatted_address);
+            updateMarkerAddress_<?= $field['complete_name'] ?>(responses[0].formatted_address);
           } else {
-            updateMarkerAddress('Cannot determine address at this location.');
+            updateMarkerAddress_<?= $field['complete_name'] ?>('Cannot determine address at this location.');
           }
         });
     }
 
-    function updateMarkerPosition(latLng) {
-        document.getElementById('info_<?= $field['complete_name'] ?>').value = [
+    function updateMarkerPosition_<?= $field['complete_name'] ?>(latLng) {
+        document.getElementById("info_<?= $field['complete_name'] ?>").value = [
           latLng.lat(),
           latLng.lng()
         ].join(', ');
     }
 
-    function updateMarkerAddress(str) {
-        document.getElementById('address_<?= $field['complete_name'] ?>').innerHTML = str;
+    function updateMarkerAddress_<?= $field['complete_name'] ?>(str) {
+        document.getElementById("address_<?= $field['complete_name'] ?>").innerHTML = str;
     }
 
     function initialize() {
         var latLng = new google.maps.LatLng(-34.397, 150.644);
-        var map = new google.maps.Map(document.getElementById('<?= $field['complete_name'] ?>'), {
+        var map = new google.maps.Map(document.getElementById("map_<?= $field['complete_name'] ?>"), {
             zoom: 8,
             center: latLng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -55,34 +55,34 @@
             map: map,
             draggable: true
         });
-        geocodePosition(latLng);
+        geocodePosition_<?= $field['complete_name'] ?>(latLng);
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 if(save_position != ''){
                     map.setCenter(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
                     marker.setPosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
-                    geocodePosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+                    geocodePosition_<?= $field['complete_name'] ?>(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
                 }else{
                     latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     map.setCenter(latLng);
                     marker.setPosition(latLng);
-                    geocodePosition(latLng);
+                    geocodePosition_<?= $field['complete_name'] ?>(latLng);
                 }
             });
         }
         
         // Add dragging event listeners.
         google.maps.event.addListener(marker, 'dragstart', function() {
-            updateMarkerAddress('Dragging...');
+            updateMarkerAddress_<?= $field['complete_name'] ?>('Dragging...');
         });
 
         google.maps.event.addListener(marker, 'drag', function() {
-            updateMarkerPosition(marker.getPosition());
+            updateMarkerPosition_<?= $field['complete_name'] ?>(marker.getPosition());
         });
 
         google.maps.event.addListener(marker, 'dragend', function() {
-            geocodePosition(marker.getPosition());
+            geocodePosition_<?= $field['complete_name'] ?>(marker.getPosition());
         });
     }
 
