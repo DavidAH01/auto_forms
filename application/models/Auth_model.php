@@ -19,14 +19,14 @@ Class Auth_model extends CI_Model {
 		$this->db->where('email', $email);
 
 		$query = $this->db->get();
-		return $query = $query->row();
+		return $query->row();
 	}
 
 	function recover_password($email, $hash){
 		$recovery_date = strtotime ('+5 day', strtotime(date('Y-m-d h:i:s')));
 		$recovery_date = date('Y-m-d h:i:s', $recovery_date);
 
-		$this->db->set('updated_at', date('Y-m-d h:i:s',time()));
+		$this->db->set('updated_at', date('Y-m-d h:i:s'));
 		$this->db->set('recovery_hash', $hash);
 		$this->db->set('recovery_date', $recovery_date);
 
@@ -39,7 +39,7 @@ Class Auth_model extends CI_Model {
 		$this->db->from('administrator');
 		$this->db->where('id', $user);
 		$this->db->where('recovery_hash', $hash);
-		$this->db->where('recovery_date >=', date('Y-m-d h:i:s',time()));
+		$this->db->where('recovery_date >=', date('Y-m-d h:i:s'));
 
 		$query = $this->db->get();
 		if ($query->num_rows() > 0)
@@ -48,4 +48,3 @@ Class Auth_model extends CI_Model {
 		return false;
 	}
 }
-?>

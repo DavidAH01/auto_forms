@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title"><?= (isset($record_id) && !empty($record_id))?"Edit":"Create" ?> <?= ucfirst($section_title) ?></h4>
+                        <h4 class="title"><?= (isset($record_id) && !empty($record_id))?$this->lang->line('edit'):$this->lang->line('create') ?> <?= ucfirst($section_title) ?></h4>
                     </div>
                     <div class="content auto-form">
                         <form enctype="multipart/form-data">
@@ -46,10 +46,10 @@
                             <br><br>
                             <?php if(isset($record_id) && !empty($record_id)){ ?>
                                 <input type="hidden" class="save-input" name="record_id" value="<?= $record_id ?>">
-                                <a href="<?= base_url() ?>administrable_tables/delete/<?= $current_table ?>?record=<?= $record_id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-default">Delete</button></a>
+                                <a href="<?= base_url() ?>administrable_tables/delete/<?= $current_table ?>?record=<?= $record_id ?>" onclick="return confirm('<?= $this->lang->line('are_you_sure') ?>')"><button type="button" class="btn btn-action btn-default"><?= $this->lang->line('delete') ?></button></a>
                             <?php } ?>
-                            <a href="<?= base_url() ?>administrable_tables/view/<?= $current_table ?>" class="btn btn-link">Cancel</a>
-                            <button type="submit" class="<?= (isset($record_id) && !empty($record_id))?"update":"create" ?>-auto-form btn btn-warning btn-fill pull-right"><?= (isset($record_id) && !empty($record_id))?"Update":"Create" ?></button>
+                            <a href="<?= base_url() ?>administrable_tables/view/<?= $current_table ?>" class="btn btn-link"><?= $this->lang->line('cancel') ?></a>
+                            <button type="submit" class="<?= (isset($record_id) && !empty($record_id))?"update":"create" ?>-auto-form btn btn-warning btn-fill pull-right"><?= (isset($record_id) && !empty($record_id))?$this->lang->line('update'):$this->lang->line('create') ?></button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

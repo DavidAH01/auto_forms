@@ -10,7 +10,7 @@
 
 		function index(){
 			only_super_administrator();
-			$data['section_title'] = 'Administrators';
+			$data['section_title'] = $this->lang->line('administrators');
 			$data['administrators'] = $this->administrator_model->get_administrators();
 			$data['section'] = $this->load->view('/administrators/list', $data, true); 
 			
@@ -19,7 +19,7 @@
 
 		function user(){
 			$user_id = $this->uri->segment(3, 0);
-			$data['section_title'] = 'Administrators';
+			$data['section_title'] = $this->lang->line('administrators');
 			$data['user'] = $this->administrator_model->get_administrator($user_id);
 			$data['tables'] = $this->administrable_table_model->get_tables();
 			$data['section'] = $this->load->view('/administrators/user', $data, true); 
@@ -28,7 +28,7 @@
 		}
 
 		function create(){
-			$data['section_title'] = 'Administrators';
+			$data['section_title'] = $this->lang->line('administrators');
 			$data['tables'] = $this->administrable_table_model->get_tables();
 			$data['section'] = $this->load->view('/administrators/user', $data, true); 
 			
@@ -39,9 +39,7 @@
 			if ($this->is_valid_email()) {
 				$this->administrator_model->new_administrator( $this->input->post() );
 			}else{
-				$this->output
-        			->set_content_type('application/json')
-        			->set_output(json_encode(array('error' => true)));
+        		return_json(array('error' => true, 'msg' => $this->lang->line('email_registered')));
 			}
 		}
 
@@ -49,13 +47,13 @@
 			$email_in_db = $this->administrator_model->get_email_administrator( $this->input->post('id') );
 			if ($email_in_db == $this->input->post('email')) {
 				$this->administrator_model->edit_administrator( $this->input->post() );
+				return_json(array('error' => false, 'msg' => $this->lang->line('information_updated')));
 			}else{
 				if ($this->is_valid_email()) {
-					$this->administrator_model->new_administrator( $this->input->post() );
+					$this->administrator_model->edit_administrator( $this->input->post() );
+					return_json(array('error' => false, 'msg' => $this->lang->line('information_updated')));
 				}else{
-					$this->output
-	        			->set_content_type('application/json')
-	        			->set_output(json_encode(array('error' => true)));
+					return_json(array('error' => true, 'msg' => $this->lang->line('email_registered')));
 				}
 			}			
 		}

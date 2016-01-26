@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card table-content">
                     <div class="content table-responsive table-full-width">
-                        <button type="button" class="btn btn-action btn-default remove-all-data" id="remove-all-administrable-tables" data-table="<?= $table ?>">Delete all selected</button>
+                        <button type="button" class="btn btn-action btn-default remove-all-data" id="remove-all-administrable-tables" data-table="<?= $table ?>"><?= $this->lang->line('delete_all_selected') ?></button>
                         <table class="table table-hover table-striped data-table administrable-data-table" data-table="<?= $table ?>">
                             <thead>
                                 <th></th>
@@ -34,8 +34,8 @@
                                         <?php } ?>
                                     <?php $i++; } ?>
                                 	<td>
-                                        <a href="<?= base_url() ?>administrable_tables/edit/<?= $table ?>?record=<?= $record->id ?>"><button type="button" class="btn btn-warning btn-info btn-fill">Edit</button></a>
-                                        <a href="<?= base_url() ?>administrable_tables/delete/<?= $table ?>?record=<?= $record->id ?>" onclick="return confirm('Are you sure?')"><button type="button" class="btn btn-action btn-default">Delete</button></a>
+                                        <a href="<?= base_url() ?>administrable_tables/edit/<?= $table ?>?record=<?= $record->id ?>"><button type="button" class="btn btn-warning btn-info"><?= $this->lang->line('edit') ?></button></a>
+                                        <a href="<?= base_url() ?>administrable_tables/delete/<?= $table ?>?record=<?= $record->id ?>" onclick="return confirm('<?= $this->lang->line('are_you_sure') ?>')"><button type="button" class="btn btn-action btn-default"><?= $this->lang->line('delete') ?></button></a>
                                     </td>
                                 </tr>
                             <?php $order++; } ?>

@@ -1,6 +1,6 @@
 <div class="form-group">
 	<label class="field"><strong><?= $field['name'] ?></strong> 
-		<?php if(isset($stored_data)){ ?>
+		<?php if(isset($stored_data) && !empty($stored_data->{$field['complete_name']})){ ?>
 			<small><strong>&nbsp;&nbsp;<a href="<?= base_url() ?>uploads/files/<?= $stored_data->{$field['complete_name']} ?>" target="_blank"><i class="pe-7s-file"></i> Current file: <?= $stored_data->{$field['complete_name']} ?></a></strong></small>
 		<?php } ?>
 		
@@ -9,7 +9,7 @@
 	<input id="<?= $field['complete_name'] ?>" class="path-file form-control" placeholder="<?= $field['name'] ?>" disabled="disabled" />
 	<button class="btn btn-default btn-sm clear-file" rel="tooltip" data-original-title="Delete file" data-clear="<?= $field['complete_name'] ?>"><i class="pe-7s-close"></i></button>
 	<div class="fileUpload btn btn-default btn-fill">
-	    <span>Select a file</span>
+	    <span><?= $this->lang->line('select_a_file') ?></span>
 	    <input id="upload-<?= $field['complete_name'] ?>" type="file" data-type="file" class="upload" name="<?= $field['complete_name'] ?>" />
 	</div>
 </div><hr>

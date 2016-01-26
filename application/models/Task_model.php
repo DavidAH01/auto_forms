@@ -25,7 +25,7 @@ Class Task_model extends CI_Model {
 	}
 
 	function create_task($administrator_id, $description, $is_private){
-		$this->db->set('created_at', date('Y-m-d h:i:s',time()));
+		$this->db->set('created_at', date('Y-m-d h:i:s'));
 		$this->db->set('administrator_id', $administrator_id);
 		$this->db->set('is_private', $is_private);
 		$this->db->set('description', $description);
@@ -36,7 +36,7 @@ Class Task_model extends CI_Model {
 	}
 
 	function edit_task($task_id, $description, $is_private){
-		$this->db->set('updated_at', date('Y-m-d h:i:s',time()));
+		$this->db->set('updated_at', date('Y-m-d h:i:s'));
 		$this->db->set('is_private', $is_private);
 		$this->db->set('description', $description);
 		$this->db->where('id', $task_id);
@@ -45,7 +45,7 @@ Class Task_model extends CI_Model {
 	}
 
 	function change_state_task($task_id, $state){
-		$this->db->set('updated_at', date('Y-m-d h:i:s',time()));
+		$this->db->set('updated_at', date('Y-m-d h:i:s'));
 		$this->db->set('state', $state);
 		$this->db->where('id', $task_id);
 
@@ -53,10 +53,7 @@ Class Task_model extends CI_Model {
 	}
 
 	function delete_task($task_id){
-		echo $task_id;
 		$this->db->where('id', $task_id);
-
 		$this->db->delete('task');
 	}
 }
-?>

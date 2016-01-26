@@ -9,19 +9,18 @@ $(document).ready(function(){
 		  	url: $('#base_url').val()+'configuration/edit_configuration',
 		  	method: 'post',
 		  	data: data
-		}).done(function() {
-		  	$.notify({
-        		icon: "pe-7s-check",
-        		message: "The configuration has been updated!"
-	        },{
-	            type: 'warning',
-	            timer: 4000,
-	            placement: {
-	                from: 'bottom',
-	                align: 'left'
-	            }
-	        });
+		}).done(function(response) {
+            $.notify({
+                icon: "pe-7s-check",
+                message: response.msg
+            },{
+                type: 'warning',
+                timer: 4000,
+                placement: {
+                    from: 'bottom',
+                    align: 'left'
+                }
+            });
 		});
-  
     })
 })

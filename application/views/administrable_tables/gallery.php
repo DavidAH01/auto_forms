@@ -2,7 +2,7 @@
 	<input type="hidden" value="<?= $gallery ?>" name="gallery">
 	<input type="hidden" value="<?= $current_table ?>" name="table">
 	<div class="fileUpload fileUpload-iframe btn btn-default btn-fill">
-	    <span>Select files</span>
+	    <span><?= $this->lang->line('select_files') ?></span>
 	    <input type="file" class="upload" name="file[]" onchange="this.form.submit();" multiple/>
 	</div>
 </form><br><br><hr>
@@ -19,7 +19,7 @@
 				</li>
 			<?php } ?>
 		<?php }else{ ?>
-			<p class="empty-gallery"><small>Click on the button to start uploading images or documents</small></p>
+			<p class="empty-gallery"><small><?= $this->lang->line('empty_gallery') ?></small></p>
 		<?php } ?>
 		</ul>
 	</div>
@@ -44,7 +44,7 @@
 	
 	$(document).on('click', '.delete-file', function(){
     	var id = $(this).parent('li').attr('data-file');
-    	if (confirm("Are you sure?")) { 
+    	if (confirm("<?= $this->lang->line('are_you_sure') ?>")) { 
 		  	$.ajax({
 			  	url: $('#base_url').val()+'administrable_tables/delete_file',
 			  	method: 'post',

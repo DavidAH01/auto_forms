@@ -14,20 +14,20 @@ $(document).ready(function(){
 
     $(document).on('click', '.delete-task', function(){
     	var id = $(this).attr('data-task');
-    	if (confirm("Are you sure?")) { 
+    	if (confirm( $('#are_you_sure').val() )) { 
 		  	$.ajax({
 			  	url: $('#base_url').val()+'dashboard/delete_task',
 			  	method: 'post',
 			  	data: { id: id }
-			}).done(function() {
+			}).done(function(response) {
 			  	$('#tr-task-'+id).remove();
 
-			  	if ( $('#tasks tr').length <= 0 )
-			  		$('.empty-task').fadeIn(0);
+			  	if ( $('#tasks tr').length == 0 )
+			  		$('.empty-task').removeClass('hidden').fadeIn(0);
 
                 $.notify({
                     icon: "pe-7s-check",
-                    message: "The task has been deleted!"
+                    message: response.msg
                 },{
                     type: 'warning',
                     timer: 4000,
@@ -62,27 +62,28 @@ $(document).ready(function(){
 			  	method: 'post',
 			  	data: { description: description, is_private: is_private }
 			}).done(function(response) {
+                var task = response.task;
 			  	var checked = ''
-			  	if (response[0].state == 1)
+			  	if (task[0].state == 1)
 			  		checked = 'checked=""';
 
 			  	var is_private = ''
-			  	if (response[0].is_private == 1)
+			  	if (task[0].is_private == 1)
 			  		is_private = ' <i class="pe-7s-lock" rel="tooltip" title="Private"></i>';
 
-			  	var template = '<tr id="tr-task-'+response[0].id+'">\
+			  	var template = '<tr id="tr-task-'+task[0].id+'">\
                                     <td>\
                                         <label class="checkbox">\
                                         	<span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span>\
-                                            <input type="checkbox" value="'+response[0].id+'" data-toggle="checkbox" '+checked+' >\
+                                            <input type="checkbox" value="'+task[0].id+'" data-toggle="checkbox" '+checked+' >\
                                         </label>\
                                     </td>\
-                                    <td>'+response[0].description+is_private+' </td>\
+                                    <td>'+task[0].description+is_private+' </td>\
                                     <td class="td-actions text-right">\
-                                        <button type="button" rel="tooltip" title="Edit Task" class="edit-task btn btn-info btn-simple btn-xs" data-toggle="modal" data-target="#edit-task" data-task="'+response[0].id+'"  data-description="'+response[0].description+'" data-privacy="'+response[0].is_private+'">\
+                                        <button type="button" rel="tooltip" title="Edit Task" class="edit-task btn btn-warning btn-simple btn-xs" data-toggle="modal" data-target="#edit-task" data-task="'+task[0].id+'"  data-description="'+task[0].description+'" data-privacy="'+task[0].is_private+'">\
                                             <i class="fa fa-edit"></i>\
                                         </button>\
-                                        <button type="button" rel="tooltip" title="Remove" class="delete-task btn btn-danger btn-simple btn-xs" data-task="'+response[0].id+'">\
+                                        <button type="button" rel="tooltip" title="Remove" class="delete-task btn btn-default btn-simple btn-xs" data-task="'+task[0].id+'">\
                                             <i class="fa fa-times"></i>\
                                         </button>\
                                     </td>\
@@ -95,7 +96,7 @@ $(document).ready(function(){
 
                 $.notify({
                     icon: "pe-7s-check",
-                    message: "The task has been created!"
+                    message: response.msg
                 },{
                     type: 'warning',
                     timer: 4000,

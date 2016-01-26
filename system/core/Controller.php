@@ -78,6 +78,12 @@ class CI_Controller {
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
+
+		$this->lang =& load_class('Lang', 'core');
+		$this->lang->load('auto_forms');
+
+		if (isset($this->session->userdata('logged_in')['time_zone']))
+			date_default_timezone_set ($this->session->userdata('logged_in')['time_zone']);
 	}
 
 	// --------------------------------------------------------------------

@@ -3,7 +3,7 @@
 	<button class="jscolor
 	    {required:false, valueElement:'color-<?= $field['complete_name'] ?>', styleElement:'style-<?= $field['complete_name'] ?>', onFineChange:'update(this)'}
 	    btn btn-default btn-fill pull-right">
-	    Pick a color
+	    <?= $this->lang->line('pick_a_color'); ?>
 	</button><br><br>
 	<div class="row">
 		<div class="col-sm-2">

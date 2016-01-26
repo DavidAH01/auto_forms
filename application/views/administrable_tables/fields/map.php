@@ -5,10 +5,10 @@
             <div id="map_<?= $field['complete_name'] ?>" class="map-canvas"></div> 
         </div>
         <div id="infoPanel" class="col-md-6">
-            <label><strong>Current position:</strong></label>
+            <label><strong><?= $this->lang->line('current_position') ?>:</strong></label>
             <input type="text" readonly="readonly" id="info_<?= $field['complete_name'] ?>" class="save-input form-control" name="<?= $field['complete_name'] ?>" value="<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>">
             <br>
-            <label><strong>Address:</strong> <small>(not exactly)</small></label>
+            <label><strong><?= $this->lang->line('address') ?>:</strong> <small>(<?= $this->lang->line('not_exactly') ?>)</small></label>
             <div id="address_<?= $field['complete_name'] ?>"></div>
         </div>
     </div>

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	var tz = jstz.determine();
+    $('#time-zone').val(tz.name());
+
 	var image = $('.sidebar.auth').attr('data-image');
 	$('.sidebar.auth').css( 'background-image', 'url('+image+')' )
 
@@ -29,7 +32,7 @@ $(document).ready(function(){
 					if (response.error) {
 						$.notify({
 			        		icon: "pe-7s-info",
-			        		message: "An error has occurred, try it later"
+			        		message: response.msg
 				        },{
 				            type: 'warning',
 				            timer: 4000,
@@ -41,7 +44,7 @@ $(document).ready(function(){
 					}else{
 						$.notify({
 			        		icon: "pe-7s-check",
-			        		message: "We send information to your email"
+			        		message: response.msg
 				        },{
 				            type: 'warning',
 				            timer: 4000,
@@ -56,7 +59,7 @@ $(document).ready(function(){
     		}else{
     			$.notify({
 	        		icon: "pe-7s-info",
-	        		message: "The email is invalid"
+	        		message: $('#email_invalid').val()
 		        },{
 		            type: 'warning',
 		            timer: 4000,
@@ -66,7 +69,19 @@ $(document).ready(function(){
 		            }
 		        });
 		    }
-		}
+		}else{
+			$.notify({
+        		icon: "pe-7s-info",
+        		message: $('#email_invalid').val()
+	        },{
+	            type: 'warning',
+	            timer: 4000,
+	            placement: {
+	                from: 'bottom',
+	                align: 'left'
+	            }
+	        });
+	    }
 	});
 
 	$('.update-password').click(function(e){
@@ -80,7 +95,7 @@ $(document).ready(function(){
 				if (response.error) {
 					$.notify({
 		        		icon: "pe-7s-info",
-		        		message: "You are not allowed to change the password"
+		        		message: response.msg
 			        },{
 			            type: 'warning',
 			            timer: 4000,
@@ -92,7 +107,7 @@ $(document).ready(function(){
 				}else{
 					$.notify({
 		        		icon: "pe-7s-check",
-		        		message: "The password has been updated. Go to the login"
+		        		message: response.msg
 			        },{
 			            type: 'warning',
 			            timer: 4000,

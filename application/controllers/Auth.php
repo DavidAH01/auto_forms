@@ -8,9 +8,7 @@ class Auth extends CI_Controller {
 	}
 
 	function index(){
-		$data['section_title'] = 'Login';
-		$data['section'] = $this->load->view('/auth/login', '', true); 
-		
+		$data['section'] = $this->load->view('/auth/login', '', true); 		
 		$this->load->view('/template/auth', $data);
 	}
 
@@ -38,7 +36,8 @@ class Auth extends CI_Controller {
 						'user_id' => $row->id,
 						'name' => $row->name,
 						'is_super_administrator' => $row->is_super_administrator,
-						'permissions' => $row->permissions
+						'permissions' => $row->permissions,
+						'time_zone' => $this->input->post('time-zone')
 					);
 
 					$this->session->set_userdata('logged_in', $session_array);
@@ -78,23 +77,18 @@ class Auth extends CI_Controller {
  			$data['id'] = $this->input->post('id');
  			$data['password'] = $this->input->post('password');
  			$this->administrator_model->edit_administrator($data);
-			$this->output
-        			->set_content_type('application/json')
-        			->set_output(json_encode(array('error' => 0)));
+			return_json(array('error' => false, 'msg' => $this->lang->line('passsword_updated')));
  		}else{
- 			$this->output
-        			->set_content_type('application/json')
-        			->set_output(json_encode(array('error' => 1)));
+ 			return_json(array('error' => true, 'msg' => $this->lang->line('not_allowed_change_passsword')));
  		}
 	}
 
 	function recover_password(){
-		$this->form_validation->set_rules('email', 'Email', 'trim|required');
-		if($this->form_validation->run()) {
-			$data['email'] = $this->input->post('email');
-			$data['hash'] = urlencode(substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22));
-			$data['hash'] = strtr($data['hash'], array('+' => '.', '/' => '.', '%' => '.')); 
-			$user = $this->auth_model->get_user_by_email($data['email']);
+		$data['email'] = $this->input->post('email');
+		$data['hash'] = urlencode(substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22));
+		$data['hash'] = strtr($data['hash'], array('+' => '.', '/' => '.', '%' => '.')); 
+		$user = $this->auth_model->get_user_by_email($data['email']);
+		if ($user) {
 			$data['id'] = $user->id;
 			$data['name'] = $user->name;
 			$this->auth_model->recover_password($data['email'], $data['hash']);
@@ -105,13 +99,9 @@ class Auth extends CI_Controller {
 			$this->email->subject('Reset password - Auto_Foms');
 			$this->email->message($this->load->view('mail/recover_password',$data,true));	
 			$this->email->send();
-			$this->output
-        			->set_content_type('application/json')
-        			->set_output(json_encode(array('error' => 0)));
+			return_json(array('error' => false, 'msg' => $this->lang->line('send_recover_email')));
 		}else{
-			$this->output
-        			->set_content_type('application/json')
-        			->set_output(json_encode(array('error' => 1)));
+			return_json(array('error' => true, 'msg' => $this->lang->line('email_not_registered')));
 		}
 	}
 

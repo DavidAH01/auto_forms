@@ -26,7 +26,7 @@ $(document).ready(function(){
 					if (response.error) {
 						$.notify({
 			        		icon: "pe-7s-info",
-			        		message: "This email is already registered!"
+			        		message: response.msg
 				        },{
 				            type: 'warning',
 				            timer: 4000,
@@ -43,7 +43,7 @@ $(document).ready(function(){
     		}else{
     			$.notify({
 	        		icon: "pe-7s-info",
-	        		message: "The email is invalid!"
+	        		message: $('#email_invalid').val()
 		        },{
 		            type: 'warning',
 		            timer: 4000,
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		}else{
 			$.notify({
         		icon: "pe-7s-info",
-        		message: "Name, email and password are required!"
+        		message: $('#name_email_password_required').val()
 	        },{
 	            type: 'warning',
 	            timer: 4000,
@@ -97,7 +97,7 @@ $(document).ready(function(){
 					if (response.error) {
 						$.notify({
 			        		icon: "pe-7s-info",
-			        		message: "This email is already registered!"
+			        		message: response.msg
 				        },{
 				            type: 'warning',
 				            timer: 4000,
@@ -109,7 +109,7 @@ $(document).ready(function(){
 					}else{
 						$.notify({
 			        		icon: "pe-7s-check",
-			        		message: "The information has been updated!"
+			        		message: response.msg
 				        },{
 				            type: 'warning',
 				            timer: 4000,
@@ -124,7 +124,7 @@ $(document).ready(function(){
     		}else{
     			$.notify({
 	        		icon: "pe-7s-info",
-	        		message: "The email is invalid!"
+	        		message: $('#email_invalid').val()
 		        },{
 		            type: 'warning',
 		            timer: 4000,
@@ -137,7 +137,7 @@ $(document).ready(function(){
 		}else{
 			$.notify({
         		icon: "pe-7s-info",
-        		message: "Name, email are required!"
+        		message: $('#name_email_password_required').val()
 	        },{
 	            type: 'warning',
 	            timer: 4000,
@@ -150,7 +150,7 @@ $(document).ready(function(){
     })
 
 	$(document).on('click', '#remove-all', function(){
-		var response = confirm("Are you sure?");
+		var response = confirm( $('#are_you_sure').val() );
 		if (response == true) {
 		    var array_delete = [];
 			$('tr[role="row"].selected').each(function(){
@@ -162,7 +162,7 @@ $(document).ready(function(){
 			  	url: $('#base_url').val()+'administrators/delete_administrators',
 			  	method: 'post',
 			  	data: { users: array_delete }
-			}).done(function(response) {
+			}).done(function() {
 				window.location.href = $('#base_url').val()+'administrators';
 			});
 	

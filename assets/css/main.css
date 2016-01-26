@@ -310,6 +310,7 @@ input:focus {
   margin: 5px 15px;
   opacity: .86;
   border-radius: 4px;
+  padding: 10px;
 }
 .sidebar .nav li:hover > a {
   background: rgba(255, 255, 255, 0.13);
@@ -330,7 +331,7 @@ input:focus {
 .sidebar .nav i {
   font-size: 28px;
   float: left;
-  margin-right: 15px;
+  margin-right: 10px;
   line-height: 30px;
   width: 30px;
   text-align: center;
@@ -1011,10 +1012,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   top: 50%;
   margin-top: -13px;
   z-index: 1033;
-  background-color: #FFFFFF;
+  background-color: #F7F7F8;
   display: block;
   border-radius: 50%;
-  opacity: .4;
+  opacity: 1;
   line-height: 11px;
   width: 25px;
   height: 25px;
@@ -1022,6 +1023,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   text-align: center;
   padding: 3px;
   font-weight: 300;
+  color: #FF9500;
 }
 .alert button.close:hover {
   opacity: .55;
@@ -1029,6 +1031,7 @@ body > .navbar-collapse[data-color="purple"]:after {
 .alert .close ~ span {
   display: block;
   max-width: 89%;
+  color: #FF9500;
 }
 .alert[data-notify="container"] {
   padding: 10px 10px 10px 20px;
@@ -1047,7 +1050,10 @@ body > .navbar-collapse[data-color="purple"]:after {
 }
 
 .alert-warning {
-  background-color: #ffbc67;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  background-color: #FFFFFF;
+  color: #FF9500;
+  font-size: 15px;
 }
 
 .alert-danger {

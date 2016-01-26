@@ -1,7 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="<?= current_language() ?>">
 <head>
     <input type="hidden" id="base_url" value="<?= base_url(); ?>">
+    <input type="hidden" id="are_you_sure" value="<?= $this->lang->line('are_you_sure') ?>">
+    <input type="hidden" id="email_invalid" value="<?= $this->lang->line('email_invalid') ?>">
+    <input type="hidden" id="name_email_password_required" value="<?= $this->lang->line('name_email_password_required') ?>">
+    <input type="hidden" id="language_tinymce" value="<?= current_language('tinymce') ?>">
+
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -107,7 +112,7 @@
                     <li class="<?= ($section_title == "Dashboard")?"active":""; ?>">
                         <a href="<?= base_url() ?>dashboard">
                             <i class="pe-7s-graph"></i> 
-                            <p>Dashboard</p>
+                            <p><?= $this->lang->line('dashboard') ?></p>
                         </a>            
                     </li>
                     
@@ -115,13 +120,13 @@
                         <li class="<?= ($section_title == "Configuration")?"active":""; ?>">
                             <a href="<?= base_url() ?>configuration">
                                 <i class="pe-7s-science"></i>
-                                <p>Configuration</p>
+                                <p><?= $this->lang->line('configuration') ?></p>
                             </a>        
                         </li>
                         <li class="<?= ($section_title == "Administrators")?"active":""; ?>">
                             <a href="<?= base_url() ?>administrators">
                                 <i class="pe-7s-user"></i> 
-                                <p>Administrators</p>
+                                <p><?= $this->lang->line('administrators') ?></p>
                             </a>
                         </li>
                     <?php } ?>
@@ -130,7 +135,7 @@
                     <li>
                         <a href="#" class="underline">
                             <i class="pe-7s-note2"></i> 
-                            <p>Administrable sections</p>
+                            <p><?= $this->lang->line('administrable_sections') ?></p>
                         </a> 
                         <ul class="sub nav">
                             <?php foreach (adminsitrable_tables() as $table) { ?>
@@ -167,12 +172,12 @@
                         <a class="navbar-brand" href="#">
                             <?= $section_title  ?>
                         </a>
-                        <?php if(is_super_administrator() && $section_title == "Administrators"){ ?>
-                            <a href="<?= base_url() ?>administrators/create" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm">New</button></a>
+                        <?php if(is_super_administrator() && $section_title == $this->lang->line('administrators')){ ?>
+                            <a href="<?= base_url() ?>administrators/create" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm"><?= $this->lang->line('new') ?></button></a>
                         <?php } ?>
 
                         <?php if(isset($administrable_table)){ ?>
-                            <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm">New</button></a>
+                            <a href="<?= base_url() ?>administrable_tables/create/<?= $current_table ?>" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm"><?= $this->lang->line('new') ?></button></a>
                         <?php } ?>
                     </div>
                     <div class="collapse navbar-collapse">       
@@ -183,8 +188,8 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?= base_url() ?>administrators/user/<?= $this->session->userdata('logged_in')['user_id'] ?>">Profile</a></li>
-                                    <li><a href="<?= base_url() ?>auth/logout">Logout</a></li>
+                                    <li><a href="<?= base_url() ?>administrators/user/<?= $this->session->userdata('logged_in')['user_id'] ?>"><?= $this->lang->line('profile') ?></a></li>
+                                    <li><a href="<?= base_url() ?>auth/logout"><?= $this->lang->line('logout') ?></a></li>
                                 </ul>
                             </li>
                         </ul>

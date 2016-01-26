@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <input type="hidden" id="base_url" value="<?= base_url(); ?>">
+    <input type="hidden" id="email_invalid" value="<?= $this->lang->line('email_invalid') ?>">
+
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -48,6 +50,9 @@
     <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
     
+    <!--  jsTimezoneDetect    -->
+    <script src="<?= base_url() ?>assets/js/jstz.main.js"></script>
+
     <!--  Notifications Plugin    -->
     <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
     

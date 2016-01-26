@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-if ( ! function_exists('adminsitrable_tables')){
+if (!function_exists('adminsitrable_tables')){
     function adminsitrable_tables(){
-    	$CI = & get_instance();
+    	$CI =& get_instance();
     	$user = $CI->session->userdata('logged_in');
     	$tables = $CI->administrable_table_model->get_tables();
 
@@ -21,7 +21,34 @@ if ( ! function_exists('adminsitrable_tables')){
     }   
 }
 
-if ( ! function_exists('clear')){
+if (!function_exists('return_json')){
+    function return_json($response){
+        $CI =& get_instance();
+        $CI->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($response));
+    }
+}
+
+if (!function_exists('current_language')){
+    function current_language(){
+        $CI =& get_instance();
+        $current_language = $CI->config->item('language');
+        switch ($current_language) {
+            case 'english':
+                return 'en';
+                break;
+            case 'spanish':
+                return 'es';
+                break;
+            default:
+                return 'en';
+                break;
+        }
+    }
+}
+
+if (!function_exists('clear')){
     function clear($string){
         $string = str_replace(array('á','à','â','ã','ª','ä'),"a",$string);
         $string = str_replace(array('Á','À','Â','Ã','Ä'),"A",$string);

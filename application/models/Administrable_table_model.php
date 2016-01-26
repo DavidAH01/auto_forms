@@ -66,10 +66,10 @@ Class Administrable_table_model extends CI_Model {
 		unset($data['record_id']);
 
 		if (is_null($record)) {
-			$data['created_at'] = date('Y-m-d h:i:s',time());
+			$data['created_at'] = date('Y-m-d h:i:s');
 			$this->db->insert(strtolower($table), $data);
 		}else{
-			$data['updated_at'] = date('Y-m-d h:i:s',time());
+			$data['updated_at'] = date('Y-m-d h:i:s');
 			$this->db->where('id', $record);
 			$this->db->update(strtolower($table), $data);
 		}
@@ -79,7 +79,7 @@ Class Administrable_table_model extends CI_Model {
 		$this->db->set('gallery_id', $gallery);
 		$this->db->set('folder', strtolower($table));
 		$this->db->set('file', $file);
-		$this->db->set('created_at', date('Y-m-d h:i:s',time()));
+		$this->db->set('created_at', date('Y-m-d h:i:s'));
 		$this->db->insert('upload');
 	}
 
@@ -95,4 +95,3 @@ Class Administrable_table_model extends CI_Model {
 		$this->db->update('upload', $data);
 	}
 }
-?>

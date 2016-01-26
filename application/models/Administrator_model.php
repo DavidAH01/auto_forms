@@ -22,7 +22,7 @@ Class Administrator_model extends CI_Model {
 		$password = $data['password'];
 		$password = $this->encrypt_password($password);
 		$data['password'] = $password;
-		$data['created_at'] = date('Y-m-d h:i:s',time());
+		$data['created_at'] = date('Y-m-d h:i:s');
 		$this->db->insert('administrator', $data); 
 	}
 
@@ -38,7 +38,7 @@ Class Administrator_model extends CI_Model {
 			unset($data['password']);
 		}
 		
-		$data['updated_at'] = date('Y-m-d h:i:s',time());
+		$data['updated_at'] = date('Y-m-d h:i:s');
 		$this->db->where('id', $user_id);
 		$this->db->update('administrator', $data); 
 	}
@@ -75,4 +75,3 @@ Class Administrator_model extends CI_Model {
 		return $query->email;
 	}
 }
-?>

@@ -121,10 +121,10 @@ $(document).ready(function(){
 	    	contentType: false,
 	    	processData: false,
 		  	data: data
-		}).done(function() {
+		}).done(function(response) {
 			$.notify({
         		icon: "pe-7s-check",
-        		message: "The information has been updated!"
+        		message: response.msg
 	        },{
 	            type: 'warning',
 	            timer: 4000,
@@ -138,7 +138,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click', '#remove-all-administrable-tables', function(){
-		var response = confirm("Are you sure?");
+		var response = confirm( $('#are_you_sure').val() );
 		if (response == true) {
 		    var array_delete = [];
 			$('tr[role="row"].selected').each(function(){
@@ -150,7 +150,7 @@ $(document).ready(function(){
 			  	url: $('#base_url').val()+'administrable_tables/delete_records',
 			  	method: 'post',
 			  	data: { records: array_delete, table: $('#remove-all-administrable-tables').attr('data-table')}
-			}).done(function(response) {
+			}).done(function() {
 				location.reload();
 			});
 	
@@ -158,24 +158,3 @@ $(document).ready(function(){
 	})
 	
 });
-
-function reset_tinymce_clones(){
-	tinymce.init({
-        selector: 'textarea.tinymce-small',
-        height: 300,
-        theme: 'modern',
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code imageupload sh4tinymce'
-          ],
-        toolbar: 'insertfile undo redo | bullist numlist outdent indent | imageupload | sh4tinymce',
-        image_advtab: true,
-        content_css: [
-            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-            '//www.tinymce.com/css/codepen.min.css'
-        ],
-        relative_urls: false,
-        imageupload_url: $('#base_url').val()+'upload_tinymce',
-    });
-}

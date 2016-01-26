@@ -18,17 +18,11 @@ class Upload_tinymce extends CI_Controller {
 
         if ( !$this->upload->do_upload('file')){
                 $error = array('error' => $this->upload->display_errors());
-                $this->return_json(array('error' => $error));
+                return_json(array('error' => $error));
         }else{
                 $data = array('upload_data' => $this->upload->data());
-                $this->return_json(array('error' => false, 'path' => base_url().'uploads/tinymce/'.$data['upload_data']['file_name']));
+                return_json(array('error' => false, 'path' => base_url().'uploads/tinymce/'.$data['upload_data']['file_name']));
         }
 	}
-
-	function return_json($response){
-		$this->output
-        			->set_content_type('application/json')
-        			->set_output(json_encode($response));
-	} 
 }
 ?>

@@ -43,7 +43,7 @@ class Administrable_tables extends CI_Controller {
 		$data = $this->input->post();
 		$table = $this->input->post('current_table');
 		$indicate_files = array();
-		if(isset($_FILES)){
+		if(isset($_FILES) && !empty($_FILES)){
 			foreach ($_FILES as $file) {
 				foreach ($file['name'] as $key => $value) {
 					$field_name = $key;
@@ -77,7 +77,7 @@ class Administrable_tables extends CI_Controller {
 		$table = $this->input->post('current_table');
 		$record = $this->input->post('record_id');
 		$indicate_files = array();
-		if(isset($_FILES)){
+		if(isset($_FILES) && !empty($_FILES)){
 			foreach ($_FILES as $file) {
 				foreach ($file['name'] as $key => $value) {
 					$field_name = $key;
@@ -89,6 +89,7 @@ class Administrable_tables extends CI_Controller {
 			$this->upload_file($indicate_files, 'files');
 		}
 		$this->administrable_table_model->save_table($table, $record, $data);
+		return_json(array('msg' => $this->lang->line('information_updated')));
 	}
 
 	function delete(){
@@ -188,7 +189,7 @@ class Administrable_tables extends CI_Controller {
 		$table = $this->input->post('table');
 		$gallery = $this->input->post('gallery');
 		$indicate_files = array();
-		if(isset($_FILES)){
+		if(isset($_FILES) && !empty($_FILES)){
 			foreach ($_FILES as $file) {
 				foreach ($file['name'] as $key => $value) {
 					$field_name = $key;
