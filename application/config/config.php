@@ -27,6 +27,18 @@ $config['base_url'] = 'http://localhost/auto_forms/';
 
 /*
 |--------------------------------------------------------------------------
+| Default Language
+|--------------------------------------------------------------------------
+|
+| This determines which set of language files should be used. Make sure
+| there is an available translation if you intend to use something other
+| than english.
+|
+*/
+$config['language']	= 'spanish';
+
+/*
+|--------------------------------------------------------------------------
 | Index File
 |--------------------------------------------------------------------------
 |
@@ -65,18 +77,6 @@ $config['uri_protocol']	= 'REQUEST_URI';
 | https://codeigniter.com/user_guide/general/urls.html
 */
 $config['url_suffix'] = '';
-
-/*
-|--------------------------------------------------------------------------
-| Default Language
-|--------------------------------------------------------------------------
-|
-| This determines which set of language files should be used. Make sure
-| there is an available translation if you intend to use something other
-| than english.
-|
-*/
-$config['language']	= 'spanish';
 
 /*
 |--------------------------------------------------------------------------

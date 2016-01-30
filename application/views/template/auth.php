@@ -47,14 +47,14 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
 	<script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
     
     <!--  jsTimezoneDetect    -->
     <script src="<?= base_url() ?>assets/js/jstz.main.js"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap-notify.min.js"></script>
     
     <!-- Auto_Forms Core JS -->
     <script src="<?= base_url() ?>assets/js/sections/auth.js"></script>

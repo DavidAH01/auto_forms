@@ -5,6 +5,7 @@ class Auth extends CI_Controller {
 		parent::__construct();
 		$this->load->model('auth_model');
 		$this->load->model('administrator_model');
+		$this->load->model('activity_model');
 	}
 
 	function index(){
@@ -39,8 +40,9 @@ class Auth extends CI_Controller {
 						'permissions' => $row->permissions,
 						'time_zone' => $this->input->post('time-zone')
 					);
-
 					$this->session->set_userdata('logged_in', $session_array);
+					date_default_timezone_set($this->session->userdata('logged_in')['time_zone']);
+					$this->activity_model->add_activity(array('administrator_id' => $this->session->userdata('logged_in')['user_id'], 'type' => 'a_1'));
 					return true;
 				}else{
 				    $this->form_validation->set_message('check_database', 'The password is invalid');
@@ -106,6 +108,7 @@ class Auth extends CI_Controller {
 	}
 
 	function logout(){
+		$this->activity_model->add_activity(array('administrator_id' => $this->session->userdata('logged_in')['user_id'], 'type' => 'a_2'));
 	   	$this->session->unset_userdata('logged_in');
 	   	redirect('/auth', 'refresh');
 	}

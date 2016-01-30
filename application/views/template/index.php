@@ -41,6 +41,9 @@
     <!--     Bootstrap Multiselect     -->
     <link href="<?= base_url() ?>assets/css/bootstrap-multiselect.css" rel="stylesheet" />
     
+    <!-- Fullcalendar CSS -->
+    <link href="<?= base_url() ?>assets/css/fullcalendar.css" rel="stylesheet"/>
+
     <!--  DateTimePicker CSS  -->
     <link href="<?= base_url() ?>assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
     
@@ -49,7 +52,7 @@
 
 
     <!--   Core JS Files   -->
-    <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="<?= base_url() ?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
     
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
@@ -59,32 +62,35 @@
     <script src="<?= base_url() ?>assets/js/tinymce/tinymce.min.js"></script>
 
     <!--  Checkbox, Radio & Switch Plugins -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-checkbox-radio-switch.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap-checkbox-radio-switch.min.js"></script>
     
     <!--  Notifications Plugin    -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-notify.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap-notify.min.js"></script>
 
     <!--     Bootstrap Tags Input     -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-tagsinput.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap-tagsinput.min.js"></script>
     
     <!--     Bootstrap Multiselect     -->
-    <script src="<?= base_url() ?>assets/js/bootstrap-multiselect.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap-multiselect.min.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     
     <!--  DateTimePicker Plugin    -->
     <script type="text/javascript" src="<?= base_url() ?>assets/js/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/js/bootstrap-datetimepicker.min.js"></script>
 
     <!--  DataTables Plugin    -->
-    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/dataTables.tableTools.js"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/jquery.dataTables.rowReordering.js"></script>
+    <script src="<?= base_url() ?>assets/js/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/datatables/dataTables.tableTools.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/datatables/jquery.dataTables.rowReordering.min.js"></script>
     
     <!-- ColorPicker JS -->
     <script src="<?= base_url() ?>assets/js/jscolor.min.js"></script>
+
+    <!-- Fullcalendar JS -->
+    <script src="<?= base_url() ?>assets/js/fullcalendar.min.js"></script>
 
     <!-- Cloneya JS -->
     <script src="<?= base_url() ?>assets/js/jquery-cloneya.min.js"></script>

@@ -4,6 +4,8 @@ class Administrable_tables extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		authenticate();
+
+		$this->load->model('activity_model');
 	}
 
 	function view(){
@@ -54,7 +56,8 @@ class Administrable_tables extends CI_Controller {
 			}
 			$this->upload_file($indicate_files, 'files');
 		}
-		$this->administrable_table_model->save_table($table, null, $data);
+		$record_id = $this->administrable_table_model->save_table($table, null, $data);
+		$this->activity_model->add_activity(array('administrator_id' => $this->session->userdata('logged_in')['user_id'], 'type' => 't_1', 'table' => $table, 'record_id' => $record_id));
 	}
 
 	function edit(){
@@ -89,6 +92,7 @@ class Administrable_tables extends CI_Controller {
 			$this->upload_file($indicate_files, 'files');
 		}
 		$this->administrable_table_model->save_table($table, $record, $data);
+		$this->activity_model->add_activity(array('administrator_id' => $this->session->userdata('logged_in')['user_id'], 'type' => 't_2', 'table' => $table, 'record_id' => $record));
 		return_json(array('msg' => $this->lang->line('information_updated')));
 	}
 
@@ -96,7 +100,8 @@ class Administrable_tables extends CI_Controller {
 		$table = $this->uri->segment(3, 0);
 		$record = $this->input->get('record');
 		$this->administrable_table_model->delete_record_table($table, $record);
-
+		$this->activity_model->add_activity(array('administrator_id' => $this->session->userdata('logged_in')['user_id'], 'type' => 't_3', 'table' => $table));
+		
 		redirect('administrable_tables/view/'.$table, 'refresh');
 	}
 

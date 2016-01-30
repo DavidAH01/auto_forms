@@ -21,8 +21,10 @@ $lang['recover_password_email']			= '<p>Hola %s.</p>
 
 // Dashboard
 $lang['dashboard']						= 'Dashboard';
-$lang['my_website']						= 'Mi página web';
-$lang['in_real_time']					= 'En estos momentos';
+$lang['summary']						= 'Resumen';
+$lang['at_a_glance']					= 'Da un vistazo';
+$lang['activity']						= 'Actividad';
+$lang['publications_and_changes']		= 'Publicaciones y cambios';
 $lang['tasks']							= 'Tareas';
 $lang['to-do-list']						= 'Lista de pendientes';
 $lang['dont_have_tasks']				= 'Felicitaciones, no tienes tareas pendientes';
@@ -34,6 +36,11 @@ $lang['public']							= 'Pública';
 $lang['private']						= 'Privada';
 $lang['task_deleted']					= 'La tarea ha sido eliminada';
 $lang['task_created']					= 'La tarea ha sido creada';
+$lang['activity_create_record']			= 'ha creado un nuevo <a href="%s">registro</a> en la seccion:';
+$lang['activity_update_record']			= 'ha actualizado un <a href="%s">registro</a> de la seccion:';
+$lang['activity_delete_record']			= 'ha eliminado un registro de la seccion:';
+$lang['activity_login_administrator']	= 'ha iniciado sesión';
+$lang['activity_logout_administrator']	= 'ha cerrado sesión';
 
 // Configuration
 $lang['configuration']					= 'Configuración';

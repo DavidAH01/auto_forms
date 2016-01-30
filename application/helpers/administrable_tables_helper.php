@@ -48,6 +48,32 @@ if (!function_exists('current_language')){
     }
 }
 
+if (!function_exists('translate_type_activity')){
+    function translate_type_activity($type, $record, $table){
+        $CI =& get_instance();
+
+        switch ($type) {
+            case 't_1':
+                $url = base_url().'administrable_tables/edit/'.$table.'?record='.$record;
+                return sprintf($CI->lang->line('activity_create_record'), $url);
+                break;
+            case 't_2':
+                $url = base_url().'administrable_tables/edit/'.$table.'?record='.$record;
+                return sprintf($CI->lang->line('activity_update_record'), $url);
+                break;
+            case 't_3':
+                return $CI->lang->line('activity_delete_record');
+                break;
+            case 'a_1':
+                return $CI->lang->line('activity_login_administrator');
+                break;
+            case 'a_2':
+                return $CI->lang->line('activity_logout_administrator');
+                break;
+        }
+    }
+}
+
 if (!function_exists('clear')){
     function clear($string){
         $string = str_replace(array('á','à','â','ã','ª','ä'),"a",$string);

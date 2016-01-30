@@ -31,6 +31,14 @@ Class Administrable_table_model extends CI_Model {
 		return $query->result();
 	}
 
+	function get_num_records_table($table){
+		$this->db->select('COUNT(*) AS count');
+		$this->db->from(strtolower($table));
+
+		$query = $this->db->get();
+		return $query->row('count');
+	}
+
 	function get_record_table($table, $record){
 		$this->db->select('*');
 		$this->db->from(strtolower($table));
@@ -68,6 +76,7 @@ Class Administrable_table_model extends CI_Model {
 		if (is_null($record)) {
 			$data['created_at'] = date('Y-m-d h:i:s');
 			$this->db->insert(strtolower($table), $data);
+			return $this->db->insert_id();
 		}else{
 			$data['updated_at'] = date('Y-m-d h:i:s');
 			$this->db->where('id', $record);

@@ -6,11 +6,18 @@ class Dashboard extends CI_Controller {
 		authenticate();
 
 		$this->load->model('task_model');
+		$this->load->model('activity_model');
 	}
 
 	function index(){
 		$data['section_title'] = $this->lang->line('dashboard');
 		$data['tasks'] = $this->task_model->get_tasks( $this->session->userdata('logged_in')['user_id'] ); 
+		$tables = $this->administrable_table_model->get_tables(); 
+		$data['summary'] = array();
+		foreach ($tables as $table) {
+			$data['summary'][] = array('name' => $table->name, 'count' => $this->administrable_table_model->get_num_records_table($table->name) );
+		}
+		$data['activities'] = $this->activity_model->get_activities(); 
 		$data['section'] = $this->load->view('/dashboard/index', $data, true); 
 
 		$this->load->view('/template/index', $data);
