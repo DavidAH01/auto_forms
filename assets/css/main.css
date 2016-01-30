@@ -3178,6 +3178,12 @@ span.option-radio{
   margin-right: 10px;
 }
 
+.fc-event-inner{
+  background: rgba(255, 165, 0, 0.4);
+}
+.fc-cell-overlay{
+  background: rgba(255, 165, 0, 0.2);
+}
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

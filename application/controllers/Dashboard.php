@@ -5,6 +5,7 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		authenticate();
 
+		$this->load->model('event_model');
 		$this->load->model('task_model');
 		$this->load->model('activity_model');
 	}
@@ -21,6 +22,39 @@ class Dashboard extends CI_Controller {
 		$data['section'] = $this->load->view('/dashboard/index', $data, true); 
 
 		$this->load->view('/template/index', $data);
+	}
+
+	function events(){
+		$response = array();
+		$events = $this->event_model->get_events(); 
+		foreach ($events as $item) {
+			$event = array();
+		    $event['id'] = $item->id;
+		    $event['title'] = $item->title;
+		    $event['start'] = $item->start_date;
+		    $event['end'] = $item->end_date;
+
+		    $allday = ($item->all_day == "true") ? true : false;
+		    $event['allDay'] = $allday;
+
+		    array_push($response, $event);
+		}
+        return_json($response);
+	}
+
+	function new_event(){
+		$event = $this->event_model->add_event($this->input->post()); 
+		return_json(array('status' => 'success', 'eventid' => $event));
+	}
+
+	function update_event(){
+		$this->event_model->update_event($this->input->post()); 
+		return_json(array('status' => 'success'));
+	}
+
+	function delete_event(){
+		$this->event_model->delete_event($this->input->post()); 
+		return_json(array('status' => 'success'));
 	}
 
 	function create_task(){

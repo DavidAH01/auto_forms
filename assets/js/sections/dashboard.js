@@ -1,4 +1,80 @@
 $(document).ready(function(){
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+   
+    var calendar = $('#calendar').fullCalendar({
+            events: $('#base_url').val()+'dashboard/events',
+            editable: true,
+            header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay',
+        },
+        eventRender: function(event, element, view) {
+            if (event.allDay === 'true')
+                event.allDay = true;
+            else
+                event.allDay = false;
+        },
+        selectable: true,
+        selectHelper: true,
+        select: function(start, end, allDay) {
+            var title = prompt('Event Title:');
+            if (title) {
+                var start = $.fullCalendar.formatDate(start, "yyyy-MM-dd HH:mm:ss");
+                var end = $.fullCalendar.formatDate(end, "yyyy-MM-dd HH:mm:ss");
+                $.ajax({
+                    url: $('#base_url').val()+'dashboard/new_event',
+                    data: {title: title, start_date: start, end_date: end},
+                    type: "POST"
+                });
+                calendar.fullCalendar('renderEvent',{
+                    title: title,
+                    start: start,
+                    end: end,
+                    allDay: allDay
+                },true );
+            }
+            calendar.fullCalendar('unselect');
+        },
+
+        editable: true,
+        eventDrop: function(event, delta) {
+            var start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
+            $.ajax({
+                url: $('#base_url').val()+'dashboard/update_event',
+                data: {title: event.title, start_date: start, end_date: end, event_id: event.id},
+                type: "POST"
+            });
+        },
+        eventClick: function(event) {
+            if (confirm($('#are_you_sure').val())) {
+                $.ajax({
+                    type: "POST",
+                    url: $('#base_url').val()+'dashboard/delete_event',
+                    data: {event_id: event.id},
+                    success: function(json) {
+                        $('#calendar').fullCalendar('removeEvents', event.id);
+                    }
+                });
+            }
+        },
+        eventResize: function(event) {
+            var start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
+            $.ajax({
+                url: $('#base_url').val()+'dashboard/update_event',
+                data: {start_date: start, end_date: end, event_id: event.id},
+                type: "POST"
+            });
+        }
+    });
+
+
 	$(document).on('change', '#tasks input[type="checkbox"]', function() {
         var id = $(this).val();
         var state = 0;
