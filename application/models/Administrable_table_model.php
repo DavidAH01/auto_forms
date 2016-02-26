@@ -26,6 +26,7 @@ Class Administrable_table_model extends CI_Model {
 	function get_records_table($table){
 		$this->db->select('*');
 		$this->db->from(strtolower($table));
+		$this->db->order_by('record_order');
 
 		$query = $this->db->get();
 		return $query->result();

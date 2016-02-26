@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$('.auto-form .save-input, .auto-form .save-input:selected').each(function() {
 			if ($(this).attr('data-type') == 'textarea'){
 				data.append($(this).attr('name'),tinyMCE.get( $(this).attr('id') ).getContent());
-			}else if ($(this).attr('data-type') == 'checkbox'){
+			}else if ($(this).attr('data-type') == 'checkbox' || $(this).attr('data-type') == 'radio'){
 				if (data[$(this).attr('name')] == undefined) {
 					var array = [];
 					$('.auto-form .save-input[name="'+$(this).attr('name')+'"]:checked').each(function() {
@@ -56,7 +56,11 @@ $(document).ready(function(){
 		  	cache: false,
 	    	contentType: false,
 	    	processData: false,
-		  	data: data
+		  	data: data,
+		  	beforeSend: function() {
+			    $('.create-auto-form').fadeOut(0);
+			    $('#icon-loading').fadeIn(0);
+			}
 		}).done(function() {
 			window.location.href = $('#base_url').val()+'administrable_tables/view/'+$('input[name="current_table"]').val();
 		})
@@ -69,7 +73,7 @@ $(document).ready(function(){
 		$('.auto-form .save-input, .auto-form .save-input:selected').each(function() {
 			if ($(this).attr('data-type') == 'textarea'){
 				data.append($(this).attr('name'),tinyMCE.get( $(this).attr('id') ).getContent());
-			}else if ($(this).attr('data-type') == 'checkbox'){
+			}else if ($(this).attr('data-type') == 'checkbox' || $(this).attr('data-type') == 'radio'){
 				if (data[$(this).attr('name')] == undefined) {
 					var array = [];
 					$('.auto-form .save-input[name="'+$(this).attr('name')+'"]:checked').each(function() {
@@ -120,8 +124,14 @@ $(document).ready(function(){
 		  	cache: false,
 	    	contentType: false,
 	    	processData: false,
-		  	data: data
+		  	data: data,
+		  	beforeSend: function() {
+			    $('.update-auto-form').fadeOut(0);
+			    $('#icon-loading').fadeIn(0);
+			}
 		}).done(function(response) {
+			$('.update-auto-form').fadeIn(0);
+			$('#icon-loading').fadeOut(0);
 			$.notify({
         		icon: "pe-7s-check",
         		message: response.msg
@@ -156,5 +166,4 @@ $(document).ready(function(){
 	
 		}
 	})
-	
 });

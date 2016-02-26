@@ -124,7 +124,7 @@ class Administrable_tables extends CI_Controller {
                 	$options_field = $this->relation_fields($name_field);
                 }
                 if ($for_view) {
-                	if ($type_field != 'textarea' && $type_field != 'relation' && $type_field != 'multirelation' && $type_field != 'gallery' && $type_field != 'file' && $type_field != 'order' && $type_field != 'administrator' && $type_field != 'maps' && $type_field != 'at') {
+                	if ($type_field != 'textarea' && $type_field != 'multiselect'  && $type_field != 'multirelation' && $type_field != 'gallery' && $type_field != 'file' && $type_field != 'order' && $type_field != 'administrator' && $type_field != 'steps' && $type_field != 'maps' && $type_field != 'at') {
 	                    array_push($data['fields'], array('complete_name' => $complete_name_field, 'name' => $name_field, 'type' => $type_field, 'configuration' => $configuration_field, 'options' => $options_field));
 	                }
                 }else{

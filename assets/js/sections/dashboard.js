@@ -6,13 +6,18 @@ $(document).ready(function(){
     var y = date.getFullYear();
    
     var calendar = $('#calendar').fullCalendar({
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+            dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+            buttonText:{ today:"Hoy",month:"Mes",week:"Semana",day:"Día"},
             events: $('#base_url').val()+'dashboard/events',
             editable: true,
             header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay',
-        },
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay',
+            },
         eventRender: function(event, element, view) {
             if (event.allDay === 'true')
                 event.allDay = true;
@@ -22,7 +27,7 @@ $(document).ready(function(){
         selectable: true,
         selectHelper: true,
         select: function(start, end, allDay) {
-            var title = prompt('Event Title:');
+            var title = prompt('');
             if (title) {
                 var start = $.fullCalendar.formatDate(start, "yyyy-MM-dd HH:mm:ss");
                 var end = $.fullCalendar.formatDate(end, "yyyy-MM-dd HH:mm:ss");
@@ -30,13 +35,17 @@ $(document).ready(function(){
                     url: $('#base_url').val()+'dashboard/new_event',
                     data: {title: title, start_date: start, end_date: end},
                     type: "POST"
+                }).done(function(response) {
+                    alert(response.eventid);
+                    calendar.fullCalendar('renderEvent',{
+                        id: response.eventid,
+                        title: title,
+                        start: start,
+                        end: end,
+                        allDay: allDay
+                    },true);
                 });
-                calendar.fullCalendar('renderEvent',{
-                    title: title,
-                    start: start,
-                    end: end,
-                    allDay: allDay
-                },true );
+                
             }
             calendar.fullCalendar('unselect');
         },
@@ -64,6 +73,8 @@ $(document).ready(function(){
             }
         },
         eventResize: function(event) {
+            alert('event resize');
+            console.log(event)
             var start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
             var end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
             $.ajax({

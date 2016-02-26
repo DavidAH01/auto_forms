@@ -49,6 +49,7 @@
                                 <a href="<?= base_url() ?>administrable_tables/delete/<?= $current_table ?>?record=<?= $record_id ?>" onclick="return confirm('<?= $this->lang->line('are_you_sure') ?>')"><button type="button" class="btn btn-action btn-default"><?= $this->lang->line('delete') ?></button></a>
                             <?php } ?>
                             <a href="<?= base_url() ?>administrable_tables/view/<?= $current_table ?>" class="btn btn-link"><?= $this->lang->line('cancel') ?></a>
+                            <img src="<?= base_url() ?>assets/images/loading.gif" alt="loading" id="icon-loading">
                             <button type="submit" class="<?= (isset($record_id) && !empty($record_id))?"update":"create" ?>-auto-form btn btn-warning btn-fill pull-right"><?= (isset($record_id) && !empty($record_id))?$this->lang->line('update'):$this->lang->line('create') ?></button>
                             <div class="clearfix"></div>
                         </form>

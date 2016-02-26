@@ -20,7 +20,7 @@ $lang['recover_password_email']			= '<p>Hola %s.</p>
 											<p><strong>Auto_Forms</strong></p>';
 
 // Dashboard
-$lang['dashboard']						= 'Dashboard';
+$lang['dashboard']						= 'Escritorio';
 $lang['summary']						= 'Resumen';
 $lang['at_a_glance']					= 'Da un vistazo';
 $lang['activity']						= 'Actividad';
@@ -76,6 +76,11 @@ $lang['not_exactly']					= 'no es exacta';
 $lang['select_files']					= 'Seleccionar archivos';
 $lang['empty_gallery']					= 'Haz clic en el botón para empezar a subir imágenes o documentos';
 $lang['select_a_file']					= 'Selecciona un archivo';
+$lang['current_file']					= 'Archivo actual';
+
+// Auto_forms
+$lang['tables']							= 'Tablas';
+$lang['component']						= 'Componente';
 
 // Common
 $lang['profile']						= 'Perfil';

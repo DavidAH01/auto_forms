@@ -44,7 +44,7 @@
     function initialize() {
         var latLng = new google.maps.LatLng(-34.397, 150.644);
         var map = new google.maps.Map(document.getElementById("map_<?= $field['complete_name'] ?>"), {
-            zoom: 8,
+            zoom: 3,
             center: latLng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
@@ -57,22 +57,19 @@
         });
         geocodePosition_<?= $field['complete_name'] ?>(latLng);
 
-        if (navigator.geolocation) {
+        if (navigator.geolocation && save_position == '') {
             navigator.geolocation.getCurrentPosition(function(position) {
-                if(save_position != ''){
-                    map.setCenter(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
-                    marker.setPosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
-                    geocodePosition_<?= $field['complete_name'] ?>(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
-                }else{
-                    latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    map.setCenter(latLng);
-                    marker.setPosition(latLng);
-                    geocodePosition_<?= $field['complete_name'] ?>(latLng);
-                }
+                latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                map.setCenter(latLng);
+                marker.setPosition(latLng);
+                geocodePosition_<?= $field['complete_name'] ?>(latLng);
             });
         }
         
-        // Add dragging event listeners.
+        map.setCenter(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+        marker.setPosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+        geocodePosition_<?= $field['complete_name'] ?>(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+
         google.maps.event.addListener(marker, 'dragstart', function() {
             updateMarkerAddress_<?= $field['complete_name'] ?>('Dragging...');
         });
@@ -86,6 +83,5 @@
         });
     }
 
-    // Onload handler to fire off the app.
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>

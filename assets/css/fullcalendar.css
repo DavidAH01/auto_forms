@@ -230,6 +230,7 @@ html .fc,
 
 .fc-state-hover {
 	color: #F7F7F7;
+	color: #333333 !important;
 	text-decoration: none;
 	background-position: 0 -15px;
 	-webkit-transition: background-position 0.1s linear;
@@ -647,7 +648,7 @@ table.fc-header{
     transition: background-color 0.2s;
 }
 .fc-week .fc-day.fc-state-highlight:hover .fc-day-number{
-    background-color:  #F7F7F7;
+    background-color:  #FF9500;
 }
 .fc-button-today{
     border: 1px solid rgba(255,255,255,.0);
@@ -672,4 +673,3 @@ table.fc-header{
 		display: none !important;
 	}
 }
-

@@ -6,6 +6,7 @@
 			authenticate();
 
 			$this->load->model('administrator_model');
+			$this->load->model('activity_model');
 		}
 
 		function index(){
@@ -69,6 +70,7 @@
 		function delete(){
 			$user_id = $this->uri->segment(3, 0);
 			$this->administrator_model->delete_administrator($user_id);
+			$this->activity_model->delete_activity($user_id);
 
 			redirect('administrators', 'refresh');
 		}
@@ -77,6 +79,7 @@
 			$users = $this->input->post('users');
 			for ($i=0; $i < count($users); $i++) { 
 				$this->administrator_model->delete_administrator($users[$i]);
+				$this->activity_model->delete_activity($users[$i]);
 			}
 		}
 	}

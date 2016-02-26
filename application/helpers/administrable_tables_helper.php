@@ -74,6 +74,31 @@ if (!function_exists('translate_type_activity')){
     }
 }
 
+
+if (!function_exists('components_list')){
+    function components_list(){
+        $components = array(
+            'color',
+            'checkbox',
+            'datetime',
+            'file',
+            'gallery',
+            'map',
+            'multiselect',
+            'multirelation',
+            'number',
+            'radio',
+            'relation',
+            'select',
+            'steps',
+            'slider',
+            'text',
+            'textarea',
+        );
+        return $components;
+    }
+}
+
 if (!function_exists('clear')){
     function clear($string){
         $string = str_replace(array('á','à','â','ã','ª','ä'),"a",$string);

@@ -76,6 +76,11 @@ $lang['not_exactly']					= 'not exactly';
 $lang['select_files']					= 'Select files';
 $lang['empty_gallery']					= 'Click on the button to start uploading images or documents';
 $lang['select_a_file']					= 'Select a file';
+$lang['current_file']					= 'Current file';
+
+// Auto_forms
+$lang['tables']							= 'Tables';
+$lang['component']						= 'Component';
 
 // Common
 $lang['profile']						= 'Profile';

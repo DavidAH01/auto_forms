@@ -6,24 +6,26 @@ var fixedTop = false;
 
 var navbar_initialized = false;
 
+function init_tinymce_small(){
+    tinymce.init({
+        selector: 'textarea.tinymce-small',
+        height: 300,
+        theme: 'modern',
+        language : $('html').attr('lang'),
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code imageupload sh4tinymce'
+          ],
+        toolbar: 'insertfile undo redo | bullist numlist outdent indent | imageupload | sh4tinymce',
+        image_advtab: true,
+        relative_urls: false,
+        imageupload_url: $('#base_url').val()+'upload_tinymce',
+    });
+}
+    
 $(document).ready(function(){
-    function init_tinymce_small(){
-        tinymce.init({
-            selector: 'textarea.tinymce-small',
-            height: 300,
-            theme: 'modern',
-            language : $('html').attr('lang'),
-            plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table contextmenu paste code imageupload sh4tinymce'
-              ],
-            toolbar: 'insertfile undo redo | bullist numlist outdent indent | imageupload | sh4tinymce',
-            image_advtab: true,
-            relative_urls: false,
-            imageupload_url: $('#base_url').val()+'upload_tinymce',
-        });
-    }
+    
 
     window_width = $(window).width();
     
@@ -70,6 +72,9 @@ $(document).ready(function(){
     });
 
     var table = $('.data-table').DataTable({
+        "language": {
+            "url": $('#base_url').val()+'assets/js/datatables/langs/'+$('html').attr('lang')+'.json'
+        },
         "iDisplayLength": 100,
         "dom": 'T<"clear">lfrtip',
         tableTools: {
@@ -81,6 +86,12 @@ $(document).ready(function(){
                 "print"
             ]
         },
+        scrollX:        true,
+        scrollCollapse: true,
+        fixedColumns:   {
+            leftColumns: 1,
+            rightColumns: 1
+        }
     });
 
     if ( $('.administrable-data-table').length > 0)
@@ -88,7 +99,6 @@ $(document).ready(function(){
     
     table.columns().every( function () {
         var that = this;
- 
         $( 'input', this.footer() ).on( 'keyup change', function () {
             if ( that.search() !== this.value ) {
                 that
@@ -124,10 +134,6 @@ $(document).ready(function(){
         toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | imageupload',
         toolbar2: 'print preview media | forecolor backcolor emoticons | sh4tinymce',
         image_advtab: true,
-        /*content_css: [
-            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-            '//www.tinymce.com/css/codepen.min.css'
-        ],*/
         relative_urls: false,
         imageupload_url: $('#base_url').val()+'upload_tinymce',
     });

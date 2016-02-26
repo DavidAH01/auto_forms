@@ -31,7 +31,7 @@
                         <div id="content-activity">
                             <ul>
                                 <?php foreach ($activities as $activity){ ?>
-                                    <li><span><?= $activity->created_at ?> </span><?= $activity->name.' '.translate_type_activity($activity->type, $activity->record_id, $activity->table) ?> <a href="<?= base_url() ?>administrable_tables/view/<?= $activity->table ?>"><?= $activity->table ?></a></li> 
+                                    <li><span><?= $activity->created_at ?> </span><?= $activity->name.' '.translate_type_activity($activity->type, $activity->record_id, $activity->table) ?> <a href="<?= base_url() ?>administrable_tables/view/<?= $activity->table ?>"><?= ucfirst(str_replace('_', ' ', $activity->table)) ?></a></li> 
                                 <?php } ?>
                             </ul>
                         </div>

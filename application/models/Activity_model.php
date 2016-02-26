@@ -16,4 +16,9 @@ Class Activity_model extends CI_Model {
 		$this->db->set($data);
 		$this->db->insert('activity');
 	}
+
+	function delete_activity($user) {
+		$this->db->where('administrator_id', $user);
+		$this->db->delete('activity');
+	}
 }

@@ -5,7 +5,6 @@
     <input type="hidden" id="are_you_sure" value="<?= $this->lang->line('are_you_sure') ?>">
     <input type="hidden" id="email_invalid" value="<?= $this->lang->line('email_invalid') ?>">
     <input type="hidden" id="name_email_password_required" value="<?= $this->lang->line('name_email_password_required') ?>">
-    <input type="hidden" id="language_tinymce" value="<?= current_language('tinymce') ?>">
 
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
@@ -85,12 +84,13 @@
     <script src="<?= base_url() ?>assets/js/datatables/dataTables.tableTools.min.js"></script>
     <script src="<?= base_url() ?>assets/js/datatables/dataTables.bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/js/datatables/jquery.dataTables.rowReordering.min.js"></script>
-    
+    <script src="<?= base_url() ?>assets/js/datatables/dataTables.fixedColumns.min.js"></script>
+
     <!-- ColorPicker JS -->
     <script src="<?= base_url() ?>assets/js/jscolor.min.js"></script>
 
     <!-- Fullcalendar JS -->
-    <script src="<?= base_url() ?>assets/js/fullcalendar.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/fullcalendar/fullcalendar.min.js"></script>
 
     <!-- Cloneya JS -->
     <script src="<?= base_url() ?>assets/js/jquery-cloneya.min.js"></script>
@@ -117,7 +117,7 @@
                 <ul class="nav">
                     <li class="<?= ($section_title == "Dashboard")?"active":""; ?>">
                         <a href="<?= base_url() ?>dashboard">
-                            <i class="pe-7s-graph"></i> 
+                            <i class="pe-7s-plugin"></i> 
                             <p><?= $this->lang->line('dashboard') ?></p>
                         </a>            
                     </li>
@@ -125,7 +125,7 @@
                     <?php if(is_super_administrator()){ ?>
                         <li class="<?= ($section_title == "Configuration")?"active":""; ?>">
                             <a href="<?= base_url() ?>configuration">
-                                <i class="pe-7s-science"></i>
+                                <i class="pe-7s-config"></i>
                                 <p><?= $this->lang->line('configuration') ?></p>
                             </a>        
                         </li>
@@ -159,6 +159,15 @@
                             <?php } ?>
                         </ul> 
                     </li>
+                    
+                    <?php if(is_super_administrator()){ ?>
+                        <li id="create-tables"> 
+                            <a href="<?= base_url() ?>auto_forms">
+                                <i class="pe-7s-science"></i>
+                                <p></p>
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul> 
         	</div>
         </div>
@@ -180,6 +189,10 @@
                         </a>
                         <?php if(is_super_administrator() && $section_title == $this->lang->line('administrators')){ ?>
                             <a href="<?= base_url() ?>administrators/create" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm"><?= $this->lang->line('new') ?></button></a>
+                        <?php } ?>
+
+                        <?php if(is_super_administrator() && $section_title == $this->lang->line('tables')){ ?>
+                            <a href="<?= base_url() ?>auto_forms/create" class="btn-create-header"><button type="submit" class="btn btn-warning btn-fill btn-sm"><?= $this->lang->line('new') ?></button></a>
                         <?php } ?>
 
                         <?php if(isset($administrable_table)){ ?>
