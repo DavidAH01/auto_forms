@@ -71,28 +71,47 @@ $(document).ready(function(){
         }
     });
 
-    var table = $('.data-table').DataTable({
-        "language": {
-            "url": $('#base_url').val()+'assets/js/datatables/langs/'+$('html').attr('lang')+'.json'
-        },
-        "iDisplayLength": 100,
-        "dom": 'T<"clear">lfrtip',
-        tableTools: {
-            "aButtons": [
-                "copy",
-                "xls",
-                "csv",
-                "pdf",
-                "print"
-            ]
-        },
-        scrollX:        true,
-        scrollCollapse: true,
-        fixedColumns:   {
-            leftColumns: 1,
-            rightColumns: 1
-        }
-    });
+
+    if (($('.data-table thead th').length > 7 && $(window).width() <= 1280) || ($('.data-table thead th').length > 8 && $(window).width() > 1280)) {
+        var table = $('.data-table').DataTable({
+            "language": {
+                "url": $('#base_url').val()+'assets/js/datatables/langs/'+$('html').attr('lang')+'.json'
+            },
+            "iDisplayLength": 100,
+            "dom": 'T<"clear">lfrtip',
+            tableTools: {
+                "aButtons": [
+                    "copy",
+                    "xls",
+                    "csv",
+                    "pdf",
+                    "print"
+                ]
+            },
+            scrollX: true,
+            fixedColumns:   {
+                leftColumns: 1,
+                rightColumns: 1
+            }
+        });
+    }else{
+        var table = $('.data-table').DataTable({
+            "language": {
+                "url": $('#base_url').val()+'assets/js/datatables/langs/'+$('html').attr('lang')+'.json'
+            },
+            "iDisplayLength": 100,
+            "dom": 'T<"clear">lfrtip',
+            tableTools: {
+                "aButtons": [
+                    "copy",
+                    "xls",
+                    "csv",
+                    "pdf",
+                    "print"
+                ]
+            }
+        });
+    }
 
     if ( $('.administrable-data-table').length > 0)
        $('.administrable-data-table').rowReordering({ sURL:$('#base_url').val()+'administrable_tables/order_records', sRequestType: "POST"});

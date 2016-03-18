@@ -1,7 +1,7 @@
 <div class="form-group">
 	<label class="field"><strong><?= $field['name'] ?></strong> 
 		<?php if(isset($stored_data) && !empty($stored_data->{$field['complete_name']})){ ?>
-			<small><strong>&nbsp;&nbsp;<a href="<?= base_url() ?>uploads/files/<?= $stored_data->{$field['complete_name']} ?>" target="_blank"><i class="pe-7s-file"></i> <?= $this->lang->line('current_file') ?>: <?= $stored_data->{$field['complete_name']} ?></a></strong></small>
+			<small><strong>&nbsp;&nbsp;<a href="<?= base_url() ?>uploads/files/<?= $stored_data->{$field['complete_name']} ?>" target="_blank"><i class="pe-7s-file"></i> <?= $this->lang->line('current_file') ?></a></strong></small>
 		<?php } ?>
 		
 	</label>

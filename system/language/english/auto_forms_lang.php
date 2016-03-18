@@ -77,6 +77,7 @@ $lang['select_files']					= 'Select files';
 $lang['empty_gallery']					= 'Click on the button to start uploading images or documents';
 $lang['select_a_file']					= 'Select a file';
 $lang['current_file']					= 'Current file';
+$lang['file_deleted']					= 'The file has been deleted';
 
 // Auto_forms
 $lang['tables']							= 'Tables';

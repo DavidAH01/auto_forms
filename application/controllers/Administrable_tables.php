@@ -49,7 +49,7 @@ class Administrable_tables extends CI_Controller {
 			foreach ($_FILES as $file) {
 				foreach ($file['name'] as $key => $value) {
 					$field_name = $key;
-					$file_name = $value;
+					$file_name = date("YmdHis").$value;
 					$data[$field_name] = $file_name;
 					array_push($indicate_files, $field_name);
 				}
@@ -84,7 +84,7 @@ class Administrable_tables extends CI_Controller {
 			foreach ($_FILES as $file) {
 				foreach ($file['name'] as $key => $value) {
 					$field_name = $key;
-					$file_name = $value;
+					$file_name = date("YmdHis").$value;
 					$data[$field_name] = clear($file_name);
 					array_push($indicate_files, $field_name);
 				}
@@ -124,7 +124,7 @@ class Administrable_tables extends CI_Controller {
                 	$options_field = $this->relation_fields($name_field);
                 }
                 if ($for_view) {
-                	if ($type_field != 'textarea' && $type_field != 'multiselect'  && $type_field != 'multirelation' && $type_field != 'gallery' && $type_field != 'file' && $type_field != 'order' && $type_field != 'administrator' && $type_field != 'steps' && $type_field != 'maps' && $type_field != 'at') {
+                	if ($type_field != 'textarea' && $type_field != 'multiselect'  && $type_field != 'multirelation' && $type_field != 'gallery' && $type_field != 'order' && $type_field != 'administrator' && $type_field != 'steps' && $type_field != 'maps' && $type_field != 'at') {
 	                    array_push($data['fields'], array('complete_name' => $complete_name_field, 'name' => $name_field, 'type' => $type_field, 'configuration' => $configuration_field, 'options' => $options_field));
 	                }
                 }else{
@@ -198,7 +198,7 @@ class Administrable_tables extends CI_Controller {
 			foreach ($_FILES as $file) {
 				foreach ($file['name'] as $key => $value) {
 					$field_name = $key;
-					$file_name = $value;
+					$file_name = date("YmdHis").$value;
 					$data[$field_name] = $file_name;
 					array_push($indicate_files, $field_name);
 					$this->administrable_table_model->save_files_gallery($gallery, $table, $file_name);
@@ -214,7 +214,7 @@ class Administrable_tables extends CI_Controller {
 	    $files = $_FILES;
 	    $count = count($_FILES['file']['name']);
 	    for($i=0; $i<$count; $i++){          
-	        $_FILES['file']['name'] = clear($files['file']['name'][ $indicate_files[$i] ]);
+	        $_FILES['file']['name'] = date("YmdHis").clear($files['file']['name'][ $indicate_files[$i] ]);
 	        $_FILES['file']['type'] = $files['file']['type'][ $indicate_files[$i] ];
 	        $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][ $indicate_files[$i] ];
 	        $_FILES['file']['error'] = $files['file']['error'][ $indicate_files[$i] ];
@@ -243,7 +243,7 @@ class Administrable_tables extends CI_Controller {
 
 	function delete_file(){
 		$this->administrable_table_model->delete_files_gallery($this->input->post('id'));
-				
+		return_json(array('msg' => $this->lang->line('file_deleted')));
 	}
 
 	function order_files(){

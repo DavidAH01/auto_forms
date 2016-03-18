@@ -1,9 +1,10 @@
-<form action="<?= base_url() ?>administrable_tables/save_files_gallery" method="post" enctype="multipart/form-data">
+<div id="loading-gallery"></div>
+<form action="<?= base_url() ?>administrable_tables/save_files_gallery" method="post" enctype="multipart/form-data" id="form-gallery">
 	<input type="hidden" value="<?= $gallery ?>" name="gallery">
 	<input type="hidden" value="<?= $current_table ?>" name="table">
 	<div class="fileUpload fileUpload-iframe btn btn-default btn-fill">
 	    <span><?= $this->lang->line('select_files') ?></span>
-	    <input type="file" class="upload" name="file[]" onchange="this.form.submit();" multiple/>
+	    <input type="file" class="upload" name="file[]" id="input-file-gallery" multiple/>
 	</div>
 </form><br><br><hr>
 <div class="row">
@@ -26,6 +27,16 @@
 </div>
 
 <script>
+	$(window).load(function() {
+		$("#loading-gallery").fadeOut(500);
+	});
+
+	$("#input-file-gallery").change(function(e) {
+		e.preventDefault();
+		$("#loading-gallery").fadeIn(500);
+		$("#form-gallery").submit();
+	});
+
 	$( "#sortable" ).disableSelection();
 
 	$("#sortable").sortable({
@@ -49,12 +60,12 @@
 			  	url: $('#base_url').val()+'administrable_tables/delete_file',
 			  	method: 'post',
 			  	data: { id: id }
-			}).done(function() {
+			}).done(function(response) {
 				$('li[data-file="'+id+'"]').remove();
 
                 $.notify({
                     icon: "pe-7s-check",
-                    message: "The file has been deleted!"
+                    message: response.msg
                 },{
                     type: 'warning',
                     timer: 4000,

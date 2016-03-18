@@ -36,7 +36,6 @@ $(document).ready(function(){
                     data: {title: title, start_date: start, end_date: end},
                     type: "POST"
                 }).done(function(response) {
-                    alert(response.eventid);
                     calendar.fullCalendar('renderEvent',{
                         id: response.eventid,
                         title: title,
@@ -73,8 +72,6 @@ $(document).ready(function(){
             }
         },
         eventResize: function(event) {
-            alert('event resize');
-            console.log(event)
             var start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
             var end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
             $.ajax({
