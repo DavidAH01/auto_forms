@@ -5,7 +5,8 @@
     <input type="hidden" id="email_invalid" value="<?= $this->lang->line('email_invalid') ?>">
 
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/favicon.ico" type="image/x-icon">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Auto_Forms by David AH</title>

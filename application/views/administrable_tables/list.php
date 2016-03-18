@@ -48,7 +48,7 @@
                                                 <?php $file = explode('.', $record->$field['complete_name']); ?>
                                                 <?php $extension = $file[ count($file)-1 ]; ?>
                                                 <?php if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){ ?>
-                                                    <img src="<?= base_url() ?>uploads/files/<?= $record->$field['complete_name'] ?>">
+                                                    <img data-action="zoom" src="<?= base_url() ?>uploads/files/<?= $record->$field['complete_name'] ?>">
                                                 <?php }else{ ?>
                                                     <a target="_blank" href="<?= base_url() ?>uploads/files/<?= $record->$field['complete_name'] ?>"><?= $record->$field['complete_name'] ?></a>
                                                 <?php } ?>

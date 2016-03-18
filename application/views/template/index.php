@@ -7,7 +7,8 @@
     <input type="hidden" id="name_email_password_required" value="<?= $this->lang->line('name_email_password_required') ?>">
 
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/images/favicon.ico" type="image/x-icon">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Auto_Forms by David AH</title>
@@ -45,6 +46,9 @@
 
     <!--  DateTimePicker CSS  -->
     <link href="<?= base_url() ?>assets/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+    <!--  Zoom core CSS  -->
+    <link href="<?= base_url() ?>assets/css/zoom.css" rel="stylesheet"/>
     
     <!--  Auto_Forms core CSS  -->
     <link href="<?= base_url() ?>assets/css/main.css" rel="stylesheet"/>
@@ -94,6 +98,9 @@
 
     <!-- Cloneya JS -->
     <script src="<?= base_url() ?>assets/js/jquery-cloneya.min.js"></script>
+
+    <!-- Zoom JS -->
+    <script src="<?= base_url() ?>assets/js/zoom.min.js"></script>
     
     <!-- Auto_Forms Core JS -->
     <script src="<?= base_url() ?>assets/js/main.js"></script>
