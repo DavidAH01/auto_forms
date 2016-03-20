@@ -64,11 +64,11 @@
                 marker.setPosition(latLng);
                 geocodePosition_<?= $field['complete_name'] ?>(latLng);
             });
+        }else{
+            map.setCenter(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+            marker.setPosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
+            geocodePosition_<?= $field['complete_name'] ?>(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
         }
-        
-        map.setCenter(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
-        marker.setPosition(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
-        geocodePosition_<?= $field['complete_name'] ?>(new google.maps.LatLng(<?= (isset($stored_data))?$stored_data->{$field['complete_name']}:'' ?>));
 
         google.maps.event.addListener(marker, 'dragstart', function() {
             updateMarkerAddress_<?= $field['complete_name'] ?>('Dragging...');

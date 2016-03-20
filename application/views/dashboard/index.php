@@ -2,19 +2,19 @@
     <div class="container-fluid">    
         <div class="row">
             <div class="col-md-8">
-                <div class="card ">
+                <div class="card" style="overflow: hidden;">
                     <div id="calendar"></div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="card dashboard">
+                <div class="card dashboard summary">
                     <div class="header">
                         <h4 class="title"><?= $this->lang->line('summary') ?></h4>
                         <p class="category"><?= $this->lang->line('at_a_glance') ?></p>
                         <ul>
                             <?php foreach ($summary as $item){ ?>
-                                <li><a href="<?= base_url() ?>administrable_tables/view/<?= $item['name'] ?>"><i class="pe-7s-angle-right"></i>  <?= $item['count'].' '.ucfirst($item['name']) ?></a> - <a href="<?= base_url() ?>administrable_tables/create/<?= $item['name'] ?>"><span><?= $this->lang->line('new') ?></span></a></li> 
+                                <li><a href="<?= base_url() ?>administrable_tables/view/<?= $item['name'] ?>"><i class="pe-7s-angle-right"></i>  <?= $item['count'].' '.ucfirst(str_replace('_', ' ', $item['name'])) ?></a> - <a href="<?= base_url() ?>administrable_tables/create/<?= $item['name'] ?>"><span><?= $this->lang->line('create') ?></span></a></li> 
                             <?php } ?>
                         </ul>
                     </div>
