@@ -59,6 +59,46 @@ Esta iniciativa busca acortar el tiempo que se le dedica a los proyectos por par
 ### Capturas de pantalla
 ![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.43.16%20p.m..png "Auto_forms")
 
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.43.20%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.16%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.20%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.27%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.30%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.33%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.40%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.44.47%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.45.45%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.45.57%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.46.02%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.46.08%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.46.16%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.46.26%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.46.59%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.47.38%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.48.10%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.48.26%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.49.12%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.51.08%20p.m..png "Auto_forms")
+
 Licencia
 ----
 
