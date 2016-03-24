@@ -15,17 +15,17 @@ Esta iniciativa busca acortar el tiempo que se le dedica a los proyectos por par
 1. Crear la base de datos e importar el archivo database/auto_forms.sql.
 2. Si se cambia el nombre de la carpeta que contiene el sistema se debera modificar el archivo .htaccess en la linea 5.
 3. En application/config/config.php en la linea 26 se debe colocar la ruta absoluta que contiene el sistema. Ejemplo http://midominio.com/auto_forms/ terminado en "/".
-4. En application/config/config.php en la linea 38 se debe colocar el lenguaje que menejara el sistama, actualmenta cuenta con español e ingles.
+4. En application/config/config.php en la linea 38 se debe colocar el lenguaje que menejara el sistema, actualmente cuenta con español e ingles.
 5. En application/config/database.php se deben colocar los datos de la base de datos (host, nombre, usuario y contraseña).
 
 ###Primeros Pasos
 - Para crear secciones administrables se deben crean las tablas en la base de datos normalmente.
-- Los campos se deben crear con los sufijos correspondientes para que se creen los formularios automaticamente (Ver Siguiente titulo), pero adicionalmente se deben crear 4 campos:
+- Los campos se deben crear con los sufijos correspondientes para que se creen los formularios automaticamente (Ver **Tipos de campos**), pero adicionalmente se deben crear 4 campos:
     1. id: Autoincrement y primary key.
     2. record_order: Integer.
     3. created_at y updated_at: datetime.
 - En la tabla "administrable_tables" (que viene incluida en el archivo auto_forms.sql) se deben agregar los nombres de las tablas que se desean ver desde el administrador.
-- ¡Ya está listo el sistama para se usado!
+- ¡Ya está listo el sistema para ser usado!
 
 ###Nuevos lenguajes
 - El sistema utiliza Codeigniter como framework por lo que primero se deben descargar las traducciones para el idioma que se desea usar. Aquí estás las traducciones https://github.com/bcit-ci/codeigniter3-translations/tree/develop/language
