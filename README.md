@@ -56,6 +56,9 @@ Esta iniciativa busca acortar el tiempo que se le dedica a los proyectos por par
 - Se peden crear usuarios con permisos para diferentes secciones (tablas) administrables.
 - La encriptación de contraseñas se basa en Bcrypt/Blowfish y la recuperación de la misma se hace a travez de correo electronico con un hash de autenticación unico.
 
+### Capturas de pantalla
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.43.16%20p.m..png "Auto_forms")
+
 Licencia
 ----
 
