@@ -45,12 +45,12 @@ class Auth extends CI_Controller {
 					$this->activity_model->add_activity(array('administrator_id' => $this->session->userdata('logged_in')['user_id'], 'type' => 'a_1'));
 					return true;
 				}else{
-				    $this->form_validation->set_message('check_database', 'The password is invalid');
+				    $this->form_validation->set_message('check_database', $this->lang->line('password_invalid'));
 					return false;
 				}
 			}
 		}else{
-			$this->form_validation->set_message('check_database', 'The name is invalid');
+			$this->form_validation->set_message('check_database', $this->lang->line('name_invalid'));
 			return false;
 		}
 	}

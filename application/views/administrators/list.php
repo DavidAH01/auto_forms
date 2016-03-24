@@ -14,10 +14,10 @@
                                 <th></th>
                             </thead>
                             <tfoot>
-                                <th><?= $this->lang->line('name') ?></th>
-                                <th><?= $this->lang->line('email') ?></th>
-                                <th><?= $this->lang->line('state') ?></th>
-                                <th><?= $this->lang->line('is_super_administrator') ?></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                                 <th></th>
                             </tfoot>
                             <tbody>

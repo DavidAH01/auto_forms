@@ -11,6 +11,8 @@ $lang['send_recover_email']				= 'Hemos enviado información a tu email';
 $lang['email_not_registered']			= 'Este email no está registrado';
 $lang['passsword_updated']				= 'La contraseña ha sido actualizada. Ve al ingreso';
 $lang['not_allowed_change_passsword']   = 'No tienes permiso para cambiar la contraseña';
+$lang['password_invalid']   			= 'La contraseña es incorrecta';
+$lang['name_invalid']   				= 'El usuario no existe';
 
 // Email
 $lang['recover_password_email']			= '<p>Hola %s.</p>
@@ -78,6 +80,7 @@ $lang['empty_gallery']					= 'Haz clic en el botón para empezar a subir imágen
 $lang['select_a_file']					= 'Selecciona un archivo';
 $lang['current_file']					= 'Archivo actual';
 $lang['file_deleted']					= 'El archivo ha sido eliminado';
+$lang['file']							= 'Archivo';
 
 // Auto_forms
 $lang['tables']							= 'Tablas';

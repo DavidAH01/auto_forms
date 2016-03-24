@@ -1,6 +1,4 @@
 # auto_forms
-Construcción automatica de formularios web basado en sufijos en los nombres de los campos que se crean en la base de datos.
-# auto_forms
 > Construcción automatica de formularios web (CRUD) basado en los campos que se crean en la base de datos.
 
 > Desarrollo en PHP (Codeigniter 3 y Mysql)
@@ -12,6 +10,28 @@ Al iniciar un proceso de desarrollo web muchas veces nos encontramos con el requ
 Esta iniciativa busca acortar el tiempo que se le dedica a los proyectos por parte de los desarrolladores creando un CRUD completo y automatizado de las tablas dentro de una base de datos.
 
 **auto_forms** crea componentes de un formulario web basado en una lista de sufijos que se le colocan a los nombres de los campos de la base de datos extendiendo su funcionalidad y configuración a la parte visual que el usuario final va a utilizar.
+
+###Instalación
+1. Crear la base de datos e importar el archivo database/auto_forms.sql.
+2. Si se cambia el nombre de la carpeta que contiene el sistema se debera modificar el archivo .htaccess en la linea 5.
+3. En application/config/config.php en la linea 26 se debe colocar la ruta absoluta que contiene el sistema. Ejemplo http://midominio.com/auto_forms/ terminado en "/".
+4. En application/config/config.php en la linea 38 se debe colocar el lenguaje que menejara el sistama, actualmenta cuenta con español e ingles.
+5. En application/config/database.php se deben colocar los datos de la base de datos (host, nombre, usuario y contraseña).
+
+###Primeros Pasos
+- Para crear secciones administrables se deben crean las tablas en la base de datos normalmente.
+- Los campos se deben crear con los sufijos correspondientes para que se creen los formularios automaticamente (Ver Siguiente titulo), pero adicionalmente se deben crear 4 campos:
+    1. id: Autoincrement y primary key.
+    2. record_order: Integer.
+    3. created_at y updated_at: datetime.
+- En la tabla "administrable_tables" (que viene incluida en el archivo auto_forms.sql) se deben agregar los nombres de las tablas que se desean ver desde el administrador.
+- ¡Ya está listo el sistama para se usado!
+
+###Nuevos lenguajes
+- El sistema utiliza Codeigniter como framework por lo que primero se deben descargar las traducciones para el idioma que se desea usar. Aquí estás las traducciones https://github.com/bcit-ci/codeigniter3-translations/tree/develop/language
+- Dento de la carpeta de la traducción que se desea usar se debe crear un archivo llamado auto_forms_lang.php
+- Ahora hay que copear el contenido de language/spanish/auto_forms_lang.php en el archivo que se creó en el paso anterior.
+- Por último se debe reemplazar el contenido de las variables al idioma correspondiente.
 
 ### Tipos de campos
 - _text *(tipo: varchar o text)*: Input tipo texto.
@@ -36,7 +56,7 @@ Esta iniciativa busca acortar el tiempo que se le dedica a los proyectos por par
 - Se peden crear usuarios con permisos para diferentes secciones (tablas) administrables.
 - La encriptación de contraseñas se basa en Bcrypt/Blowfish y la recuperación de la misma se hace a travez de correo electronico con un hash de autenticación unico.
 
-License
+Licencia
 ----
 
 MIT

@@ -11,6 +11,8 @@ $lang['send_recover_email']				= 'We\'ve sent an email information';
 $lang['email_not_registered']			= 'This email isn\'t registered';
 $lang['passsword_updated']				= 'The password has been updated. Go to the login';
 $lang['not_allowed_change_passsword']   = 'You aren\'t allowed to change the password';
+$lang['password_invalid']   			= 'The password is invalid';
+$lang['name_invalid']   				= 'The name is invalid';
 
 // Email
 $lang['recover_password_email']			= '<p>Hi %s.</p>
@@ -78,6 +80,7 @@ $lang['empty_gallery']					= 'Click on the button to start uploading images or d
 $lang['select_a_file']					= 'Select a file';
 $lang['current_file']					= 'Current file';
 $lang['file_deleted']					= 'The file has been deleted';
+$lang['file']							= 'File';
 
 // Auto_forms
 $lang['tables']							= 'Tables';

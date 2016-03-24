@@ -50,7 +50,9 @@
                                                 <?php if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){ ?>
                                                     <img data-action="zoom" src="<?= base_url() ?>uploads/files/<?= $record->$field['complete_name'] ?>">
                                                 <?php }else{ ?>
-                                                    <a target="_blank" href="<?= base_url() ?>uploads/files/<?= $record->$field['complete_name'] ?>"><?= $record->$field['complete_name'] ?></a>
+                                                    <?php if(!empty($file[0])){ ?>
+                                                        <a target="_blank" href="<?= base_url() ?>uploads/files/<?= $record->$field['complete_name'] ?>"><?= $this->lang->line('file') ?></a>
+                                                    <?php } ?>
                                                 <?php } ?>
                                             </th>
                                         <?php }else{ ?>
