@@ -19,7 +19,7 @@ Debian Apache
 ```
 a2enmod headers 
 a2enmod rewrite
-service restart 
+service restart apache2
 ```
 
 ###Instalación
