@@ -28,7 +28,7 @@ service restart apache2
 3. En application/config/config.php en la linea 26 se debe colocar la ruta absoluta que contiene el sistema. Ejemplo http://midominio.com/auto_forms/ terminado en "/".
 4. En application/config/config.php en la linea 38 se debe colocar el lenguaje que menejara el sistema, actualmente cuenta con español e ingles.
 5. En application/config/database.php se deben colocar los datos de la base de datos (host, nombre, usuario y contraseña).
-6. En application/views/templates/index.php en la linea 80 colocar la Clave del API de Google Maps (https://developers.google.com/maps/documentation/javascript/get-api-key)
+6. En application/views/templates/index.php en la linea 80 colocar la Clave del API de Google Maps (https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 ###Primeros Pasos
 - Para crear secciones administrables se deben crean las tablas en la base de datos normalmente.
@@ -37,7 +37,7 @@ service restart apache2
     2. record_order: Integer.
     3. created_at y updated_at: datetime.
 - En la tabla "administrable_tables" (que viene incluida en el archivo auto_forms.sql) se deben agregar los nombres de las tablas que se desean ver desde el administrador.
-- ¡Ya está listo el sistema para ser usado!
+- ¡Ya está listo el sistema para ser usado!.
 
 ###Nuevos lenguajes
 - El sistema utiliza Codeigniter como framework por lo que primero se deben descargar las traducciones para el idioma que se desea usar. Aquí estás las traducciones https://github.com/bcit-ci/codeigniter3-translations/tree/develop/language
@@ -110,9 +110,9 @@ service restart apache2
 
 ![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.49.12%20p.m..png "Auto_forms")
 
-![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.51.08%20p.m..png "Auto_forms")
-
 ![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-08-20%20a%20las%2010.26.46%20a.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.51.08%20p.m..png "Auto_forms")
 
 Licencia
 ----
