@@ -77,7 +77,7 @@
     <script src="<?= base_url() ?>assets/js/bootstrap-multiselect.min.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=XXXXXXXXXXXX"></script>
     
     <!--  DateTimePicker Plugin    -->
     <script type="text/javascript" src="<?= base_url() ?>assets/js/moment-with-locales.min.js"></script>

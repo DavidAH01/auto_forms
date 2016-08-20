@@ -28,6 +28,7 @@ service restart apache2
 3. En application/config/config.php en la linea 26 se debe colocar la ruta absoluta que contiene el sistema. Ejemplo http://midominio.com/auto_forms/ terminado en "/".
 4. En application/config/config.php en la linea 38 se debe colocar el lenguaje que menejara el sistema, actualmente cuenta con español e ingles.
 5. En application/config/database.php se deben colocar los datos de la base de datos (host, nombre, usuario y contraseña).
+6. En application/views/templates/index.php en la linea 80 colocar la Clave del API de Google Maps (https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ###Primeros Pasos
 - Para crear secciones administrables se deben crean las tablas en la base de datos normalmente.
