@@ -33,7 +33,7 @@ $(document).ready(function(){
 					$(el).find('.info-step').each(function(index_input, el) {
 						var type = $(el).attr('data-type')
 						var name = $(el).attr('name');
-						var value = $(el).val()
+						var value = $(el).val();
 						if (type == "textarea")
 							value = tinyMCE.get('content-'+field+'-'+index).getContent()
 
@@ -42,6 +42,21 @@ $(document).ready(function(){
 					steps.push(obj);
 				});
 				data.append(field, JSON.stringify(steps));
+			});
+		}
+
+		if ($('.sortable-list-field').length > 0) {
+			$('.sortable-list-field').each(function(index, el) {
+				var field, items = "";
+				field = $(el).attr('data-field');
+				count = $(el).find('li').length;
+				$(el).find('li').each(function(index, el) {
+					items += $(el).find('.content').text();
+					if (index < count -1) {
+						items+=',';		
+					}
+				});
+				data.append(field, items);
 			});
 		}
 
@@ -110,6 +125,21 @@ $(document).ready(function(){
 					steps.push(obj);
 				});
 				data.append(field, JSON.stringify(steps));
+			});
+		}
+
+		if ($('.sortable-list-field').length > 0) {
+			$('.sortable-list-field').each(function(index, el) {
+				var field, items = "";
+				field = $(el).attr('data-field');
+				count = $(el).find('li').length;
+				$(el).find('li').each(function(index, el) {
+					items += $(el).find('.content').text();
+					if (index < count-1) {
+						items+=',';		
+					}
+				});
+				data.append(field, items);
 			});
 		}
 

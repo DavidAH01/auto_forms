@@ -62,6 +62,7 @@ service restart apache2
 - _gallery *(tipo: varchar)*: Crea un iframe en donde se podrá seleccionar todo tipo de archivos (según el requerimiento) para ser almacenados. Cuenta con uan funcion de "sortable" para organizar los archivos. Se guardara un id unico relacionado con la tabla "Uploads" propia del sistema.
 - _file *(tipo: varchar)*: Input tipo file en donde solo se podra añadir un archivo.
 - _steps *(tipo: text o longtext)*: Genera un par de campos a la vez (input tipo texto [titulo] y textarea con TinyMCE [contenido]) teniendo la posibilidad de agragar o remover pares. Se guarda un string con formato json.
+- _list *(tipo: text o longtext)*: Genera una lista donde cada item puede ser ordenado por drag&drop. Se guarda un string con los items separados por comas.
 
 ### Adicionales
 - El listado de registros cuenta con las caracteristicas adiciones de DataTables como el filtrado de información, paginado del lado del cliente, exportación de datos en formato CSV, PDF y Excel. Se pueden ordenar los registros con Drag&drop y se puede tener una previsualización de los campos con sufijos _color y _file.
@@ -110,6 +111,8 @@ service restart apache2
 ![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.49.12%20p.m..png "Auto_forms")
 
 ![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-03-20%20a%20las%2012.51.08%20p.m..png "Auto_forms")
+
+![Auto_forms](https://dl.dropboxusercontent.com/u/43961568/auto_forms/Captura%20de%20pantalla%202016-08-20%20a%20las%2010.26.46%20a.m..png "Auto_forms")
 
 Licencia
 ----
