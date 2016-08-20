@@ -3247,10 +3247,9 @@ tfoot th{
   border: 1px solid #DDDDDD;
 }
 
-.scroll-h table{
+.scroll-h{
   overflow-x: scroll;
   width: 100%;
-  display: block;
 }
 
 @media (min-width: 992px) {
