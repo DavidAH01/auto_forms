@@ -3247,6 +3247,12 @@ tfoot th{
   border: 1px solid #DDDDDD;
 }
 
+.scroll-h table{
+  overflow-x: scroll;
+  width: 100%;
+  display: block;
+}
+
 @media (min-width: 992px) {
   .navbar-form {
     margin-top: 21px;

@@ -88,7 +88,6 @@
     <script src="<?= base_url() ?>assets/js/datatables/dataTables.tableTools.min.js"></script>
     <script src="<?= base_url() ?>assets/js/datatables/dataTables.bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/js/datatables/jquery.dataTables.rowReordering.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/datatables/dataTables.fixedColumns.min.js"></script>
 
     <!-- ColorPicker JS -->
     <script src="<?= base_url() ?>assets/js/jscolor.min.js"></script>
