@@ -11,6 +11,17 @@ Esta iniciativa busca acortar el tiempo que se le dedica a los proyectos por par
 
 **auto_forms** crea componentes de un formulario web basado en una lista de sufijos que se le colocan a los nombres de los campos de la base de datos extendiendo su funcionalidad y configuración a la parte visual que el usuario final va a utilizar.
 
+###Módulos de Apache
+- headers (mod_headers).
+- rewrite (mod_rewrite).
+
+Debian Apache
+```
+a2enmod headers 
+a2enmod rewrite
+service restart apache2
+```
+
 ###Instalación
 1. Crear la base de datos e importar el archivo database/auto_forms.sql.
 2. Si se cambia el nombre de la carpeta que contiene el sistema se debera modificar el archivo .htaccess en la linea 5.
