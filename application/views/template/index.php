@@ -165,6 +165,15 @@
                             <?php } ?>
                         </ul> 
                     </li>
+
+                    <?php if(is_super_administrator()){ ?>
+                        <li id="create-tables"> 
+                            <a href="<?= base_url() ?>auto_forms">
+                                <i class="pe-7s-science"></i>
+                                <p></p>
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul> 
         	</div>
         </div>

@@ -83,6 +83,7 @@ if (!function_exists('components_list')){
             'datetime',
             'file',
             'gallery',
+            'list',
             'map',
             'multiselect',
             'multirelation',
